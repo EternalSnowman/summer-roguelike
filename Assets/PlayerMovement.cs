@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour {
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
             PlayerStats.direction = "left";
         }
+
+        if (Input.GetKey(KeyCode.J)){
+            PlayerStats.isAttacking = true;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D coll)

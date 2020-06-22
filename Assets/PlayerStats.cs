@@ -20,6 +20,7 @@ public class PlayerStats : MonoBehaviour
     public static string direction;
 
     public Animator animator;
+    public bool isAttacking;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,10 @@ public class PlayerStats : MonoBehaviour
     {
         checkHealth();
         updateDirection();
+        if(isAttacking)
+        {
+            checkAttack();
+        }
         healthImage.rectTransform.sizeDelta = new Vector2(Mathf.Lerp(0, healthImageWidth, HP / 100), healthImageHeight);
         healthImage.color = Color.Lerp(Color.red, Color.green, HP / 100);
     }
@@ -55,6 +60,15 @@ public class PlayerStats : MonoBehaviour
                 //animator.SetTrigger("leftIdle");
                 break;
         }
+    }
+
+    void checkAttack()
+    {
+        if(!animator.GetCurrentAnimatorStateInfo.isName("attack"))
+        {
+            animator.SetTrigger("attack");
+        }
+        isAttacking = false;
     }
 
     void checkHealth()
