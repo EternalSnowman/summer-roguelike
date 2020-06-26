@@ -1863,10 +1863,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2068781869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315b14e67966d8d49bba2128f7c0a6bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 75f57350481598c4c9096e936588db61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  animator: {fileID: 2068781876}
 --- !u!212 &2068781871
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1906,7 +1906,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0f39a9205e4394ee1b6ba8269428d176, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a66ff03d6b6978646b53c3d386552524, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1926,7 +1926,7 @@ Transform:
   m_GameObject: {fileID: 2068781869}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 1.9642968, y: 1.95, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1940,13 +1940,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2068781869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c223b59dc1559f43b16f15bcf78096b, type: 3}
+  m_Script: {fileID: 11500000, guid: 906cceba1e169fa49a56b4b7ac8a6a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthImage: {fileID: 762331937}
   healthImageWidth: 0
   healthImageHeight: 0
-  animator: {fileID: 2068781876}
 --- !u!61 &2068781874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1964,7 +1963,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
