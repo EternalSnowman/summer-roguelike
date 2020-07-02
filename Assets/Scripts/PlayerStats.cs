@@ -20,7 +20,7 @@ public class PlayerStats : MonoBehaviour
     public float healthImageHeight;
     //public static string direction;
 
-    public static bool isAttacking;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,36 +36,11 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         checkHealth();
-        //updateDirection();
-        /*
-        if(isAttacking)
-        {
-            checkAttack();
-        }
-        */
+
         healthImage.rectTransform.sizeDelta = new Vector2(Mathf.Lerp(0, healthImageWidth, currentHP / maxHP), healthImageHeight);
         healthImage.color = Color.Lerp(Color.red, Color.green, currentHP / maxHP);
     }
-/*
-    void updateDirection()
-    {
-        switch(direction)
-        {
-            case "up":
-                animator.SetTrigger("upWalk");
-                break;
-            case "down":
-                animator.SetTrigger("downWalk");
-                break;
-            case "right":
-                //animator.SetTrigger("rightIdle");
-                break;
-            case "left":
-                //animator.SetTrigger("leftIdle");
-                break;
-        }
-    }
-*/
+
 /*
     void checkAttack()
     {
@@ -87,5 +62,6 @@ public class PlayerStats : MonoBehaviour
     void loadStats()
     {
         currentHP = maxHP;
+        STR = 20;
     }
 }

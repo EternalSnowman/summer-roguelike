@@ -32,9 +32,7 @@ public class PlayerMovement : MonoBehaviour {
         animator.SetFloat("Horizontal", movex);
         animator.SetFloat("Vertical", movey);
 
-        if (Input.GetKey(KeyCode.J)){
-            PlayerStats.isAttacking = true;
-        }
+
     }
 
     void movementSpeed(){
@@ -53,6 +51,22 @@ public class PlayerMovement : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerStats.currentHP -= 10;
+        if(collision.isTrigger != true && collision.CompareTag("Enemy"))
+        {
+            collision.SendMessageUpwards("Damage", PlayerStats.STR);
+        }
+
+    }
+
+    public void Damage(int damage)
+    {
+        if(PlayerStats.currentHP >= damage)
+        {
+            PlayerStats.currentHP -= damage;
+        }
+        else
+        {
+            PlayerStats.currentHP = 0;
+        }
     }
 }
