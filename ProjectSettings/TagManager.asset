@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Sword
   - Enemy
   - EnemyHitbox
+  - Weapon
+  - Sword
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Objects
   - 
   - 
   - 
@@ -43,4 +44,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 4137947071
+    locked: 0
+  - name: Foreground
+    uniqueID: 294081945
+    locked: 0
+  - name: UI
+    uniqueID: 3301996789
     locked: 0

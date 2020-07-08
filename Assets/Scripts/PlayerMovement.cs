@@ -9,13 +9,64 @@ public class PlayerMovement : MonoBehaviour {
     public Animator animator;
     public static float tempSpeed = 7.0f;
     public static float speed = tempSpeed;
+
+    public bool flashActive;
+    public float flashLength = 0f;
+    public float flashCounter = 0f;
+
+    public SpriteRenderer playerSprite;
+    public float red;
+    public float green;
+    public float blue;
+
     // Use this for initialization
     void Start () {
-
+        playerSprite = GetComponent<SpriteRenderer>();
+        red = playerSprite.color.r;
+        green = playerSprite.color.g;
+        blue = playerSprite.color.b;
     }
 
     // Update is called once per frame
     void Update () {
+        if(flashActive)
+        {
+            if(flashCounter > flashLength * .99f)
+            {
+                playerSprite.color = new Color(red,green,blue, .1f);
+            }
+            else if (flashCounter > flashLength * .82f)
+            {
+                playerSprite.color = new Color(red,green,blue, 1f);
+            }
+            else if(flashCounter > flashLength * .66f)
+            {
+                playerSprite.color = new Color(red,green,blue, .1f);
+            }
+            else if (flashCounter > flashLength * .49f)
+            {
+                playerSprite.color = new Color(red,green,blue, 1f);
+            }
+            else if(flashCounter > flashLength * .33f)
+            {
+                playerSprite.color = new Color(red,green,blue, .1f);
+            }
+            else if (flashCounter > flashLength * .16f)
+            {
+                playerSprite.color = new Color(red,green,blue, 1f);
+            }
+            else if(flashCounter > 0f)
+            {
+                playerSprite.color = new Color(red,green,blue, .1f);
+            }
+            else
+            {
+                playerSprite.color = new Color(red,green,blue, 1f);
+                flashActive = false;
+            }
+            flashCounter -= Time.deltaTime;
+
+        }
         movementSpeed();
         readKeys();
     }
@@ -39,16 +90,6 @@ public class PlayerMovement : MonoBehaviour {
         speed = (tempSpeed/2) + ((PlayerStats.currentHP / PlayerStats.maxHP) * (tempSpeed / 2));
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-
-    }
-
-    void OnCollisionExit2D(Collision2D coll)
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.isTrigger != true && collision.CompareTag("Enemy"))
@@ -60,13 +101,20 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Damage(int damage)
     {
-        if(PlayerStats.currentHP >= damage)
+        if(!flashActive)
         {
-            PlayerStats.currentHP -= damage;
+            if(PlayerStats.currentHP >= damage)
+            {
+                PlayerStats.currentHP -= damage;
+            }
+            else
+            {
+                PlayerStats.currentHP = 0;
+            }
+            flashActive = true;
+            flashCounter = flashLength;
         }
-        else
-        {
-            PlayerStats.currentHP = 0;
-        }
+
+
     }
 }

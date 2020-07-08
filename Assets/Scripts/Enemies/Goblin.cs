@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Goblin : Enemy
 {
-    
+
 
     public override void LoadStats()
     {
-        maxHP = 100;
-        currentHP = 100;
-        speed = 5;
+        maxHP = 40;
+        currentHP = maxHP;
+        ATKRNG = 1;
+        tempSpeed = 5;
+        speed = tempSpeed;
         STR = 10;
+        knockback = .5f;
     }
 }

@@ -25,7 +25,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxHP = 100;
+
         loadStats();
         //direction = "down";
         healthImageWidth = healthImage.rectTransform.rect.width;
@@ -61,6 +61,7 @@ public class PlayerStats : MonoBehaviour
 
     void loadStats()
     {
+        maxHP = 100;
         currentHP = maxHP;
         STR = 20;
     }
