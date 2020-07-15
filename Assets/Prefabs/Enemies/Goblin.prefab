@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 36365537792037549}
   - component: {fileID: 36365537792037547}
   - component: {fileID: 4916169399756341795}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Goblin
   m_TagString: Enemy
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 294081945
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 77748c693a8c02043ba453a9f5e7415b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,17 +120,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d4a47707886fa4e9fbdbd0f8405ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LVL: 0
   maxHP: 0
   currentHP: 0
-  LVL: 0
-  ATKRNG: 0
   STR: 0
   INT: 0
   AGI: 0
   DEF: 0
   RES: 0
-  speed: 0
+  baseExpYield: 0
   tempSpeed: 0
+  speed: 0
+  ATKRNG: 0
   knockback: 0
   anim: {fileID: 36365537792037548}
   target: {fileID: 0}
@@ -145,6 +146,7 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 36365537792037547}
   enemySprite: {fileID: 36365537792037545}
+  room: 1
 --- !u!50 &36365537792037547
 Rigidbody2D:
   serializedVersion: 4
@@ -192,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 36365538336043006}
   - component: {fileID: 36365538336042945}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: goblinRight
   m_TagString: EnemyHitbox
   m_Icon: {fileID: 0}
@@ -249,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 36365538422461235}
   - component: {fileID: 36365538422461234}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: goblinLeft
   m_TagString: EnemyHitbox
   m_Icon: {fileID: 0}
@@ -306,7 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 36365538447241726}
   - component: {fileID: 36365538447241665}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: goblinUp
   m_TagString: EnemyHitbox
   m_Icon: {fileID: 0}
@@ -363,7 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 36365538545908317}
   - component: {fileID: 36365538545908316}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: goblinDown
   m_TagString: EnemyHitbox
   m_Icon: {fileID: 0}

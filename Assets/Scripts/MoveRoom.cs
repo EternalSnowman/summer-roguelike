@@ -7,6 +7,7 @@ public class MoveRoom : MonoBehaviour
     public float x;
     public float y;
     public Vector3 playerChange;
+    public int roomChange;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class MoveRoom : MonoBehaviour
         {
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + x, Camera.main.transform.position.y + y, Camera.main.transform.position.z);
             collision.transform.position += playerChange;
+            PlayerStats.room += roomChange;
         }
     }
 }

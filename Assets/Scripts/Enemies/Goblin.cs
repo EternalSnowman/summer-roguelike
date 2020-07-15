@@ -8,12 +8,25 @@ public class Goblin : Enemy
 
     public override void LoadStats()
     {
-        maxHP = 40;
+        LVL = 1;
+        maxHP = 30 + (LVL*10);
         currentHP = maxHP;
-        ATKRNG = 1;
-        tempSpeed = 5;
+
+        STR = 10 + (LVL*3);
+        INT = 0;
+        AGI = 1;
+        DEF = LVL;
+        RES = LVL/2;
+
+        baseExpYield = 25 + ((LVL-1)*10);
+
+        tempSpeed = 3.5f;
         speed = tempSpeed;
-        STR = 10;
+        ATKRNG = 1;
         knockback = .5f;
+
+        tempAttackCD = .2f;
+        attackCD = tempAttackCD;
+
     }
 }

@@ -5,17 +5,19 @@ using System;
 
 public class Enemy : MonoBehaviour
 {
+    public int LVL;
     public float maxHP;
     public float currentHP;
-    public int LVL;
-    public int ATKRNG;
     public int STR;
     public int INT;
     public int AGI;
     public int DEF;
     public int RES;
-    public float speed;
+
+    public int baseExpYield;
     public float tempSpeed;
+    public float speed;
+    public float ATKRNG;
     public float knockback;
 
     public Animator anim;
@@ -35,7 +37,9 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D enemyRigidBody;
     public SpriteRenderer enemySprite;
 
-    public bool nearbyPlayer;
+    public int room;
+    public float tempAttackCD;
+    public float attackCD;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +52,6 @@ public class Enemy : MonoBehaviour
         rightAttack.enabled = false;
         leftAttack.enabled = false;
         downAttack.enabled = false;
-        tempSpeed = 5;
     }
 
     // Update is called once per frame
@@ -99,14 +102,29 @@ public class Enemy : MonoBehaviour
                 speed = tempSpeed;
             }
         }
-        AttackCheck();
-        EnemyBehavior();
+        if(room == PlayerStats.room){
+            if(!isAttacking && attackCD <= 0f)
+            {
+                EnemyBehavior();
+            }
+            AttackCheck();
+            enemyRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        else{
+            enemyRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+            speed=0;
+        }
+        HandleDeath();
+        attackCD -= Time.deltaTime;
+    }
+
+    public void HandleDeath(){
         if(currentHP <= 0){
+            PlayerStats.EXP += baseExpYield;
             GameObject.Destroy(gameObject);
         }
 
     }
-
     // Default enemy stats
     public virtual void LoadStats() {
         maxHP = 100;
@@ -128,33 +146,49 @@ public class Enemy : MonoBehaviour
     // Handle hitbox collision with player hurtbox
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(STR - PlayerStats.DEF < 0)
+        {
+           if(collision.isTrigger != true && collision.CompareTag("Player"))
+            {
+                collision.SendMessageUpwards("Damage", 1);
+            }
+        }
         if(collision.isTrigger != true && collision.CompareTag("Player"))
         {
-            collision.SendMessageUpwards("Damage", STR);
+            collision.SendMessageUpwards("Damage", STR - PlayerStats.DEF);
         }
-        /*else if(collision.CompareTag("Weapon"))
-        {
-            if(!flashActive)
-            {
-                float x = transform.position.x - collision.transform.position.x;
-                float y = transform.position.y - collision.transform.position.y;
-                float mod = Mathf.Atan(y/x);
-
-                transform.position = new Vector2(transform.position.x +
-                    (knockback * mod* (x/Math.Abs(x))),
-                    transform.position.y +
-                        (knockback * mod * (y/Math.Abs(y))));
-
-                //enemyRigidBody.AddForce(new Vector2(knockback * Math.Abs(mod) * (x/Math.Abs(x)), knockback * Math.Abs(mod) * (y/Math.Abs(y))));
-                //Vector2 moveDirection = transform.position - collision.transform.position;
-                //enemyRigidBody.AddForce(moveDirection.normalized * 1000f);
-            }
-        }*/
     }
 
-    // Handle health reduction
-    public void Damage(int damage)
+    public void PhysDamage(int damage)
     {
+        damage -= DEF;
+        if(damage <= 0)
+        {
+            damage = 1;
+        }
+        if(!flashActive)
+        {
+            if(currentHP >= damage)
+            {
+                currentHP -= damage;
+            }
+            else
+            {
+                currentHP = 0;
+            }
+            flashActive = true;
+            flashCounter = flashLength;
+            speed=0;
+        }
+    }
+
+    public void MagDamage(int damage)
+    {
+        damage -= RES;
+        if(damage <= 0)
+        {
+            damage = 1;
+        }
         if(!flashActive)
         {
             if(currentHP >= damage)
@@ -177,9 +211,10 @@ public class Enemy : MonoBehaviour
         // Toggle isAttacking
         if(!flashActive)
         {
-            if (Vector2.Distance(target.position, transform.position) <= ATKRNG )
+            if (Vector2.Distance(target.position, transform.position) <= ATKRNG && (attackCD <= 0f))
             {
                 isAttacking = true;
+                attackCD = tempAttackCD;
                 speed = 0;
             }
             else
@@ -187,15 +222,11 @@ public class Enemy : MonoBehaviour
                 isAttacking = false;
             }
         }
+
         // Toggle off next frame
-
-
         anim.SetBool("Attacking", isAttacking);
 
-
         // Toggle directional attack booleans
-
-
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack"))
         {
             downAttack.enabled = true;

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
     public Animator animator;
-    public static float tempSpeed = 7.0f;
+    public static float tempSpeed = 5f;
     public static float speed = tempSpeed;
 
     public bool flashActive;
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         if(collision.isTrigger != true && collision.CompareTag("Enemy"))
         {
-            collision.SendMessageUpwards("Damage", PlayerStats.STR);
+            collision.SendMessageUpwards("PhysDamage", PlayerStats.STR);
         }
 
     }
