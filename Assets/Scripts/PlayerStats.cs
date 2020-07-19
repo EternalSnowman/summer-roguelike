@@ -10,6 +10,8 @@ public class PlayerStats : MonoBehaviour
 
     public static float maxHP;
     public static float currentHP;
+    public static float maxMana;
+    public static float currentMana;
     public static int LVL;
     public static int STR;
     public static int INT;
@@ -19,9 +21,11 @@ public class PlayerStats : MonoBehaviour
     public static int EXP;
     public static int expNext;
 
-    public Image healthImage;
-    public float healthImageWidth;
-    public float healthImageHeight;
+    public Slider healthSlider;
+    public Slider manaSlider;
+    public Slider expSlider;
+
+    public Text levelText;
 
     public int level;
     public int currentEXP;
@@ -30,28 +34,18 @@ public class PlayerStats : MonoBehaviour
     public int roomNumber;
     public static int room;
 
-    //public static string direction;
-
-
-
     // Start is called before the first frame update
     void Start()
     {
         BaseStats();
-        //direction = "down";
-        healthImageWidth = healthImage.rectTransform.rect.width;
-        healthImageHeight = healthImage.rectTransform.rect.height;
     }
 
     // Update is called once per frame
     void Update()
     {
         debug();
-        CheckHealth();
+        CheckStatus();
         HandleLevel();
-        healthImage.rectTransform.sizeDelta = new Vector2(Mathf.Lerp(0, healthImageWidth, currentHP / maxHP), healthImageHeight);
-        healthImage.color = Color.Lerp(Color.red, Color.green, currentHP / maxHP);
-
     }
 
     void HandleLevel()
@@ -62,12 +56,24 @@ public class PlayerStats : MonoBehaviour
             LVL++;
             expNext += 50;
             STR += 1;
+            currentHP = maxHP;
         }
     }
 
 
-    void CheckHealth()
+    void CheckStatus()
     {
+        healthSlider.value = currentHP;
+        healthSlider.maxValue = maxHP;
+
+        manaSlider.value = currentMana;
+        manaSlider.maxValue = maxMana;
+
+        expSlider.value = EXP;
+        expSlider.maxValue = expNext;
+
+        levelText.text = LVL.ToString();
+
         if(currentHP <= 0)
         {
            SceneManager.LoadScene("GameOver");
@@ -76,8 +82,10 @@ public class PlayerStats : MonoBehaviour
 
     void BaseStats()
     {
-        maxHP = 1000;
+        maxHP = 100;
         currentHP = maxHP;
+        maxMana = 100;
+        currentMana = maxMana;
         LVL = 1;
         STR = 20;
         expNext = 100;
