@@ -23,11 +23,18 @@ public class FloorGeneration : MonoBehaviour
     public GameObject[] room15;
     public GameObject[] room16;
     public GameObject[][] prefabs;
+    public GameObject[] emptyRooms;
+
+    public GameObject[] rooms;
+
+    public Transform player;
+    public Transform stairs;
 
     // Start is called before the first frame update
     void Start()
     {
-        // spawn player and stairs before rooms, set those rooms as empty
+        player = FindObjectOfType<PlayerStats>().transform;
+        stairs = FindObjectOfType<Stairs>().transform;
         prefabs = new GameObject[][]{ room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11, room12, room13, room14, room15, room16};
         GenerateFloor(floor);
     }
@@ -40,18 +47,65 @@ public class FloorGeneration : MonoBehaviour
 
     void GenerateFloor(int floor)
     {
+        // Player Position
+        int randomPlayerPosition = UnityEngine.Random.Range(1,17);
+        if(floor == 1)
+        {
+            player.position = new Vector3(0,0,0);
+        }
+        else
+        {
+            float playerX = (((randomPlayerPosition - 1) % 4) * 17);
+            float playerY = (float)(((randomPlayerPosition - 1)/4) * -8.5);
+            player.position = new Vector3(playerX,playerY,0);
+            Camera.main.transform.position = new Vector3(playerX,playerY,Camera.main.transform.position.z);
+        }
+        PlayerStats.room = randomPlayerPosition;
+
+        // Stair Position
+        int randomStairPosition;
+        do
+        {
+            randomStairPosition = UnityEngine.Random.Range(1,17);
+        } while(randomStairPosition == randomPlayerPosition);
+
+        float stairX = (((randomStairPosition - 1) % 4) * 17);
+        float stairY = (float)(((randomStairPosition - 1)/4) * -8.5);
+        stairs.position = new Vector3(stairX,stairY,0);
+
         for (int i = 1; i <= 16; i++)
         {
-            GenerateRoom(i,prefabs[i-1]);
+            GenerateRoom(i,prefabs[i-1], randomPlayerPosition);
         }
     }
 
-    void GenerateRoom(int room, GameObject[] prefabs)
+    public void GenerateBossFloor(int boss)
+    {
+        DestroyFloor();
+        player.position = new Vector3(0,0,0);
+        Camera.main.transform.position = new Vector3(0,0,Camera.main.transform.position.z);
+
+    }
+
+    void DestroyFloor()
+    {
+        rooms = GameObject.FindGameObjectsWithTag("Room");
+        for(var i = 0; i < rooms.Length; i++)
+        {
+            Destroy(rooms[i]);
+        }
+    }
+
+    void GenerateRoom(int room, GameObject[] prefabs, int player)
     {
         GameObject selectedRoom;
         int toSpawn = UnityEngine.Random.Range(0,100);
 
-        if(toSpawn < 5)
+        if(room == player)
+        {
+            selectedRoom = emptyRooms[room-1];
+        }
+        else if(toSpawn < 5)
         {
             selectedRoom = prefabs[0];
         }
@@ -80,8 +134,8 @@ public class FloorGeneration : MonoBehaviour
             selectedRoom = prefabs[6];
         }
 
-        float x = (((room -1) % 4)) * 17;
-        float y = (float)(((room - 1)/4)*-8.5);
+        float x = (((room -1) % 4) * 17);
+        float y = (float)(((room - 1)/4) * -8.5);
 
         Instantiate(selectedRoom, new Vector3(x,y,0), Quaternion.identity);
     }

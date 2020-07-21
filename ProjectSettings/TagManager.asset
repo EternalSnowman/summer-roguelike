@@ -8,6 +8,7 @@ TagManager:
   - EnemyHitbox
   - Weapon
   - Sword
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -51,7 +52,7 @@ TagManager:
   - name: Player
     uniqueID: 1667835015
     locked: 0
-  - name: Enemy
+  - name: Objects
     uniqueID: 294081945
     locked: 0
   - name: UI
