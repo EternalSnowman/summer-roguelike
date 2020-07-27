@@ -4,33 +4,66 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public static bool isAttacking;
-    public Animator anim;
-    public Collider2D upAttack;
-    public Collider2D rightAttack;
-    public Collider2D leftAttack;
-    public Collider2D downAttack;
+  // when set true, state machine will transition to attack anim
+  public static bool isAttacking;
+  // when set true, no other action can be done during this time
+  public static bool isSkill;
+  public Animator anim;
+  public Collider2D upAttack;
+  public Collider2D rightAttack;
+  public Collider2D leftAttack;
+  public Collider2D downAttack;
+
+  public Skill skill1;
+  public Skill skill2;
+  public Skill skill3;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        upAttack.enabled = false;
-        rightAttack.enabled = false;
-        leftAttack.enabled = false;
-        downAttack.enabled = false;
-    }
+  void Start()
+  {
+    upAttack.enabled = false;
+    rightAttack.enabled = false;
+    leftAttack.enabled = false;
+    downAttack.enabled = false;
+  }
 
     // Update is called once per frame
-    void Update()
-    {
+  void Update()
+  {
        // Toggle isAttacking
-       if (Input.GetKey(KeyCode.J) && !isAttacking){
+       if (Input.GetKey(KeyCode.J) && !isAttacking && !isSkill)
+       {
            isAttacking = true;
 
        }
        // Toggle off next frame
-       else{
+       else
+       {
             isAttacking = false;
+       }
+
+       if (Input.GetKey(KeyCode.K) && !isAttacking && !isSkill && (skill1.skillCD <= 0f))
+       {
+          isSkill = true;
+          skill1.Activate();
+       }
+       /*
+       else if (Input.GetKey(KeyCode.L) && !isAttacking && !isSkill && (skill2.skillCD <= 0f))
+       {
+          isSkill = true;
+          skill2.Activate();
+       }
+       else if (Input.GetKey(KeyCode.Semicolon) && !isAttacking && !isSkill && (skill3.skillCD <= 0f))
+       {
+          isSkill = true;
+          skill3.Activate();
+       }
+       */
+       else if(!anim.GetCurrentAnimatorStateInfo(0).IsName(skill1.name) &&
+               !anim.GetCurrentAnimatorStateInfo(0).IsName(skill2.name) &&
+               !anim.GetCurrentAnimatorStateInfo(0).IsName(skill3.name))
+       {
+          //isSkill = false;
        }
 
        // Toggle directional attack booleans

@@ -23,7 +23,6 @@ public class Goblin : Enemy
         tempSpeed = 3.5f;
         speed = tempSpeed;
         ATKRNG = 1;
-        knockback = .5f;
 
         tempAttackCD = .2f;
         attackCD = tempAttackCD;

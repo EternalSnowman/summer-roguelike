@@ -87,7 +87,14 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void movementSpeed(){
-        speed = (tempSpeed/2) + ((PlayerStats.currentHP / PlayerStats.maxHP) * (tempSpeed / 2));
+        if(Attack.isSkill)
+        {
+            speed = 0;
+        }
+        else
+        {
+            speed = (tempSpeed/2) + ((PlayerStats.currentHP / PlayerStats.maxHP) * (tempSpeed / 2));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

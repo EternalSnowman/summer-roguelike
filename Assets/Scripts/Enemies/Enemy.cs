@@ -103,11 +103,11 @@ public class Enemy : MonoBehaviour
             }
         }
         if(room == PlayerStats.room){
+            AttackCheck();
             if(!isAttacking && attackCD <= 0f)
             {
                 EnemyBehavior();
             }
-            AttackCheck();
             enemyRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         else{
@@ -118,7 +118,7 @@ public class Enemy : MonoBehaviour
         attackCD -= Time.deltaTime;
     }
 
-    public void HandleDeath(){
+    public virtual void HandleDeath(){
         if(currentHP <= 0){
             PlayerStats.EXP += baseExpYield;
             GameObject.Destroy(gameObject);

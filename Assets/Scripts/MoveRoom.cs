@@ -24,6 +24,10 @@ public class MoveRoom : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            if(PlayerStats.room == 0)
+            {
+                CameraMovement.boss = true;
+            }
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + x, Camera.main.transform.position.y + y, Camera.main.transform.position.z);
             collision.transform.position += playerChange;
             PlayerStats.room += roomChange;

@@ -5781,8 +5781,8 @@ GameObject:
   - component: {fileID: 7423150579563180789}
   - component: {fileID: 7423150579563180788}
   m_Layer: 0
-  m_Name: 5
-  m_TagString: Untagged
+  m_Name: 5Empty
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

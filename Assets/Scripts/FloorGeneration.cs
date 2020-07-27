@@ -22,19 +22,19 @@ public class FloorGeneration : MonoBehaviour
     public GameObject[] room14;
     public GameObject[] room15;
     public GameObject[] room16;
+    public GameObject bossRoom;
     public GameObject[][] prefabs;
     public GameObject[] emptyRooms;
 
     public GameObject[] rooms;
 
-    public Transform player;
-    public Transform stairs;
+    public static Transform player;
+    public GameObject stairs;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerStats>().transform;
-        stairs = FindObjectOfType<Stairs>().transform;
         prefabs = new GameObject[][]{ room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11, room12, room13, room14, room15, room16};
         GenerateFloor(floor);
     }
@@ -45,7 +45,7 @@ public class FloorGeneration : MonoBehaviour
 
     }
 
-    void GenerateFloor(int floor)
+    public void GenerateFloor(int floor)
     {
         // Player Position
         int randomPlayerPosition = UnityEngine.Random.Range(1,17);
@@ -71,7 +71,7 @@ public class FloorGeneration : MonoBehaviour
 
         float stairX = (((randomStairPosition - 1) % 4) * 17);
         float stairY = (float)(((randomStairPosition - 1)/4) * -8.5);
-        stairs.position = new Vector3(stairX,stairY,0);
+        Instantiate(stairs, new Vector3(stairX,stairY,0), Quaternion.identity);
 
         for (int i = 1; i <= 16; i++)
         {
@@ -84,7 +84,9 @@ public class FloorGeneration : MonoBehaviour
         DestroyFloor();
         player.position = new Vector3(0,0,0);
         Camera.main.transform.position = new Vector3(0,0,Camera.main.transform.position.z);
-
+        Instantiate(bossRoom, new Vector3(3.2f,-4,0), Quaternion.identity);
+        // use switch on boss to determine which bossRoom to instantiate
+        // should have random number
     }
 
     void DestroyFloor()

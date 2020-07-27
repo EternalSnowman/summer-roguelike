@@ -4581,7 +4581,7 @@ GameObject:
   - component: {fileID: 4089340619869424029}
   m_Layer: 0
   m_Name: 3Orc
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5759,7 +5759,7 @@ PrefabInstance:
     - target: {fileID: 1233354576890820809, guid: 75f14811265a3d04bbc7d52fdd0ba20d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.26
+      value: 7.23
       objectReference: {fileID: 0}
     - target: {fileID: 1233354576890820809, guid: 75f14811265a3d04bbc7d52fdd0ba20d,
         type: 3}

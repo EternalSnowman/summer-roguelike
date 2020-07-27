@@ -47,6 +47,7 @@ public class Orc : Enemy
             }
         }
 
+        // Keep Orc from moving during attack animation
         if( anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack1") ||
             anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack2") ||
             anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack1") ||

@@ -1099,7 +1099,7 @@ GameObject:
   - component: {fileID: 5775579091266398386}
   m_Layer: 0
   m_Name: 1Orc
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5810,6 +5810,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Orc
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609183958172636998, guid: c9029bfa52c5951429ef1cb4ae1b5d1f,
+        type: 3}
+      propertyPath: room
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9029bfa52c5951429ef1cb4ae1b5d1f, type: 3}

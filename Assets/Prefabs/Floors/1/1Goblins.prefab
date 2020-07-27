@@ -146,7 +146,7 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 258061301957983451}
   enemySprite: {fileID: 258061301957983449}
-  room: 10
+  room: 1
   tempAttackCD: 0
   attackCD: 0
 --- !u!50 &258061301957983451
@@ -332,7 +332,7 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 258061302075321395}
   enemySprite: {fileID: 258061302075321393}
-  room: 10
+  room: 1
   tempAttackCD: 0
   attackCD: 0
 --- !u!50 &258061302075321395
@@ -518,7 +518,7 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 258061302157501137}
   enemySprite: {fileID: 258061302157501139}
-  room: 10
+  room: 1
   tempAttackCD: 0
   attackCD: 0
 --- !u!50 &258061302157501137
@@ -1616,7 +1616,7 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 258061303866676493}
   enemySprite: {fileID: 258061303866676495}
-  room: 10
+  room: 1
   tempAttackCD: 0
   attackCD: 0
 --- !u!50 &258061303866676493
@@ -7216,7 +7216,7 @@ GameObject:
   - component: {fileID: 767586313459902812}
   m_Layer: 0
   m_Name: 1Goblins
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

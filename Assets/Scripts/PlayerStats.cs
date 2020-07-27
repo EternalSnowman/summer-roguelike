@@ -55,7 +55,7 @@ public class PlayerStats : MonoBehaviour
             EXP = EXP - expNext;
             LVL++;
             expNext += 50;
-            STR += 1;
+            STR += 5;
             currentHP = maxHP;
         }
     }
@@ -82,14 +82,14 @@ public class PlayerStats : MonoBehaviour
 
     void BaseStats()
     {
-        maxHP = 100;
+        maxHP = 10000;
         currentHP = maxHP;
         maxMana = 100;
         currentMana = maxMana;
         LVL = 1;
-        STR = 20;
-        expNext = 100;
-        room = 1;
+        STR = 100;
+        expNext = 500;
+
 
     }
 

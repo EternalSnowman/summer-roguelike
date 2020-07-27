@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Skill : MonoBehaviour
+{
+    public float skillCD;
+    public float tempSkillCD;
+    public String name;
+    public Animator anim;
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        skillCD -= Time.deltaTime;
+    }
+
+    public virtual void Activate()
+    {
+
+    }
+}

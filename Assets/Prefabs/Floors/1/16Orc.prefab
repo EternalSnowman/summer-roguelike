@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 5820515661239809613}
   m_Layer: 0
   m_Name: 16Orc
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1185,7 +1185,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5820515661239809608}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 51, y: -25.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5810,6 +5810,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Orc
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609183958172636998, guid: c9029bfa52c5951429ef1cb4ae1b5d1f,
+        type: 3}
+      propertyPath: room
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9029bfa52c5951429ef1cb4ae1b5d1f, type: 3}
