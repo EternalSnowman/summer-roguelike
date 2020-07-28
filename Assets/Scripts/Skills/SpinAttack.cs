@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,34 +11,46 @@ public class SpinAttack : Skill
     // Start is called before the first frame update
     void Start()
     {
-        tempSkillCD = 5.0f;
+        tempSkillCD = 1.0f;
         skillCD = 0f;
         name = "SpinAttack";
         hitbox.enabled = false;
-        damage = 20;
+        manaCost = 10;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        anim.SetBool(name, Attack.isSkill);
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName(name))
+        {
+            hitbox.enabled = true;
+            skillCD = tempSkillCD;
+        }
+        else
+        {
+            hitbox.enabled = false;
 
+        }
+        if (skillCD > 0)
+        {
+            skillCD -= Time.deltaTime;
+            manaTaken = false;
+        }
+        damage = (int)Math.Ceiling(PlayerStats.STR * 1.5f);
     }
 
     public override void Activate()
     {
-        skillCD = tempSkillCD;
-        hitbox.enabled = true;
-        /*
-        if(anim.GetCurrentAnimatorStateInfo(0).IsName(name))
+        if ((PlayerStats.currentMana >= manaCost) && !manaTaken)
         {
-
+            PlayerStats.currentMana -= manaCost;
+            manaTaken = true;
         }
-        else
+        else if(!manaTaken)
         {
-             hitbox.enabled = false;
+            PlayerStats.currentMana = 0;
+            manaTaken = true;
         }
-        */
-        //anim.SetBool(name, Attack.isSkill);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -42,28 +42,27 @@ public class Attack : MonoBehaviour
             isAttacking = false;
        }
 
-       if (Input.GetKey(KeyCode.K) && !isAttacking && !isSkill && (skill1.skillCD <= 0f))
-       {
-          isSkill = true;
+       if (Input.GetKey(KeyCode.K) && !isAttacking && !isSkill && (skill1.skillCD <= 0f) && (PlayerStats.currentMana >= skill1.manaCost))
+        {
           skill1.Activate();
-       }
-       /*
-       else if (Input.GetKey(KeyCode.L) && !isAttacking && !isSkill && (skill2.skillCD <= 0f))
+          isSkill = true;
+        }
+       
+       else if (Input.GetKey(KeyCode.L) && !isAttacking && !isSkill && (skill2.skillCD <= 0f) && (PlayerStats.currentMana >= skill1.manaCost))
        {
           isSkill = true;
           skill2.Activate();
        }
-       else if (Input.GetKey(KeyCode.Semicolon) && !isAttacking && !isSkill && (skill3.skillCD <= 0f))
+       else if (Input.GetKey(KeyCode.Semicolon) && !isAttacking && !isSkill && (skill3.skillCD <= 0f) && (PlayerStats.currentMana >= skill1.manaCost))
        {
           isSkill = true;
           skill3.Activate();
        }
-       */
        else if(!anim.GetCurrentAnimatorStateInfo(0).IsName(skill1.name) &&
-               !anim.GetCurrentAnimatorStateInfo(0).IsName(skill2.name) &&
-               !anim.GetCurrentAnimatorStateInfo(0).IsName(skill3.name))
+                !anim.GetCurrentAnimatorStateInfo(0).IsName(skill2.name) &&
+                !anim.GetCurrentAnimatorStateInfo(0).IsName(skill3.name))
        {
-          //isSkill = false;
+          isSkill = false;
        }
 
        // Toggle directional attack booleans

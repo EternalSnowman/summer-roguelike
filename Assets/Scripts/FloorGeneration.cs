@@ -47,6 +47,8 @@ public class FloorGeneration : MonoBehaviour
 
     public void GenerateFloor(int floor)
     {
+        DestroyFloor();
+        CameraMovement.boss = false;
         // Player Position
         int randomPlayerPosition = UnityEngine.Random.Range(1,17);
         if(floor == 1)

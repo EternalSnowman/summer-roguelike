@@ -28,18 +28,18 @@ public class Boss : Enemy
         rightAttack.enabled = false;
         leftAttack.enabled = false;
         downAttack.enabled = false;
+        healthBar = GameObject.FindGameObjectWithTag("Boss Health").GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if(enemies.Length == 1)
+        if(enemies.Length == 1 && room == PlayerStats.room)
         {
             PhaseTwo();
-
         }
-        else
+        else if(room == PlayerStats.room)
         {
             PhaseOne();
 
@@ -280,7 +280,10 @@ public class Boss : Enemy
     {
         if(currentHP <= 0){
             PlayerStats.EXP += baseExpYield;
-            GameObject.Destroy(gameObject);
+            for (var i = 0; i < enemies.Length; i++)
+            {
+                GameObject.Destroy(enemies[i]);
+            }
             Instantiate(stairs, new Vector3(-0.5f,23f,0), Quaternion.identity);
         }
 

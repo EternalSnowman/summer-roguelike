@@ -9,6 +9,9 @@ public class Skill : MonoBehaviour
     public float tempSkillCD;
     public String name;
     public Animator anim;
+    public int manaCost;
+    public bool manaTaken;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,7 @@ public class Skill : MonoBehaviour
     void Update()
     {
         skillCD -= Time.deltaTime;
+        anim.SetBool(name, Attack.isSkill);
     }
 
     public virtual void Activate()
