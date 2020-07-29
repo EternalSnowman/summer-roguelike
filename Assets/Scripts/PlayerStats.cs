@@ -85,7 +85,7 @@ public class PlayerStats : MonoBehaviour
 
     void BaseStats()
     {
-        maxHP = 100;
+        maxHP = 10000;
         currentHP = maxHP;
         maxMana = 100;
         currentMana = maxMana;

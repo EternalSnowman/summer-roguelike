@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Attack : MonoBehaviour
 {
@@ -18,20 +19,40 @@ public class Attack : MonoBehaviour
   public Skill skill2;
   public Skill skill3;
 
+  public GameObject skill1UI;
+  public GameObject skill2UI;
+  public GameObject skill3UI;
+
     // Start is called before the first frame update
-  void Start()
+    void Start()
   {
     upAttack.enabled = false;
     rightAttack.enabled = false;
     leftAttack.enabled = false;
     downAttack.enabled = false;
-  }
+    skill1UI = GameObject.FindGameObjectWithTag("Skill1");
+    skill2UI = GameObject.FindGameObjectWithTag("Skill2");
+    skill3UI = GameObject.FindGameObjectWithTag("Skill3");
+    }
 
     // Update is called once per frame
   void Update()
   {
-       // Toggle isAttacking
-       if (Input.GetKey(KeyCode.J) && !isAttacking && !isSkill)
+        skill1UI.GetComponent<Image>().sprite = skill1.icon.sprite;
+        skill2UI.GetComponent<Image>().sprite = skill2.icon.sprite;
+        skill3UI.GetComponent<Image>().sprite = skill3.icon.sprite;
+
+        skill1UI.GetComponent<Slider>().maxValue = skill1.tempSkillCD;
+        skill1UI.GetComponent<Slider>().value = skill1.skillCD;
+
+        skill2UI.GetComponent<Slider>().maxValue = skill2.tempSkillCD;
+        skill2UI.GetComponent<Slider>().value = skill2.skillCD;
+
+        skill3UI.GetComponent<Slider>().maxValue = skill3.tempSkillCD;
+        skill3UI.GetComponent<Slider>().value = skill3.skillCD;
+
+        // Toggle isAttacking
+        if (Input.GetKey(KeyCode.J) && !isAttacking && !isSkill)
        {
            isAttacking = true;
 

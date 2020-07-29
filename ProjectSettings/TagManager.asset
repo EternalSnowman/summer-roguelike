@@ -11,6 +11,9 @@ TagManager:
   - Room
   - Skill
   - Boss Health
+  - Skill1
+  - Skill2
+  - Skill3
   layers:
   - Default
   - TransparentFX

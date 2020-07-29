@@ -11,11 +11,11 @@ public class SpinAttack : Skill
     // Start is called before the first frame update
     void Start()
     {
-        tempSkillCD = 1.0f;
+        tempSkillCD = 5.0f;
         skillCD = 0f;
         name = "SpinAttack";
         hitbox.enabled = false;
-        manaCost = 10;
+        manaCost = 20;
     }
 
     void Update()

@@ -18,7 +18,7 @@ public class Goblin : Enemy
         DEF = LVL;
         RES = LVL/2;
 
-        baseExpYield = 25 + ((LVL-1)*10);
+        baseExpYield = 50 + ((LVL-1)*10);
 
         tempSpeed = 3.5f;
         speed = tempSpeed;
