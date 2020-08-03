@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-
 public class PlayerMovement : MonoBehaviour {
     public Animator animator;
     public static float tempSpeed = 5f;
@@ -104,6 +102,14 @@ public class PlayerMovement : MonoBehaviour {
             collision.SendMessageUpwards("PhysDamage", PlayerStats.STR);
         }
 
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.isTrigger != true && collision.CompareTag("Enemy"))
+        {
+            collision.SendMessageUpwards("PhysDamage", PlayerStats.STR);
+        }
     }
 
     public void Damage(int damage)

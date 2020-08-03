@@ -6,12 +6,11 @@ public class Stairs : MonoBehaviour
 {
     public int boss;
     public bool bossFloor;
-    public int floor;
     public FloorGeneration generateFloor;
     // Start is called before the first frame update
     void Start()
     {
-        generateFloor = FindObjectOfType<FloorGeneration>();
+        
     }
 
     // Update is called once per frame
@@ -31,7 +30,7 @@ public class Stairs : MonoBehaviour
             }
             else
             {
-                generateFloor.GenerateFloor(floor);
+                Instantiate(generateFloor, new Vector3(0, 0, 0), Quaternion.identity);
             }
         }
     }

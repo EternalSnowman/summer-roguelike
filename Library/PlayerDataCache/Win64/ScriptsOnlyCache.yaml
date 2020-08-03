@@ -4,14 +4,15 @@ ScriptsOnlyBuild:
     - Attack
     - Boss
     - BossGoblin
-    - Buff
     - CameraMovement
     - FloorGeneration
+    - Gargoyle
     - Goblin
     - MoveRoom
     - Orc
     - PlayerMovement
     - PlayerStats
+    - Skill
     - SpinAttack
     - Stairs
     - Summon
@@ -19,6 +20,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
+    - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
@@ -32,10 +34,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -94,31 +94,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11612}
     - Class: 114
-      Script: {instanceID: 11788}
+      Script: {instanceID: 12004}
     - Class: 114
-      Script: {instanceID: 12160}
+      Script: {instanceID: 12162}
     - Class: 114
-      Script: {instanceID: 12360}
+      Script: {instanceID: 12362}
     - Class: 114
-      Script: {instanceID: 12654}
+      Script: {instanceID: 12656}
     - Class: 114
-      Script: {instanceID: 12744}
+      Script: {instanceID: 12746}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 12748}
     - Class: 114
-      Script: {instanceID: 13286}
+      Script: {instanceID: 12758}
     - Class: 114
-      Script: {instanceID: 13336}
+      Script: {instanceID: 13288}
     - Class: 114
-      Script: {instanceID: 13622}
+      Script: {instanceID: 13338}
     - Class: 114
-      Script: {instanceID: 13654}
+      Script: {instanceID: 13624}
     - Class: 114
-      Script: {instanceID: 14024}
+      Script: {instanceID: 13656}
     - Class: 114
-      Script: {instanceID: 14288}
+      Script: {instanceID: 14026}
     - Class: 114
-      Script: {instanceID: 14310}
+      Script: {instanceID: 14290}
+    - Class: 114
+      Script: {instanceID: 14312}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -281,7 +283,7 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: 3705526c15b97c4afafd93c7b06e8de8
+      Hash: 909b52dcde543d354d92a073c490e011
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Attack
@@ -317,7 +319,7 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: e12e68c4e8eea4f007d9a8029b450699
+      Hash: c2c2878e25132df632967ac742beb3e1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Buff
@@ -371,6 +373,12 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: eb6ca7815324dfef7d79bab04cfbe81f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Gargoyle
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -389,7 +397,7 @@ ScriptsOnlyBuild:
     className: Enemy
   - hash:
       serializedVersion: 2
-      Hash: 21c46b2881af2c4753a83453a7ce4562
+      Hash: eae53e074ccc6f7a727be30630e8fcd7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpinAttack
@@ -485,7 +493,7 @@ ScriptsOnlyBuild:
     className: BossGoblin
   - hash:
       serializedVersion: 2
-      Hash: e12e68c4e8eea4f007d9a8029b450699
+      Hash: c2c2878e25132df632967ac742beb3e1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Skill

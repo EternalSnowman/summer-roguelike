@@ -153,7 +153,22 @@ public class Enemy : MonoBehaviour
                 collision.SendMessageUpwards("Damage", 1);
             }
         }
-        if(collision.isTrigger != true && collision.CompareTag("Player"))
+        else if(collision.isTrigger != true && collision.CompareTag("Player"))
+        {
+            collision.SendMessageUpwards("Damage", STR - PlayerStats.DEF);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (STR - PlayerStats.DEF < 0)
+        {
+            if (collision.isTrigger != true && collision.CompareTag("Player"))
+            {
+                collision.SendMessageUpwards("Damage", 1);
+            }
+        }
+        else if (collision.isTrigger != true && collision.CompareTag("Player"))
         {
             collision.SendMessageUpwards("Damage", STR - PlayerStats.DEF);
         }

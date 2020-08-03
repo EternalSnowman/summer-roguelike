@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class FloorGeneration : MonoBehaviour
 {
-    public int floor;
+    public AudioClip bgm;
+    public AudioClip bossMusic;
+    public AudioSource musicPrefab;
+    public AudioSource musicControl;
+    
     public GameObject[] room1;
     public GameObject[] room2;
     public GameObject[] room3;
@@ -22,9 +26,11 @@ public class FloorGeneration : MonoBehaviour
     public GameObject[] room14;
     public GameObject[] room15;
     public GameObject[] room16;
-    public GameObject bossRoom;
+    public GameObject[] bossRoom;
     public GameObject[][] prefabs;
     public GameObject[] emptyRooms;
+
+    public int floor;
 
     public GameObject[] rooms;
 
@@ -34,34 +40,32 @@ public class FloorGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instantiate(musicPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        musicControl = GameObject.FindGameObjectWithTag("Music Control").GetComponent<AudioSource>();
         player = FindObjectOfType<PlayerStats>().transform;
         prefabs = new GameObject[][]{ room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11, room12, room13, room14, room15, room16};
-        GenerateFloor(floor);
+        GenerateFloor();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    public void GenerateFloor(int floor)
+    public void GenerateFloor()
     {
+        musicControl.clip = bgm;
+        musicControl.Play();
         DestroyFloor();
         CameraMovement.boss = false;
         // Player Position
         int randomPlayerPosition = UnityEngine.Random.Range(1,17);
-        if(floor == 1)
-        {
-            player.position = new Vector3(0,0,0);
-        }
-        else
-        {
-            float playerX = (((randomPlayerPosition - 1) % 4) * 17);
-            float playerY = (float)(((randomPlayerPosition - 1)/4) * -8.5);
-            player.position = new Vector3(playerX,playerY,0);
-            Camera.main.transform.position = new Vector3(playerX,playerY,Camera.main.transform.position.z);
-        }
+        float playerX = (((randomPlayerPosition - 1) % 4) * 17);
+        float playerY = (float)(((randomPlayerPosition - 1)/4) * -8.5);
+        player.position = new Vector3(playerX,playerY,0);
+        Camera.main.transform.position = new Vector3(playerX,playerY,Camera.main.transform.position.z);
+        
         PlayerStats.room = randomPlayerPosition;
 
         // Stair Position
@@ -83,10 +87,35 @@ public class FloorGeneration : MonoBehaviour
 
     public void GenerateBossFloor(int boss)
     {
+        musicControl = GameObject.FindGameObjectWithTag("Music Control").GetComponent<AudioSource>();
+        musicControl.clip = bossMusic;
+        musicControl.Play();
         DestroyFloor();
         player.position = new Vector3(0,0,0);
         Camera.main.transform.position = new Vector3(0,0,Camera.main.transform.position.z);
-        Instantiate(bossRoom, new Vector3(3.2f,-4,0), Quaternion.identity);
+        int randomBossRoom;
+        if(floor % 5 != 0)
+        {
+            do
+            {
+                randomBossRoom = UnityEngine.Random.Range(0, bossRoom.Length);
+            }
+            while (PlayerStats.miniBossesBeat[randomBossRoom] == true);
+
+            PlayerStats.miniBossesBeat[randomBossRoom] = true;
+        }
+        else
+        {
+            do
+            {
+                randomBossRoom = UnityEngine.Random.Range(0, bossRoom.Length);
+            }
+            while (PlayerStats.bossesBeat[randomBossRoom] == true);
+
+            PlayerStats.bossesBeat[randomBossRoom] = true;
+        }
+
+        Instantiate(bossRoom[randomBossRoom], new Vector3(3.2f,-4,0), Quaternion.identity);
         // use switch on boss to determine which bossRoom to instantiate
         // should have random number
     }
@@ -94,9 +123,14 @@ public class FloorGeneration : MonoBehaviour
     void DestroyFloor()
     {
         rooms = GameObject.FindGameObjectsWithTag("Room");
+        GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
         for(var i = 0; i < rooms.Length; i++)
         {
             Destroy(rooms[i]);
+        }
+        for (var i = 0; i < items.Length; i++)
+        {
+            items[i].SetActive(false);
         }
     }
 

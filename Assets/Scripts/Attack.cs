@@ -15,6 +15,8 @@ public class Attack : MonoBehaviour
   public Collider2D leftAttack;
   public Collider2D downAttack;
 
+  public Inventory playerInventory;
+
   public Skill skill1;
   public Skill skill2;
   public Skill skill3;
@@ -22,6 +24,10 @@ public class Attack : MonoBehaviour
   public GameObject skill1UI;
   public GameObject skill2UI;
   public GameObject skill3UI;
+  public GameObject consumeUI;
+  public GameObject inventoryMenu;
+
+  public float recentlyOpen;
 
     // Start is called before the first frame update
     void Start()
@@ -33,14 +39,25 @@ public class Attack : MonoBehaviour
     skill1UI = GameObject.FindGameObjectWithTag("Skill1");
     skill2UI = GameObject.FindGameObjectWithTag("Skill2");
     skill3UI = GameObject.FindGameObjectWithTag("Skill3");
+    consumeUI = GameObject.FindGameObjectWithTag("ConsumableItem");
+    inventoryMenu = GameObject.FindGameObjectWithTag("Inventory");
+    recentlyOpen = 0f;
+    inventoryMenu.SetActive(false);
     }
 
     // Update is called once per frame
   void Update()
   {
+        if(recentlyOpen >= 0)
+        {
+            recentlyOpen -= Time.deltaTime;
+        }
+
         skill1UI.GetComponent<Image>().sprite = skill1.icon.sprite;
         skill2UI.GetComponent<Image>().sprite = skill2.icon.sprite;
         skill3UI.GetComponent<Image>().sprite = skill3.icon.sprite;
+
+        consumeUI.GetComponent<Image>().sprite = Inventory.equipConsume.icon.sprite;
 
         skill1UI.GetComponent<Slider>().maxValue = skill1.tempSkillCD;
         skill1UI.GetComponent<Slider>().value = skill1.skillCD;
@@ -50,6 +67,12 @@ public class Attack : MonoBehaviour
 
         skill3UI.GetComponent<Slider>().maxValue = skill3.tempSkillCD;
         skill3UI.GetComponent<Slider>().value = skill3.skillCD;
+        
+        if(Input.GetKey(KeyCode.I) && recentlyOpen <= 0f)
+        {
+            inventoryMenu.SetActive(!inventoryMenu.activeSelf);
+            recentlyOpen = .5f;
+        }
 
         // Toggle isAttacking
         if (Input.GetKey(KeyCode.J) && !isAttacking && !isSkill)
@@ -85,6 +108,11 @@ public class Attack : MonoBehaviour
        {
           isSkill = false;
        }
+       
+       if(Input.GetKey(KeyCode.H) && !isAttacking && !isSkill)
+        {
+            Inventory.equipConsume.Use();
+        }
 
        // Toggle directional attack booleans
        if(anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack") ||

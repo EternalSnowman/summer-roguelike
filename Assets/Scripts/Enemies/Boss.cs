@@ -14,8 +14,10 @@ public class Boss : Enemy
     public GameObject goblin;
     public bool transition = true;
     public bool Phase1 = true;
-    public GameObject stairs;
+    
     public Slider healthBar;
+
+    public GameObject bossRewards;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,8 @@ public class Boss : Enemy
         leftAttack.enabled = false;
         downAttack.enabled = false;
         healthBar = GameObject.FindGameObjectWithTag("Boss Health").GetComponent<Slider>();
+
+        bossRewards.SetActive(false);
     }
 
     // Update is called once per frame
@@ -176,8 +180,7 @@ public class Boss : Enemy
             enemies[i].GetComponent<Enemy>().RES += 2 * LVL;
 
         }
-
-
+        
     }
 
     public void Summon()
@@ -284,8 +287,8 @@ public class Boss : Enemy
             {
                 GameObject.Destroy(enemies[i]);
             }
-            Instantiate(stairs, new Vector3(-0.5f,23f,0), Quaternion.identity);
+            
+            bossRewards.SetActive(true);
         }
-
     }
 }

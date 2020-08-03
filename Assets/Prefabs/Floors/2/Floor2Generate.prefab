@@ -43,25 +43,158 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ad6a206234fb2489230cee6b51d432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgm: {fileID: 8300000, guid: 62bcd505de07a674ebbc564e98a09d1c, type: 3}
+  bossMusic: {fileID: 8300000, guid: 26d33434fabba534d9d0ddccced35fc2, type: 3}
+  musicPrefab: {fileID: 2995351599013310289, guid: 56875769774a8b24ba552f710fb8c3fc,
+    type: 3}
+  musicControl: {fileID: 0}
+  room1:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room2:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room3:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room4:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room5:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room6:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room7:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room8:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room9:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room10:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room11:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room12:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room13:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room14:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room15:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  room16:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  bossRoom:
+  - {fileID: 0}
+  emptyRooms:
+  - {fileID: 8221160140282207606, guid: a1d017726512837498f19435f5489454, type: 3}
+  - {fileID: 430522496347615373, guid: 6741b9d2bf56cfa44a750a77aad5cdda, type: 3}
+  - {fileID: 430522496347615373, guid: 6741b9d2bf56cfa44a750a77aad5cdda, type: 3}
+  - {fileID: 6689926043704441752, guid: a78a4b25734d9ee45be6b1c9afd1d0fb, type: 3}
+  - {fileID: 7423150579563180785, guid: 3ea99f85e54ec7548a7edd2539ca43f1, type: 3}
+  - {fileID: 4233836483867925352, guid: 5a83048dd92edb946972a1ae8d0ccf06, type: 3}
+  - {fileID: 4233836483867925352, guid: 5a83048dd92edb946972a1ae8d0ccf06, type: 3}
+  - {fileID: 8837887895912713777, guid: 4d0a9e8011449614ba7f2d0681ca6c45, type: 3}
+  - {fileID: 7423150579563180785, guid: 3ea99f85e54ec7548a7edd2539ca43f1, type: 3}
+  - {fileID: 4233836483867925352, guid: 5a83048dd92edb946972a1ae8d0ccf06, type: 3}
+  - {fileID: 4233836483867925352, guid: 5a83048dd92edb946972a1ae8d0ccf06, type: 3}
+  - {fileID: 8837887895912713777, guid: 4d0a9e8011449614ba7f2d0681ca6c45, type: 3}
+  - {fileID: 6825191713780015752, guid: 12b1e03ea8de9a9428ea553bfb897264, type: 3}
+  - {fileID: 4372122025880569720, guid: 43517f8cf3e6ec049a1e358a11f34345, type: 3}
+  - {fileID: 4372122025880569720, guid: 43517f8cf3e6ec049a1e358a11f34345, type: 3}
+  - {fileID: 8557295421267894523, guid: c02c84a43e8f01d42aec2251a84731cb, type: 3}
   floor: 2
-  room1: []
-  room2: []
-  room3: []
-  room4: []
-  room5: []
-  room6: []
-  room7: []
-  room8: []
-  room9: []
-  room10: []
-  room11: []
-  room12: []
-  room13: []
-  room14: []
-  room15: []
-  room16: []
-  bossRoom: {fileID: 0}
-  emptyRooms: []
   rooms: []
-  player: {fileID: 0}
-  stairs: {fileID: 0}
+  stairs: {fileID: 5672612818676612809, guid: c59e91eefa2b9824dbc54674a7bf4d28, type: 3}

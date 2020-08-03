@@ -21,6 +21,9 @@ public class PlayerStats : MonoBehaviour
     public static int EXP;
     public static int expNext;
 
+    public static bool[] bossesBeat;
+    public static bool[] miniBossesBeat;
+
     public Slider healthSlider;
     public Slider manaSlider;
     public Slider expSlider;
@@ -38,6 +41,17 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         BaseStats();
+        bossesBeat = new bool[2];
+        for(int i = 0; i < bossesBeat.Length; i++)
+        {
+            bossesBeat[i] = false;
+        }
+
+        miniBossesBeat = new bool[4];
+        for (int i = 0; i < miniBossesBeat.Length; i++)
+        {
+            miniBossesBeat[i] = false;
+        }
     }
 
     // Update is called once per frame
@@ -90,7 +104,7 @@ public class PlayerStats : MonoBehaviour
         maxMana = 100;
         currentMana = maxMana;
         LVL = 1;
-        STR = 20;
+        STR = 2000;
         expNext = 500;
     }
 
