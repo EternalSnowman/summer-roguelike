@@ -37,10 +37,33 @@ public class PlayerStats : MonoBehaviour
     public int roomNumber;
     public static int room;
 
+    public BuffDebuff debugBuff;
+
+    public GameObject buff1;
+    public GameObject buff2;
+    public GameObject buff3;
+    public GameObject buff4;
+    public GameObject buff5;
+    public GameObject buff6;
+    public GameObject buff7;
+    public GameObject buff8;
+
+    public static BuffDebuff emptyBuff;
+
+    public static BuffDebuff[] buffs;
+
     // Start is called before the first frame update
     void Start()
     {
         BaseStats();
+
+        emptyBuff = GameObject.FindGameObjectWithTag("EmptyBuff").GetComponent<BuffDebuff>();
+        buffs = new BuffDebuff[8];
+        for(int i = 0; i < buffs.Length; i++)
+        {
+            buffs[i] = emptyBuff;
+        }
+
         bossesBeat = new bool[2];
         for(int i = 0; i < bossesBeat.Length; i++)
         {
@@ -60,6 +83,7 @@ public class PlayerStats : MonoBehaviour
         debug();
         CheckStatus();
         HandleLevel();
+        BuffDebuffUI();
     }
 
     void HandleLevel()
@@ -115,7 +139,130 @@ public class PlayerStats : MonoBehaviour
         expnext = expNext;
         strength = STR;
         roomNumber = room;
+        debugBuff = buffs[0];
+    }
 
+    void BuffDebuffUI()
+    {
+        buff1.GetComponent<Image>().sprite = buffs[0].icon.sprite;
+        buff1.GetComponent<Slider>().maxValue = buffs[0].duration;
+        buff1.GetComponent<Slider>().value = buffs[0].currDuration;
+        if(buffs[0].currDuration < 0)
+        {
+            buff1.GetComponent<Image>().enabled = false;
+        }
+        else
+        {
+            buff1.GetComponent<Image>().enabled = true;
+        }
+
+        buff2.GetComponent<Image>().sprite = buffs[1].icon.sprite;
+        buff2.GetComponent<Slider>().maxValue = buffs[1].duration;
+        buff2.GetComponent<Slider>().value = buffs[1].currDuration;
+        if (buffs[1].currDuration < 0)
+        {
+            buff2.GetComponent<Image>().enabled = false;
+        }
+        else
+        {
+            buff2.GetComponent<Image>().enabled = true;
+        }
+
+        buff3.GetComponent<Image>().sprite = buffs[2].icon.sprite;
+        buff3.GetComponent<Slider>().maxValue = buffs[2].duration;
+        buff3.GetComponent<Slider>().value = buffs[2].currDuration;
+        if (buffs[2].currDuration < 0)
+        {
+            buff3.GetComponent<Image>().enabled = false;
+        }
+        else
+        {
+            buff3.GetComponent<Image>().enabled = true;
+        }
+
+        buff4.GetComponent<Image>().sprite = buffs[3].icon.sprite;
+        buff4.GetComponent<Slider>().maxValue = buffs[3].duration;
+        buff4.GetComponent<Slider>().value = buffs[3].currDuration;
+        if (buffs[3].currDuration < 0)
+        {
+            buff4.GetComponent<Image>().enabled = false;
+        }
+        else
+        {
+            buff4.GetComponent<Image>().enabled = true;
+        }
+
+        buff5.GetComponent<Image>().sprite = buffs[4].icon.sprite;
+        buff5.GetComponent<Slider>().maxValue = buffs[4].duration;
+        buff5.GetComponent<Slider>().value = buffs[4].currDuration;
+        if (buffs[4].currDuration < 0)
+        {
+            buff5.GetComponent<Image>().enabled = false;
+        }
+        else
+        {
+            buff5.GetComponent<Image>().enabled = true;
+        }
+
+        buff6.GetComponent<Image>().sprite = buffs[5].icon.sprite;
+        buff6.GetComponent<Slider>().maxValue = buffs[5].duration;
+        buff6.GetComponent<Slider>().value = buffs[5].currDuration;
+        if (buffs[5].currDuration < 0)
+        {
+            buff6.GetComponent<Image>().enabled = false;
+        }
+        else
+        {
+            buff6.GetComponent<Image>().enabled = true;
+        }
+
+        buff7.GetComponent<Image>().sprite = buffs[6].icon.sprite;
+        buff7.GetComponent<Slider>().maxValue = buffs[6].duration;
+        buff7.GetComponent<Slider>().value = buffs[6].currDuration;
+        if (buffs[6].currDuration < 0)
+        {
+            buff7.GetComponent<Image>().enabled = false;
+        }
+        else
+        {
+            buff7.GetComponent<Image>().enabled = true;
+        }
+
+        buff8.GetComponent<Image>().sprite = buffs[7].icon.sprite;
+        buff8.GetComponent<Slider>().maxValue = buffs[7].duration;
+        buff8.GetComponent<Slider>().value = buffs[7].currDuration;
+        if (buffs[7].currDuration < 0)
+        {
+            buff8.GetComponent<Image>().enabled = false;
+        }
+        else
+        {
+            buff8.GetComponent<Image>().enabled = true;
+        }
+    }
+
+    int findNext(int start)
+    {
+        for(int i = start; i < buffs.Length; i++)
+        {
+            if(buffs[i] != emptyBuff)
+            {
+                return i;
+            }
+        }
+        return 8;
+    }
+
+    public static int findNextFree()
+    {
+        for(int i = 0; i < buffs.Length; i++)
+        {
+            if(buffs[i] == emptyBuff)
+            {
+                return i;
+            }
+        }
+        return 8;
     }
 }
 

@@ -7,6 +7,7 @@ public class SpinAttack : Skill
 {
     public Collider2D hitbox;
     public int damage;
+    public bool isSkill;
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +17,12 @@ public class SpinAttack : Skill
         name = "SpinAttack";
         hitbox.enabled = false;
         manaCost = 20;
+        isSkill = false;
     }
 
     void Update()
     {
-        anim.SetBool(name, Attack.isSkill);
+        anim.SetBool(name, isSkill);
         if (anim.GetCurrentAnimatorStateInfo(0).IsName(name))
         {
             hitbox.enabled = true;
@@ -35,22 +37,15 @@ public class SpinAttack : Skill
         {
             skillCD -= Time.deltaTime;
             manaTaken = false;
+            isSkill = false;
         }
         damage = (int)Math.Ceiling(PlayerStats.STR * 1.5f);
     }
 
     public override void Activate()
     {
-        if ((PlayerStats.currentMana >= manaCost) && !manaTaken)
-        {
-            PlayerStats.currentMana -= manaCost;
-            manaTaken = true;
-        }
-        else if(!manaTaken)
-        {
-            PlayerStats.currentMana = 0;
-            manaTaken = true;
-        }
+        base.Activate();
+        isSkill = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -92,12 +92,12 @@ public class Attack : MonoBehaviour
           isSkill = true;
         }
        
-       else if (Input.GetKey(KeyCode.L) && !isAttacking && !isSkill && (skill2.skillCD <= 0f) && (PlayerStats.currentMana >= skill1.manaCost))
+       else if (Input.GetKey(KeyCode.L) && !isAttacking && !isSkill && (skill2.skillCD <= 0f) && (PlayerStats.currentMana >= skill2.manaCost))
        {
-          isSkill = true;
           skill2.Activate();
-       }
-       else if (Input.GetKey(KeyCode.Semicolon) && !isAttacking && !isSkill && (skill3.skillCD <= 0f) && (PlayerStats.currentMana >= skill1.manaCost))
+          isSkill = true;
+        }
+       else if (Input.GetKey(KeyCode.Semicolon) && !isAttacking && !isSkill && (skill3.skillCD <= 0f) && (PlayerStats.currentMana >= skill3.manaCost))
        {
           isSkill = true;
           skill3.Activate();

@@ -25,11 +25,24 @@ public class Skill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (skillCD > 0)
+        {
+            skillCD -= Time.deltaTime;
+            manaTaken = false;
+        }
     }
 
     public virtual void Activate()
     {
-
+        if ((PlayerStats.currentMana >= manaCost) && !manaTaken)
+        {
+            PlayerStats.currentMana -= manaCost;
+            manaTaken = true;
+        }
+        else if (!manaTaken)
+        {
+            PlayerStats.currentMana = 0;
+            manaTaken = true;
+        }
     }
 }

@@ -114,7 +114,6 @@ public class Boss : Enemy
 
     public override void LoadStats()
     {
-        LVL = 1;
         maxHP = 500 * LVL;
         currentHP = maxHP;
         STR = 30 * LVL;

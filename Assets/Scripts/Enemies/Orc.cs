@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Orc : Enemy
-{
-
+{ 
     public bool attackAnim = false;
 
     public override void LoadStats()
     {
-        LVL = 1;
         maxHP = 100 + (LVL*30);
         currentHP = maxHP;
 

@@ -8,7 +8,6 @@ public class Goblin : Enemy
 
     public override void LoadStats()
     {
-        LVL = 1;
         maxHP = 30 + (LVL*10);
         currentHP = maxHP;
 

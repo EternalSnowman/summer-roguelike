@@ -88,7 +88,6 @@ public class Gargoyle : Enemy
 
     public override void LoadStats()
     {
-        LVL = 1;
         maxHP = 50 + (LVL * 30);
         currentHP = maxHP;
 

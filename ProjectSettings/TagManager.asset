@@ -18,6 +18,8 @@ TagManager:
   - ConsumableItem
   - EmptyItem
   - Inventory
+  - Item
+  - EmptyBuff
   layers:
   - Default
   - TransparentFX

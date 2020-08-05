@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d3fe04732537045b12c4d747d7aeff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LVL: 0
+  LVL: 1
   maxHP: 0
   currentHP: 0
   STR: 0
