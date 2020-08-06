@@ -115,7 +115,10 @@ public class Enemy : MonoBehaviour
             speed=0;
         }
         HandleDeath();
-        attackCD -= Time.deltaTime;
+        if(attackCD > 0)
+        {
+            attackCD -= Time.deltaTime;
+        }
     }
 
     public virtual void HandleDeath(){

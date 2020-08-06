@@ -20,6 +20,7 @@ TagManager:
   - Inventory
   - Item
   - EmptyBuff
+  - LevelUpText
   layers:
   - Default
   - TransparentFX

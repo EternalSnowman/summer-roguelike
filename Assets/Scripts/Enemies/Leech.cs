@@ -146,4 +146,21 @@ public class Leech : Enemy
             }
         }
     }
+
+    public override void HandleDeath()
+    {
+        if (currentHP <= 0)
+        {
+            PlayerStats.EXP += baseExpYield;
+            for (int i = 0; i < PlayerStats.buffs.Length; i++)
+            {
+                if (PlayerStats.buffs[i] == infection)
+                {
+                    PlayerStats.buffs[i] = PlayerStats.emptyBuff;
+                }
+            }
+            GameObject.Destroy(gameObject);
+        }
+
+    }
 }
