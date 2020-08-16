@@ -1,14 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ManaPot : Items
 {
+    private void Start()
+    {
+        name = "Mana Potion";
+        itemDesc = "Restore 20% Mana";
+    }
+
     public override void Use()
     {
-        if (PlayerStats.currentMana + 30 < PlayerStats.maxMana)
+        if (PlayerStats.currentMana + (int)Math.Ceiling(PlayerStats.maxMana * 0.25) < PlayerStats.maxMana)
         {
-            PlayerStats.currentMana += 30;
+            PlayerStats.currentMana += (int)Math.Ceiling(PlayerStats.maxMana * 0.25);
         }
         else
         {

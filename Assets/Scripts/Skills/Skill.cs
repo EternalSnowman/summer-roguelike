@@ -7,7 +7,8 @@ public class Skill : MonoBehaviour
 {
     public float skillCD;
     public float tempSkillCD;
-    public String name;
+    public string name;
+    public string skillDesc;
     public Animator anim;
     public int manaCost;
     public bool manaTaken;

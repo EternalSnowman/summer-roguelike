@@ -1,20 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthPot : Items
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        Inventory.equipConsume = this;
+        name = "Health Potion";
+        itemDesc = "Restore 20% HP";
     }
 
     public override void Use()
     {
-        if(PlayerStats.currentHP + 30 < PlayerStats.maxHP)
+        if(PlayerStats.currentHP + (int)Math.Ceiling(PlayerStats.maxHP * 0.25) < PlayerStats.maxHP)
         {
-            PlayerStats.currentHP += 30;
+            PlayerStats.currentHP += (int)Math.Ceiling(PlayerStats.maxHP * 0.25);
         }
         else
         {

@@ -128,6 +128,5 @@ public class PlayerMovement : MonoBehaviour {
             flashCounter = flashLength;
         }
 
-
     }
 }

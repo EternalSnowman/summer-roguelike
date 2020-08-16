@@ -8,16 +8,16 @@ public class Orc : Enemy
 
     public override void LoadStats()
     {
-        maxHP = 100 + (LVL*30);
+        maxHP = 100 + (LVL*20);
         currentHP = maxHP;
 
-        STR = 30 + ((LVL-1) * 7);
+        STR = 30 + ((LVL-1) * 10);
         INT = 0;
         AGI = 1;
-        DEF = 10 + ((LVL-1) * 5);
+        DEF = 10 + ((LVL-1) * 3);
         RES = LVL/2;
 
-        baseExpYield = 250 + ((LVL-1)*10);
+        baseExpYield = 150 + ((LVL-1)*20);
 
         tempSpeed = 1.5f;
         speed = tempSpeed;

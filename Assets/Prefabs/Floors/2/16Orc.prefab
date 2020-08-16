@@ -48,6 +48,8 @@ MonoBehaviour:
   y: 8.5
   playerChange: {x: 0, y: 1.5, z: 0}
   roomChange: -4
+  bossMusic: {fileID: 0}
+  musicControl: {fileID: 0}
 --- !u!61 &132135804884106769
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,6 +124,8 @@ MonoBehaviour:
   y: 0
   playerChange: {x: -1.5, y: 0, z: 0}
   roomChange: -1
+  bossMusic: {fileID: 0}
+  musicControl: {fileID: 0}
 --- !u!61 &6103127837045123876
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5815,6 +5819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: room
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609183958172636998, guid: c9029bfa52c5951429ef1cb4ae1b5d1f,
+        type: 3}
+      propertyPath: LVL
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9029bfa52c5951429ef1cb4ae1b5d1f, type: 3}

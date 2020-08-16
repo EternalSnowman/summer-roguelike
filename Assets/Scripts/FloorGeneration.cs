@@ -40,6 +40,11 @@ public class FloorGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject[] music = GameObject.FindGameObjectsWithTag("Music Control");
+        for (var i = 0; i < music.Length; i++)
+        {
+            Destroy(music[i]);
+        }
         Instantiate(musicPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         musicControl = GameObject.FindGameObjectWithTag("Music Control").GetComponent<AudioSource>();
         player = FindObjectOfType<PlayerStats>().transform;
@@ -94,7 +99,8 @@ public class FloorGeneration : MonoBehaviour
         player.position = new Vector3(0,0,0);
         Camera.main.transform.position = new Vector3(0,0,Camera.main.transform.position.z);
         int randomBossRoom;
-        if(floor % 5 != 0)
+        
+        if (boss != 5)
         {
             do
             {
@@ -106,6 +112,7 @@ public class FloorGeneration : MonoBehaviour
         }
         else
         {
+
             do
             {
                 randomBossRoom = UnityEngine.Random.Range(0, bossRoom.Length);
@@ -122,9 +129,14 @@ public class FloorGeneration : MonoBehaviour
 
     void DestroyFloor()
     {
+        for(int i = 0; i < 8; i++)
+        {
+            PlayerStats.buffs[i] = PlayerStats.emptyBuff;
+        }
+        
         rooms = GameObject.FindGameObjectsWithTag("Room");
         GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
-        for(var i = 0; i < rooms.Length; i++)
+        for (var i = 0; i < rooms.Length; i++)
         {
             Destroy(rooms[i]);
         }

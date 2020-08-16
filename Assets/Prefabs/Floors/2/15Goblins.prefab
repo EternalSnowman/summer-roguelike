@@ -48,6 +48,8 @@ MonoBehaviour:
   y: 0
   playerChange: {x: -1.5, y: 0, z: 0}
   roomChange: -1
+  bossMusic: {fileID: 0}
+  musicControl: {fileID: 0}
 --- !u!61 &6660710803310173078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,6 +124,8 @@ MonoBehaviour:
   y: 8.5
   playerChange: {x: 0, y: 1.5, z: 0}
   roomChange: -4
+  bossMusic: {fileID: 0}
+  musicControl: {fileID: 0}
 --- !u!61 &2949027159794604931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -196,6 +200,8 @@ MonoBehaviour:
   y: 0
   playerChange: {x: 1.5, y: 0, z: 0}
   roomChange: 1
+  bossMusic: {fileID: 0}
+  musicControl: {fileID: 0}
 --- !u!61 &2949027159968639361
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5892,6 +5898,11 @@ PrefabInstance:
       propertyPath: room
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 36365537792037549, guid: 4fe09c76891186a42b12022cd4c28991,
+        type: 3}
+      propertyPath: LVL
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe09c76891186a42b12022cd4c28991, type: 3}
 --- !u!4 &4929502095561255478 stripped
@@ -5971,6 +5982,11 @@ PrefabInstance:
         type: 3}
       propertyPath: room
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 36365537792037549, guid: 4fe09c76891186a42b12022cd4c28991,
+        type: 3}
+      propertyPath: LVL
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe09c76891186a42b12022cd4c28991, type: 3}

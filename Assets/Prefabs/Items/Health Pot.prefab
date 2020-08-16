@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6354260402985860252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 464.40033, y: -98.56178, z: 0}
+  m_LocalPosition: {x: 16.856104, y: -9.022556, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 6354260402985860255}
-  equip: 0
   typeOfItem: 3
   canPickup: 0
+  name: Health Potion
+  itemDesc: Restore 20% HP
 --- !u!212 &6354260402985860255
 SpriteRenderer:
   m_ObjectHideFlags: 0

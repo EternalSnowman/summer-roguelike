@@ -5,11 +5,13 @@ using UnityEngine;
 public class Items : MonoBehaviour
 {
     public SpriteRenderer icon;
-    public bool equip;
     // 1 = weapon, 2 = armor, 3 = consumable
     public int typeOfItem;
 
     public bool canPickup = false;
+
+    public string name;
+    public string itemDesc;
 
     // Update is called once per frame
     void Update()
@@ -19,7 +21,6 @@ public class Items : MonoBehaviour
             if (Inventory.GetNextFree() != 12)
             {
                 Inventory.bag[Inventory.GetNextFree()] = this;
-                //Inventory.equipConsume = this;
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 canPickup = false;
@@ -38,11 +39,27 @@ public class Items : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        canPickup = true;
+        if (other.CompareTag("Player"))
+        {
+            canPickup = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
+    {   
+        if (collision.CompareTag("Player"))
+        {
+            canPickup = false;
+        }
+    }
+
+    public virtual void equipItem()
     {
-        canPickup = false;
+
+    }
+
+    public virtual void unequipItem()
+    {
+
     }
 }

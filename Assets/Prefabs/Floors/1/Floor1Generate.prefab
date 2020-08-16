@@ -44,18 +44,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgm: {fileID: 8300000, guid: 62bcd505de07a674ebbc564e98a09d1c, type: 3}
-  bossMusic: {fileID: 8300000, guid: 26d33434fabba534d9d0ddccced35fc2, type: 3}
+  bossMusic: {fileID: 8300000, guid: 505dd81e2a606bf4f84891d169d36f74, type: 3}
   musicPrefab: {fileID: 401687812803261572, guid: e8628af5cd9fb924594cb3fa618a96ea,
     type: 3}
   musicControl: {fileID: 0}
   room1:
-  - {fileID: 2583786491590480688, guid: f8ba1318810bcdf4abe350906f555cf4, type: 3}
-  - {fileID: 2583786491590480688, guid: f8ba1318810bcdf4abe350906f555cf4, type: 3}
-  - {fileID: 2583786491590480688, guid: f8ba1318810bcdf4abe350906f555cf4, type: 3}
-  - {fileID: 2583786491590480688, guid: f8ba1318810bcdf4abe350906f555cf4, type: 3}
-  - {fileID: 2583786491590480688, guid: f8ba1318810bcdf4abe350906f555cf4, type: 3}
-  - {fileID: 2583786491590480688, guid: f8ba1318810bcdf4abe350906f555cf4, type: 3}
-  - {fileID: 2583786491590480688, guid: f8ba1318810bcdf4abe350906f555cf4, type: 3}
+  - {fileID: 767586313459902809, guid: 7fb70a24f428d2a48bd1c282c77fc872, type: 3}
+  - {fileID: 767586313459902809, guid: 7fb70a24f428d2a48bd1c282c77fc872, type: 3}
+  - {fileID: 5775579091266398391, guid: d14193150620b334b9b1cd151317c5a3, type: 3}
+  - {fileID: 5775579091266398391, guid: d14193150620b334b9b1cd151317c5a3, type: 3}
+  - {fileID: 5775579091266398391, guid: d14193150620b334b9b1cd151317c5a3, type: 3}
+  - {fileID: 8221160140282207606, guid: a1d017726512837498f19435f5489454, type: 3}
+  - {fileID: 767586313459902809, guid: 7fb70a24f428d2a48bd1c282c77fc872, type: 3}
   room2:
   - {fileID: 3344028911523723366, guid: a2aa11a192b8d9f4496db77c7da49a31, type: 3}
   - {fileID: 3344028911523723366, guid: a2aa11a192b8d9f4496db77c7da49a31, type: 3}
@@ -178,6 +178,9 @@ MonoBehaviour:
   - {fileID: 5757578564619891705, guid: 8cb55fb66f9e4774b91ae24a065e1d31, type: 3}
   bossRoom:
   - {fileID: 1617299263250770223, guid: e308e54df1d1c6a4d953d26d9425de39, type: 3}
+  - {fileID: 1617299263250770223, guid: e209811e55b20c547958db25ca516624, type: 3}
+  - {fileID: 1617299263250770223, guid: acfa047ada23bfc488b1726135c3cbe1, type: 3}
+  - {fileID: 1617299263250770223, guid: d8478a3502203d54bbd3024fc9c49dd7, type: 3}
   emptyRooms:
   - {fileID: 8221160140282207606, guid: a1d017726512837498f19435f5489454, type: 3}
   - {fileID: 430522496347615373, guid: 6741b9d2bf56cfa44a750a77aad5cdda, type: 3}

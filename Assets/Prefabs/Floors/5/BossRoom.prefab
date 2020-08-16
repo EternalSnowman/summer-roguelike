@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608f8ce7975412843a4d588ad1369709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: 17
   LVL: 5
   maxHP: 0
   currentHP: 0
@@ -411,7 +412,6 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 255295672116995770}
   enemySprite: {fileID: 255295672116995768}
-  room: 17
   tempAttackCD: 0
   attackCD: 0
 --- !u!1 &351023254818951349
@@ -571,6 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608f8ce7975412843a4d588ad1369709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: 17
   LVL: 5
   maxHP: 0
   currentHP: 0
@@ -597,7 +598,6 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 1600789945271792576}
   enemySprite: {fileID: 1686869110882843620}
-  room: 17
   tempAttackCD: 0
   attackCD: 0
 --- !u!1 &778967406814216580
@@ -957,6 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608f8ce7975412843a4d588ad1369709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: 17
   LVL: 5
   maxHP: 0
   currentHP: 0
@@ -983,7 +984,6 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 988673624556069316}
   enemySprite: {fileID: 6594919371984686091}
-  room: 17
   tempAttackCD: 0
   attackCD: 0
 --- !u!1 &2754937259738383533
@@ -1352,6 +1352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b5f41b44b5f3445876ef8a94a6cd23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: 17
   LVL: 1
   maxHP: 0
   currentHP: 0
@@ -1378,7 +1379,6 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 3284577113609117167}
   enemySprite: {fileID: 3284577113609117165}
-  room: 17
   tempAttackCD: 0
   attackCD: 0
   enemies: []
@@ -1389,6 +1389,7 @@ MonoBehaviour:
   transition: 1
   Phase1: 1
   healthBar: {fileID: 0}
+  miniBossNumber: 0
   bossRewards: {fileID: 6061034326437692828}
 --- !u!1 &3293201129854419618
 GameObject:
@@ -1915,7 +1916,7 @@ MonoBehaviour:
   isEXP: 0
   extraEXP: 200
   possibleRandomDrops:
-  - {fileID: 3781861880808758577, guid: da8d552f677fca241b18dca38d6725dd, type: 3}
+  - {fileID: 6354260402985860254, guid: 3b0b48b7506fdfe49ab2d912230e4404, type: 3}
   drop: {fileID: 0}
   icon: {fileID: 1916634596188170084}
 --- !u!212 &1916634596188170084
@@ -2258,6 +2259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608f8ce7975412843a4d588ad1369709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: 17
   LVL: 5
   maxHP: 0
   currentHP: 0
@@ -2284,7 +2286,6 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 632742255754812903}
   enemySprite: {fileID: 2541101876226120188}
-  room: 17
   tempAttackCD: 0
   attackCD: 0
 --- !u!1 &5363450534606761108
@@ -2465,8 +2466,8 @@ MonoBehaviour:
   isEXP: 0
   extraEXP: 200
   possibleRandomDrops:
-  - {fileID: 3781861880808758577, guid: da8d552f677fca241b18dca38d6725dd, type: 3}
-  - {fileID: 3781861880808758577, guid: da8d552f677fca241b18dca38d6725dd, type: 3}
+  - {fileID: 6354260402985860254, guid: 3b0b48b7506fdfe49ab2d912230e4404, type: 3}
+  - {fileID: 5341598313374684531, guid: d95cf28827f6f7e42aef8fa716799589, type: 3}
   drop: {fileID: 0}
   icon: {fileID: 1200493712293513001}
 --- !u!212 &1200493712293513001
@@ -2590,7 +2591,7 @@ GameObject:
   - component: {fileID: 7099455827846753733}
   - component: {fileID: 2835904497300711963}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: BossRewards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2700,7 +2701,7 @@ MonoBehaviour:
   option1Image: {fileID: 1308405211931003253}
   option2Image: {fileID: 4901020984661134243}
   option3Image: {fileID: 2231074578964469662}
-  stairs: {fileID: 9031985038016516891, guid: ca29818e7ea0c214b827cf26058fe68b, type: 3}
+  stairs: {fileID: 9031985038016516891, guid: 88945a14b9f86f24499ece0ab833912b, type: 3}
 --- !u!1 &6191048756484931878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,6 +3173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608f8ce7975412843a4d588ad1369709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: 17
   LVL: 5
   maxHP: 0
   currentHP: 0
@@ -3198,7 +3200,6 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 8163401303460308430}
   enemySprite: {fileID: 7917522589819680627}
-  room: 17
   tempAttackCD: 0
   attackCD: 0
 --- !u!1 &7016260322082005042

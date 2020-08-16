@@ -6,10 +6,10 @@ public class BossGoblin : Enemy
 {
     public override void LoadStats()
     {
-        maxHP = 30 + (LVL*10);
+        maxHP = 50 + (LVL*35);
         currentHP = maxHP;
 
-        STR = 10 + (LVL*3);
+        STR = 10 + (LVL*12);
         INT = 0;
         AGI = 1;
         DEF = LVL;

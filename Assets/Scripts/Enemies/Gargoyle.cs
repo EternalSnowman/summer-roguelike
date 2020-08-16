@@ -16,6 +16,7 @@ public class Gargoyle : Enemy
 
     private void Update()
     {
+        
         // Hurtflash
         if (flashActive)
         {
@@ -88,16 +89,16 @@ public class Gargoyle : Enemy
 
     public override void LoadStats()
     {
-        maxHP = 50 + (LVL * 30);
+        maxHP = 50 + (LVL * 20);
         currentHP = maxHP;
 
-        STR = 20 + ((LVL - 1) * 5);
+        STR = 20 + ((LVL - 1) * 8);
         INT = 0;
         AGI = 1;
-        DEF = 10 + ((LVL - 1) * 5);
+        DEF = 10 + ((LVL - 1) * 4);
         RES = LVL / 2;
 
-        baseExpYield = 100 + ((LVL - 1) * 10);
+        baseExpYield = 150 + ((LVL - 1) * 30);
 
         tempSpeed = 1f;
         speed = 0;

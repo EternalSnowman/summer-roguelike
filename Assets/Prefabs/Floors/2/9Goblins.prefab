@@ -5648,6 +5648,8 @@ MonoBehaviour:
   y: -8.5
   playerChange: {x: 0, y: -1.5, z: 0}
   roomChange: 4
+  bossMusic: {fileID: 0}
+  musicControl: {fileID: 0}
 --- !u!61 &9010607469296565895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5722,6 +5724,8 @@ MonoBehaviour:
   y: 8.5
   playerChange: {x: 0, y: 1.5, z: 0}
   roomChange: -4
+  bossMusic: {fileID: 0}
+  musicControl: {fileID: 0}
 --- !u!61 &9010607470054336603
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5796,6 +5800,8 @@ MonoBehaviour:
   y: 0
   playerChange: {x: 1.5, y: 0, z: 0}
   roomChange: 1
+  bossMusic: {fileID: 0}
+  musicControl: {fileID: 0}
 --- !u!61 &9010607470161189465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5908,6 +5914,11 @@ PrefabInstance:
         type: 3}
       propertyPath: room
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 36365537792037549, guid: 4fe09c76891186a42b12022cd4c28991,
+        type: 3}
+      propertyPath: LVL
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 36365538336043007, guid: 4fe09c76891186a42b12022cd4c28991,
         type: 3}
@@ -6023,6 +6034,11 @@ PrefabInstance:
         type: 3}
       propertyPath: room
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 36365537792037549, guid: 4fe09c76891186a42b12022cd4c28991,
+        type: 3}
+      propertyPath: LVL
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 36365538336042945, guid: 4fe09c76891186a42b12022cd4c28991,
         type: 3}
@@ -6219,6 +6235,11 @@ PrefabInstance:
       propertyPath: room
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 36365537792037549, guid: 4fe09c76891186a42b12022cd4c28991,
+        type: 3}
+      propertyPath: LVL
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 36365538336043007, guid: 4fe09c76891186a42b12022cd4c28991,
         type: 3}
       propertyPath: m_Layer
@@ -6318,6 +6339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: room
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 36365537792037549, guid: 4fe09c76891186a42b12022cd4c28991,
+        type: 3}
+      propertyPath: LVL
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe09c76891186a42b12022cd4c28991, type: 3}

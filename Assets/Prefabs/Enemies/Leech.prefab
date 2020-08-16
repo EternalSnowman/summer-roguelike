@@ -129,7 +129,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &3995302780487205328
 MonoBehaviour:
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f479c69c97e51944a12536298615fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: 1
   LVL: 1
   maxHP: 0
   currentHP: 0
@@ -169,7 +170,6 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 2376661158229758696}
   enemySprite: {fileID: 2376661158229758698}
-  room: 1
   tempAttackCD: 0
   attackCD: 0
   attackAnim: 0
@@ -574,7 +574,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d6cec171c30297c49b4c22fefb4091fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48348a5d71d03414e966a0703c20764a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

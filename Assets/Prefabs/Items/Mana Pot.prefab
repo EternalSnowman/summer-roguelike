@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 8661978251948076591}
-  equip: 0
   typeOfItem: 3
   canPickup: 0
+  name: Mana Potion
+  itemDesc: Restore 20% MP

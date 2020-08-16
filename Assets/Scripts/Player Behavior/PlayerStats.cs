@@ -4,6 +4,8 @@ using UnityEngine;
 
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class PlayerStats : MonoBehaviour
     public static int RES;
     public static int EXP;
     public static int expNext;
+    public static int floor;
 
     public static bool[] bossesBeat;
     public static bool[] miniBossesBeat;
@@ -38,7 +41,7 @@ public class PlayerStats : MonoBehaviour
     public static int room;
 
     public Attack skillRef;
-    public Skill emptySkill;
+    public static Skill emptySkill;
 
     public GameObject levelUpText;
 
@@ -52,7 +55,7 @@ public class PlayerStats : MonoBehaviour
     public GameObject buff8;
 
     public Skill[] learnSet;
-    public Skill[] learnedSkills;
+    public static Skill[] learnedSkills;
 
     public float displayTimer;
     public float tempDisplayTimer;
@@ -66,10 +69,14 @@ public class PlayerStats : MonoBehaviour
     {
         BaseStats();
 
+        floor = 1;
+
         tempDisplayTimer = 2f;
         displayTimer = 0f;
 
-        learnedSkills = new Skill[learnSet.Length];
+        emptySkill = GameObject.FindGameObjectWithTag("EmptySkill").GetComponent<Skill>();
+
+        learnedSkills = new Skill[12];
         learnedSkills[0] = learnSet[0];
         for(int i = 1; i < learnedSkills.Length; i++)
         {
@@ -91,11 +98,20 @@ public class PlayerStats : MonoBehaviour
             bossesBeat[i] = false;
         }
 
-        miniBossesBeat = new bool[4];
+        miniBossesBeat = new bool[5];
         for (int i = 0; i < miniBossesBeat.Length; i++)
         {
             miniBossesBeat[i] = false;
         }
+
+        GameObject tooltip = GameObject.FindGameObjectWithTag("Tooltip");
+        tooltip.SetActive(false);
+
+        SelectionModule selectionModule = GameObject.FindGameObjectWithTag("Selection Module").GetComponent<SelectionModule>();
+        selectionModule.gameObject.SetActive(false);
+
+        SkillSelect selectionModule2 = GameObject.FindGameObjectWithTag("SkillSelect").GetComponent<SkillSelect>();
+        selectionModule2.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -123,26 +139,79 @@ public class PlayerStats : MonoBehaviour
         {
             EXP = EXP - expNext;
             LVL++;
-            expNext += 50;
+            expNext += 100;
             STR += 5;
-            maxHP += 20;
+            maxHP += 10;
             currentHP = maxHP;
-            maxMana += 20;
+            maxMana += 10;
             currentMana = maxMana;
+            DEF += 2;
+            RES += 2;
 
             displayTimer = tempDisplayTimer;
+            // Bolster
             if(LVL == 3)
             {
                 levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill Bolster!";
-                learnedSkills[1] = learnSet[1];
-                // instead of using 1, in the future we should get the first empty
-                skillRef.skill2 = learnedSkills[1];
+                // TODO: Handle max skills (same for items)
+                if (GetFirstEmptySkill() != 12)
+                {
+                    learnedSkills[GetFirstEmptySkill()] = learnSet[1];
+                }
+
+                if(skillRef.skill1 == emptySkill)
+                {
+                    skillRef.skill1 = learnSet[1];
+                }
+                else if (skillRef.skill2 == emptySkill)
+                {
+                    skillRef.skill2 = learnSet[1];
+                }
+                else if (skillRef.skill3 == emptySkill)
+                {
+                    skillRef.skill3 = learnSet[1];
+                }
+            }
+            // Quicken
+            else if (LVL == 5)
+            {
+                levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill Quicken!";
+                if (GetFirstEmptySkill() != 12)
+                {
+                    learnedSkills[GetFirstEmptySkill()] = learnSet[2];
+                }
+
+                if (skillRef.skill1 == emptySkill)
+                {
+                    skillRef.skill1 = learnSet[2];
+                }
+                else if (skillRef.skill2 == emptySkill)
+                {
+                    skillRef.skill2 = learnSet[2];
+                }
+                else if (skillRef.skill3 == emptySkill)
+                {
+                    skillRef.skill3 = learnSet[2];
+                }
             }
             else
             {
                 levelUpText.GetComponent<Text>().text = "Level Up to " + LVL;
             }
         }
+    }
+
+    int GetFirstEmptySkill()
+    {
+        for(int i = 0; i < learnedSkills.Length; i++)
+        {
+            if(learnedSkills[i] == emptySkill)
+            {
+                return i;
+            }
+        }
+        // error code
+        return 12;
     }
 
 
@@ -161,18 +230,37 @@ public class PlayerStats : MonoBehaviour
 
         if(currentHP <= 0)
         {
-           SceneManager.LoadScene("GameOver");
+            SaveData saveData = new SaveData();
+            string path = Application.persistentDataPath + "/data.drm";
+            BinaryFormatter formatter = new BinaryFormatter();
+            if (File.Exists(path))
+            {
+                FileStream stream = new FileStream(path, FileMode.Open);
+
+                saveData = formatter.Deserialize(stream) as SaveData;
+                stream.Close();
+            }
+            FileStream writeStream = new FileStream(path, FileMode.Create);
+
+            SaveData newData = new SaveData(saveData);
+
+            formatter.Serialize(writeStream, newData);
+            writeStream.Close();
+
+            SceneManager.LoadScene("GameOver");
         }
     }
 
     void BaseStats()
     {
-        maxHP = 10000;
+        maxHP = 100;
         currentHP = maxHP;
         maxMana = 100;
         currentMana = maxMana;
         LVL = 1;
-        STR = 2000;
+        STR = 25;
+        DEF = 5;
+        RES = 5;
         expNext = 500;
     }
 

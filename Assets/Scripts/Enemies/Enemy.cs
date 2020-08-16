@@ -5,6 +5,7 @@ using System;
 
 public class Enemy : MonoBehaviour
 {
+    public int room;
     public int LVL;
     public float maxHP;
     public float currentHP;
@@ -37,7 +38,6 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D enemyRigidBody;
     public SpriteRenderer enemySprite;
 
-    public int room;
     public float tempAttackCD;
     public float attackCD;
 

@@ -48,7 +48,7 @@ public class OrcMiniBoss : Boss
         }
         else
         {
-            if ((downAttack.enabled == false) && (upAttack.enabled == false) && (rightAttack.enabled == false) && (leftAttack.enabled == false) && !Phase1)
+            if ((downAttack.enabled == false) && (upAttack.enabled == false) && (rightAttack.enabled == false) && (leftAttack.enabled == false))
             {
                 speed = tempSpeed;
             }
@@ -62,31 +62,27 @@ public class OrcMiniBoss : Boss
             AttackCheck();
             enemyRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-        else
-        {
-            //enemyRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
-            //speed = 0;
-        }
         HandleDeath();
-        attackCD -= Time.deltaTime;
-
-        skillCD -= Time.deltaTime;
+        if (attackCD > 0)
+        {
+            attackCD -= Time.deltaTime;
+        }
         CheckStatus();
     }
 
 
     public override void LoadStats()
     {
-        maxHP = 450 + (LVL * 50);
+        maxHP = 300 + (LVL * 200);
         currentHP = maxHP;
 
-        STR = 100 + ((LVL - 1) * 10);
+        STR = 100 + ((LVL - 1) * 20);
         INT = 0;
         AGI = 1;
         DEF = 20 + ((LVL - 1) * 5);
         RES = LVL / 2;
 
-        baseExpYield = 500 + ((LVL - 1) * 50);
+        baseExpYield = 500 + ((LVL - 1) * 100);
 
         tempSpeed = 2f;
         speed = tempSpeed;

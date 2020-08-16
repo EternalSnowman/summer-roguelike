@@ -10,20 +10,20 @@ public class Leech : Enemy
 
     public override void LoadStats()
     {
-        maxHP = 200 + (LVL * 50);
+        maxHP = 100 + (LVL * 15);
         currentHP = maxHP;
 
         STR = 20 + ((LVL - 1) * 5);
         INT = 0;
         AGI = 1;
-        DEF = 10 + ((LVL - 1) * 5);
-        RES = LVL / 2;
+        DEF = 10 + ((LVL - 1) * 2);
+        RES = 30 + ((LVL - 1) * 5);
 
-        baseExpYield = 150 + ((LVL - 1) * 20);
+        baseExpYield = 200 + ((LVL - 1) * 30);
 
         tempSpeed = 1.5f;
         speed = tempSpeed;
-        ATKRNG = .5f;
+        ATKRNG = 1.25f;
         tempAttackCD = 1f;
         attackCD = tempAttackCD;
     }
@@ -123,28 +123,32 @@ public class Leech : Enemy
             collision.SendMessageUpwards("Damage", STR - PlayerStats.DEF);
         }
 
-        int value = 8;
-        for (int i = 0; i < PlayerStats.buffs.Length; i++)
+        if (collision.isTrigger != true && collision.CompareTag("Player"))
         {
-            if (PlayerStats.buffs[i] == infection)
+            int value = 8;
+            for (int i = 0; i < PlayerStats.buffs.Length; i++)
             {
-                value = i;
+                if (PlayerStats.buffs[i] == infection)
+                {
+                    value = i;
+                }
+            }
+
+            if (value < 8)
+            {
+                PlayerStats.buffs[value].currDuration = PlayerStats.buffs[value].duration;
+            }
+            else
+            {
+                if (PlayerStats.findNextFree() < 8)
+                {
+                    infection.currDuration = infection.duration;
+                    infection.Activate();
+                    PlayerStats.buffs[PlayerStats.findNextFree()] = infection;
+                }
             }
         }
 
-        if (value < 8)
-        {
-            PlayerStats.buffs[value].currDuration = PlayerStats.buffs[value].duration;
-        }
-        else
-        {
-            if (PlayerStats.findNextFree() < 8)
-            {
-                infection.currDuration = infection.duration;
-                infection.Activate();
-                PlayerStats.buffs[PlayerStats.findNextFree()] = infection;
-            }
-        }
     }
 
     public override void HandleDeath()

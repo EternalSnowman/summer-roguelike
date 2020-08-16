@@ -86,14 +86,14 @@ public class GoblinKing : Boss
 
     public override void LoadStats()
     {
-        maxHP = 500 * LVL;
+        maxHP = 1500 * LVL;
         currentHP = maxHP;
-        STR = 30 * LVL;
+        STR = 80 * LVL;
         INT = 0;
         AGI = 1;
-        DEF = 40 * LVL;
+        DEF = 100 * LVL;
 
-        baseExpYield = 1000 * LVL;
+        baseExpYield = 2000 * LVL;
 
         tempSpeed = 4.0f;
         speed = tempSpeed;
@@ -134,7 +134,7 @@ public class GoblinKing : Boss
         Phase1 = false;
         if (transition)
         {
-            DEF -= 40;
+            DEF -= 60;
             STR += 10;
             transition = false;
         }
@@ -146,9 +146,9 @@ public class GoblinKing : Boss
         anim.SetBool("Buff", true);
         for (var i = 0; i < enemies.Length; i++)
         {
-            enemies[i].GetComponent<Enemy>().STR += 3 * LVL;
-            enemies[i].GetComponent<Enemy>().DEF += 2 * LVL;
-            enemies[i].GetComponent<Enemy>().RES += 2 * LVL;
+            enemies[i].GetComponent<Enemy>().STR += 10 * LVL;
+            enemies[i].GetComponent<Enemy>().DEF += 5 * LVL;
+            enemies[i].GetComponent<Enemy>().RES += 5 * LVL;
 
         }
 

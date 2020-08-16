@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Goblin : Enemy
 {
-
-
     public override void LoadStats()
     {
         maxHP = 30 + (LVL*10);
         currentHP = maxHP;
 
-        STR = 10 + (LVL*3);
+        STR = 10 + (LVL*6);
         INT = 0;
         AGI = 1;
         DEF = LVL;

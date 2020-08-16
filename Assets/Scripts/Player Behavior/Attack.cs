@@ -26,23 +26,37 @@ public class Attack : MonoBehaviour
     public GameObject skill3UI;
     public GameObject consumeUI;
     public GameObject inventoryMenu;
+    public GameObject skillMenu;
 
     public float recentlyOpen;
+    public float recentlyOpen2;
+
+    public GameObject tooltip;
 
     // Start is called before the first frame update
     void Start()
     {
+        Skill emptySkill = GameObject.FindGameObjectWithTag("EmptySkill").GetComponent<Skill>();
+        skill2 = emptySkill;
+        skill3 = emptySkill;
+
         upAttack.enabled = false;
         rightAttack.enabled = false;
         leftAttack.enabled = false;
         downAttack.enabled = false;
+
         skill1UI = GameObject.FindGameObjectWithTag("Skill1");
         skill2UI = GameObject.FindGameObjectWithTag("Skill2");
         skill3UI = GameObject.FindGameObjectWithTag("Skill3");
         consumeUI = GameObject.FindGameObjectWithTag("ConsumableItem");
         inventoryMenu = GameObject.FindGameObjectWithTag("Inventory");
+        skillMenu = GameObject.FindGameObjectWithTag("Skill Menu");
+
         recentlyOpen = 0f;
+        recentlyOpen2 = 0f;
+
         inventoryMenu.SetActive(false);
+        skillMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -51,6 +65,11 @@ public class Attack : MonoBehaviour
         if (recentlyOpen >= 0)
         {
             recentlyOpen -= Time.deltaTime;
+        }
+
+        if (recentlyOpen2 >= 0)
+        {
+            recentlyOpen2 -= Time.deltaTime;
         }
 
         skill1UI.GetComponent<Image>().sprite = skill1.icon.sprite;
@@ -67,11 +86,20 @@ public class Attack : MonoBehaviour
 
         skill3UI.GetComponent<Slider>().maxValue = skill3.tempSkillCD;
         skill3UI.GetComponent<Slider>().value = skill3.skillCD;
+        
 
         if (Input.GetKey(KeyCode.I) && recentlyOpen <= 0f)
         {
             inventoryMenu.SetActive(!inventoryMenu.activeSelf);
+            skillMenu.SetActive(false);
             recentlyOpen = .5f;
+        }
+
+        if (Input.GetKey(KeyCode.U) && recentlyOpen2 <= 0f)
+        {
+            skillMenu.SetActive(!skillMenu.activeSelf);
+            inventoryMenu.SetActive(false);
+            recentlyOpen2 = .5f;
         }
 
         // Toggle isAttacking
