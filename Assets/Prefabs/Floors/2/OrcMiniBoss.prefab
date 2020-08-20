@@ -20277,7 +20277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEXP: 1
-  extraEXP: 500
+  extraEXP: 750
   possibleRandomDrops: []
   drop: {fileID: 0}
   icon: {fileID: 1634501447279614017}
@@ -20709,7 +20709,9 @@ MonoBehaviour:
   extraEXP: 200
   possibleRandomDrops:
   - {fileID: 862198235460598177, guid: ab4279191449b1d4bbf63627be12423b, type: 3}
-  - {fileID: 6354260402985860254, guid: 3b0b48b7506fdfe49ab2d912230e4404, type: 3}
+  - {fileID: 862198235460598177, guid: ab4279191449b1d4bbf63627be12423b, type: 3}
+  - {fileID: 5263176438041160459, guid: 244099caef94c7b4d84fcc5358916c27, type: 3}
+  - {fileID: 5528948399635571881, guid: 214bfbc4894e3fc4d9c737372eef7dbe, type: 3}
   drop: {fileID: 0}
   icon: {fileID: 7273413684981542247}
 --- !u!212 &7273413684981542247
@@ -21290,6 +21292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbce6a419425dd4bbbb418666fe8fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: 17
   LVL: 2
   maxHP: 0
   currentHP: 0
@@ -21316,7 +21319,6 @@ MonoBehaviour:
   flashCounter: 0
   enemyRigidBody: {fileID: 4519126270322660698}
   enemySprite: {fileID: 4519126270322660696}
-  room: 17
   tempAttackCD: 0
   attackCD: 0
   enemies: []
@@ -21456,7 +21458,9 @@ MonoBehaviour:
   extraEXP: 200
   possibleRandomDrops:
   - {fileID: 2883743822130033793, guid: 5fcca709526c8d84b95036d5e6b5f885, type: 3}
-  - {fileID: 5341598313374684531, guid: d95cf28827f6f7e42aef8fa716799589, type: 3}
+  - {fileID: 2883743822130033793, guid: 5fcca709526c8d84b95036d5e6b5f885, type: 3}
+  - {fileID: 471657449051396250, guid: 2c9cc01489825fc4cb5af02705b6bf79, type: 3}
+  - {fileID: 404118811792189595, guid: 40a2910b427904644b64ec8f69c51230, type: 3}
   drop: {fileID: 0}
   icon: {fileID: 7980405601343065386}
 --- !u!212 &7980405601343065386

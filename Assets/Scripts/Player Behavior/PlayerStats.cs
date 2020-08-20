@@ -54,6 +54,9 @@ public class PlayerStats : MonoBehaviour
     public GameObject buff7;
     public GameObject buff8;
 
+    public GameObject minimap;
+    public int prevRoom;
+
     public Skill[] learnSet;
     public static Skill[] learnedSkills;
 
@@ -68,6 +71,8 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         BaseStats();
+
+        minimap = GameObject.FindGameObjectWithTag("Minimap");
 
         floor = 1;
 
@@ -131,6 +136,28 @@ public class PlayerStats : MonoBehaviour
         {
             levelUpText.SetActive(false);
         }
+
+        if((PlayerStats.room % 20 != prevRoom))
+        {
+            if((PlayerStats.room != 0) && (PlayerStats.room != 17))
+            {
+                minimap.SetActive(true);
+                minimap.transform.GetChild((PlayerStats.room % 20) - 1).GetComponent<Image>().color = new Color32(42, 209, 84, 150);
+                if (prevRoom != 0 && prevRoom != 17)
+                {
+                    minimap.transform.GetChild(prevRoom - 1).GetComponent<Image>().color = new Color32(104, 126, 237, 150);
+                }
+            }
+            else
+            {
+                for(int i = 0; i < 16; i++)
+                {
+                    minimap.transform.GetChild(i).GetComponent<Image>().color = new Color32(0, 0, 0, 0);
+                }
+            }
+            
+            prevRoom = PlayerStats.room % 20;
+        }
     }
 
     void HandleLevel()
@@ -140,7 +167,7 @@ public class PlayerStats : MonoBehaviour
             EXP = EXP - expNext;
             LVL++;
             expNext += 100;
-            STR += 5;
+            STR += 4;
             maxHP += 10;
             currentHP = maxHP;
             maxMana += 10;
@@ -152,7 +179,7 @@ public class PlayerStats : MonoBehaviour
             // Bolster
             if(LVL == 3)
             {
-                levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill Bolster!";
+                levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill " + learnSet[1].name + "!";
                 // TODO: Handle max skills (same for items)
                 if (GetFirstEmptySkill() != 12)
                 {
@@ -175,7 +202,7 @@ public class PlayerStats : MonoBehaviour
             // Quicken
             else if (LVL == 5)
             {
-                levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill Quicken!";
+                levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill " + learnSet[2].name + "!";
                 if (GetFirstEmptySkill() != 12)
                 {
                     learnedSkills[GetFirstEmptySkill()] = learnSet[2];
@@ -192,6 +219,72 @@ public class PlayerStats : MonoBehaviour
                 else if (skillRef.skill3 == emptySkill)
                 {
                     skillRef.skill3 = learnSet[2];
+                }
+            }
+            // Harden
+            else if (LVL == 7)
+            {
+                levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill " + learnSet[3].name + "!";
+                if (GetFirstEmptySkill() != 12)
+                {
+                    learnedSkills[GetFirstEmptySkill()] = learnSet[3];
+                }
+
+                if (skillRef.skill1 == emptySkill)
+                {
+                    skillRef.skill1 = learnSet[3];
+                }
+                else if (skillRef.skill2 == emptySkill)
+                {
+                    skillRef.skill2 = learnSet[3];
+                }
+                else if (skillRef.skill3 == emptySkill)
+                {
+                    skillRef.skill3 = learnSet[3];
+                }
+            }
+            // Stab
+            else if (LVL == 9)
+            {
+                levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill " + learnSet[4].name + "!";
+                if (GetFirstEmptySkill() != 12)
+                {
+                    learnedSkills[GetFirstEmptySkill()] = learnSet[4];
+                }
+
+                if (skillRef.skill1 == emptySkill)
+                {
+                    skillRef.skill1 = learnSet[4];
+                }
+                else if (skillRef.skill2 == emptySkill)
+                {
+                    skillRef.skill2 = learnSet[4];
+                }
+                else if (skillRef.skill3 == emptySkill)
+                {
+                    skillRef.skill3 = learnSet[4];
+                }
+            }
+            // Charge
+            else if (LVL == 2)
+            {
+                levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill " + learnSet[5].name + "!";
+                if (GetFirstEmptySkill() != 12)
+                {
+                    learnedSkills[GetFirstEmptySkill()] = learnSet[5];
+                }
+
+                if (skillRef.skill1 == emptySkill)
+                {
+                    skillRef.skill1 = learnSet[5];
+                }
+                else if (skillRef.skill2 == emptySkill)
+                {
+                    skillRef.skill2 = learnSet[5];
+                }
+                else if (skillRef.skill3 == emptySkill)
+                {
+                    skillRef.skill3 = learnSet[5];
                 }
             }
             else
@@ -255,13 +348,15 @@ public class PlayerStats : MonoBehaviour
     {
         maxHP = 100;
         currentHP = maxHP;
-        maxMana = 100;
+        maxMana = 1000;
         currentMana = maxMana;
         LVL = 1;
         STR = 25;
         DEF = 5;
         RES = 5;
         expNext = 500;
+
+        prevRoom = 0;
     }
 
     void debug()

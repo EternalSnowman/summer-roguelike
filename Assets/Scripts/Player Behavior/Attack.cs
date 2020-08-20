@@ -15,6 +15,8 @@ public class Attack : MonoBehaviour
     public Collider2D leftAttack;
     public Collider2D downAttack;
 
+    public static bool isDisabled;
+
     public Inventory playerInventory;
 
     public Skill skill1;
@@ -44,6 +46,8 @@ public class Attack : MonoBehaviour
         rightAttack.enabled = false;
         leftAttack.enabled = false;
         downAttack.enabled = false;
+
+        isDisabled = false;
 
         skill1UI = GameObject.FindGameObjectWithTag("Skill1");
         skill2UI = GameObject.FindGameObjectWithTag("Skill2");
@@ -103,7 +107,7 @@ public class Attack : MonoBehaviour
         }
 
         // Toggle isAttacking
-        if (Input.GetKey(KeyCode.J) && !isAttacking && !isSkill)
+        if (Input.GetKey(KeyCode.J) && !isAttacking && !isSkill && !isDisabled)
         {
             isAttacking = true;
 
@@ -114,18 +118,18 @@ public class Attack : MonoBehaviour
             isAttacking = false;
         }
 
-        if (Input.GetKey(KeyCode.K) && !isAttacking && !isSkill && (skill1.skillCD <= 0f) && (PlayerStats.currentMana >= skill1.manaCost))
+        if (Input.GetKey(KeyCode.K) && !isAttacking && !isSkill && (skill1.skillCD <= 0f) && (PlayerStats.currentMana >= skill1.manaCost) && !isDisabled)
         {
             skill1.Activate();
             isSkill = true;
         }
 
-        else if (Input.GetKey(KeyCode.L) && !isAttacking && !isSkill && (skill2.skillCD <= 0f) && (PlayerStats.currentMana >= skill2.manaCost))
+        else if (Input.GetKey(KeyCode.L) && !isAttacking && !isSkill && (skill2.skillCD <= 0f) && (PlayerStats.currentMana >= skill2.manaCost) && !isDisabled)
         {
             skill2.Activate();
             isSkill = true;
         }
-        else if (Input.GetKey(KeyCode.Semicolon) && !isAttacking && !isSkill && (skill3.skillCD <= 0f) && (PlayerStats.currentMana >= skill3.manaCost))
+        else if (Input.GetKey(KeyCode.Semicolon) && !isAttacking && !isSkill && (skill3.skillCD <= 0f) && (PlayerStats.currentMana >= skill3.manaCost) && !isDisabled)
         {
             isSkill = true;
             skill3.Activate();

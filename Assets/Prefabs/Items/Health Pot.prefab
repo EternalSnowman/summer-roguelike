@@ -49,7 +49,7 @@ MonoBehaviour:
   typeOfItem: 3
   canPickup: 0
   name: Health Potion
-  itemDesc: Restore 20% HP
+  itemDesc: Restore 25% HP
 --- !u!212 &6354260402985860255
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -26,6 +26,8 @@ TagManager:
   - EmptySkill
   - Tooltip
   - SkillSelect
+  - LoadingScreen
+  - Minimap
   layers:
   - Default
   - TransparentFX

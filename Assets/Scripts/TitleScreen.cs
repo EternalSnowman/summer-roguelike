@@ -11,6 +11,7 @@ public class TitleScreen : MonoBehaviour
     public SaveData saveData;
     public GameObject settingsPanel;
     public GameObject dungeonJournal;
+    public GameObject loadingScreen;
 
     public Sprite emptyClass;
     public Sprite knight;
@@ -22,6 +23,8 @@ public class TitleScreen : MonoBehaviour
     {
         settingsPanel = GameObject.FindGameObjectWithTag("Skill Menu");
         settingsPanel.SetActive(false);
+
+        loadingScreen.SetActive(false);
 
         dungeonJournal = GameObject.FindGameObjectWithTag("LevelUpText");
         dungeonJournal.SetActive(false);
@@ -105,6 +108,7 @@ public class TitleScreen : MonoBehaviour
 
     public void StartGame()
     {
+        loadingScreen.SetActive(true);
         SceneManager.LoadScene("Main");
     }
 

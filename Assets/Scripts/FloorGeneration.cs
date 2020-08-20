@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FloorGeneration : MonoBehaviour
 {
@@ -37,10 +38,13 @@ public class FloorGeneration : MonoBehaviour
     public static Transform player;
     public GameObject stairs;
 
+    public GameObject minimap;
+
     // Start is called before the first frame update
     void Start()
     {
         GameObject[] music = GameObject.FindGameObjectsWithTag("Music Control");
+        minimap = GameObject.FindGameObjectWithTag("Minimap");
         for (var i = 0; i < music.Length; i++)
         {
             Destroy(music[i]);
@@ -64,6 +68,12 @@ public class FloorGeneration : MonoBehaviour
         musicControl.Play();
         DestroyFloor();
         CameraMovement.boss = false;
+
+        for(int i = 0; i < 16; i++)
+        {
+            minimap.transform.GetChild(i).GetComponent<Image>().color = new Color32(227, 68, 68, 150);
+        }
+
         // Player Position
         int randomPlayerPosition = UnityEngine.Random.Range(1,17);
         float playerX = (((randomPlayerPosition - 1) % 4) * 17);
@@ -96,6 +106,7 @@ public class FloorGeneration : MonoBehaviour
         musicControl.clip = bossMusic;
         musicControl.Play();
         DestroyFloor();
+
         player.position = new Vector3(0,0,0);
         Camera.main.transform.position = new Vector3(0,0,Camera.main.transform.position.z);
         int randomBossRoom;

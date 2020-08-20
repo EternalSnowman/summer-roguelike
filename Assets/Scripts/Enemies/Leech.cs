@@ -160,6 +160,7 @@ public class Leech : Enemy
             {
                 if (PlayerStats.buffs[i] == infection)
                 {
+                    PlayerStats.buffs[i].Deactivate();
                     PlayerStats.buffs[i] = PlayerStats.emptyBuff;
                 }
             }

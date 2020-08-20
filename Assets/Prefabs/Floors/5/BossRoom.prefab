@@ -23638,7 +23638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEXP: 1
-  extraEXP: 500
+  extraEXP: 2000
   possibleRandomDrops: []
   drop: {fileID: 0}
   icon: {fileID: 7131366405926351375}

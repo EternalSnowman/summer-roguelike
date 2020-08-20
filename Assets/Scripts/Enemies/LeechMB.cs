@@ -75,13 +75,13 @@ public class LeechMB : Boss
 
     public override void LoadStats()
     {
-        maxHP = 100 + (LVL * 200);
+        maxHP = 100 + (LVL * 150);
         currentHP = maxHP;
 
         STR = 30 + ((LVL - 1) * 15);
         INT = 0;
         AGI = 1;
-        DEF = 10 + ((LVL - 1) * 5);
+        DEF = 10 + ((LVL - 1) * 3);
         RES = LVL / 2;
 
         baseExpYield = 500 + ((LVL - 1) * 100);
@@ -187,27 +187,29 @@ public class LeechMB : Boss
         {
             collision.SendMessageUpwards("Damage", STR - PlayerStats.DEF);
         }
-
-        int value = 8;
-        for (int i = 0; i < PlayerStats.buffs.Length; i++)
+        if(!collision.isTrigger && collision.CompareTag("Player"))
         {
-            if (PlayerStats.buffs[i] == infection)
+            int value = 8;
+            for (int i = 0; i < PlayerStats.buffs.Length; i++)
             {
-                value = i;
+                if (PlayerStats.buffs[i] == infection)
+                {
+                    value = i;
+                }
             }
-        }
 
-        if (value < 8)
-        {
-            PlayerStats.buffs[value].currDuration = PlayerStats.buffs[value].duration;
-        }
-        else
-        {
-            if (PlayerStats.findNextFree() < 8)
+            if (value < 8)
             {
-                infection.currDuration = infection.duration;
-                infection.Activate();
-                PlayerStats.buffs[PlayerStats.findNextFree()] = infection;
+                PlayerStats.buffs[value].currDuration = PlayerStats.buffs[value].duration;
+            }
+            else
+            {
+                if (PlayerStats.findNextFree() < 8)
+                {
+                    infection.currDuration = infection.duration;
+                    infection.Activate();
+                    PlayerStats.buffs[PlayerStats.findNextFree()] = infection;
+                }
             }
         }
     }
@@ -221,6 +223,7 @@ public class LeechMB : Boss
             {
                 if (PlayerStats.buffs[i] == infection)
                 {
+                    PlayerStats.buffs[i].Deactivate();
                     PlayerStats.buffs[i] = PlayerStats.emptyBuff;
                 }
             }

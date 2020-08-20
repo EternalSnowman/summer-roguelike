@@ -125,4 +125,4 @@ MonoBehaviour:
   typeOfItem: 3
   canPickup: 0
   name: Mana Potion
-  itemDesc: Restore 20% MP
+  itemDesc: Restore 25% MP

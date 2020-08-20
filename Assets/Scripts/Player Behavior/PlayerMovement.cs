@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour {
     public static float tempSpeed = 5f;
     public static float speed = tempSpeed;
 
+    public static bool isDisabled;
+
     public bool flashActive;
     public float flashLength = 0f;
     public float flashCounter = 0f;
@@ -23,6 +25,8 @@ public class PlayerMovement : MonoBehaviour {
         red = playerSprite.color.r;
         green = playerSprite.color.g;
         blue = playerSprite.color.b;
+
+        isDisabled = false;
     }
 
     // Update is called once per frame
@@ -71,17 +75,18 @@ public class PlayerMovement : MonoBehaviour {
 
     void readKeys()
     {
-        float movex = Input.GetAxis("Horizontal");
-        float movey = Input.GetAxis("Vertical");
-        GetComponent<Rigidbody2D>().velocity = new Vector2(movex * speed, movey * speed);
-        GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-        GetComponent<Rigidbody2D>().interpolation = RigidbodyInterpolation2D.Extrapolate;
+        if (!isDisabled)
+        {
+            float movex = Input.GetAxis("Horizontal");
+            float movey = Input.GetAxis("Vertical");
+            GetComponent<Rigidbody2D>().velocity = new Vector2(movex * speed, movey * speed);
+            GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+            GetComponent<Rigidbody2D>().interpolation = RigidbodyInterpolation2D.Extrapolate;
 
 
-        animator.SetFloat("Horizontal", movex);
-        animator.SetFloat("Vertical", movey);
-
-
+            animator.SetFloat("Horizontal", movex);
+            animator.SetFloat("Vertical", movey);
+        }
     }
 
     void movementSpeed(){

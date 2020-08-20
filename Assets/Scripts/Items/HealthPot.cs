@@ -8,7 +8,7 @@ public class HealthPot : Items
     private void Start()
     {
         name = "Health Potion";
-        itemDesc = "Restore 20% HP";
+        itemDesc = "Restore 25% HP";
     }
 
     public override void Use()

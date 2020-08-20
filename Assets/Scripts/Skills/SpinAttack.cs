@@ -16,7 +16,7 @@ public class SpinAttack : Skill
         skillCD = 0f;
         name = "Spin Attack";
         hitbox.enabled = false;
-        manaCost = 20;
+        manaCost = 30;
         isSkill = false;
 
         skillDesc = "Deal AOE damage based on your STR";

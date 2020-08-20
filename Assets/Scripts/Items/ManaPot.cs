@@ -8,7 +8,7 @@ public class ManaPot : Items
     private void Start()
     {
         name = "Mana Potion";
-        itemDesc = "Restore 20% Mana";
+        itemDesc = "Restore 25% Mana";
     }
 
     public override void Use()
