@@ -76,8 +76,8 @@ public class FloorGeneration : MonoBehaviour
 
         // Player Position
         int randomPlayerPosition = UnityEngine.Random.Range(1,17);
-        float playerX = (((randomPlayerPosition - 1) % 4) * 17);
-        float playerY = (float)(((randomPlayerPosition - 1)/4) * -8.5);
+        float playerX = (((randomPlayerPosition - 1) % 4) * 20);
+        float playerY = (float)(((randomPlayerPosition - 1)/4) * -12);
         player.position = new Vector3(playerX,playerY,0);
         Camera.main.transform.position = new Vector3(playerX,playerY,Camera.main.transform.position.z);
         
@@ -90,8 +90,8 @@ public class FloorGeneration : MonoBehaviour
             randomStairPosition = UnityEngine.Random.Range(1,17);
         } while(randomStairPosition == randomPlayerPosition);
 
-        float stairX = (((randomStairPosition - 1) % 4) * 17);
-        float stairY = (float)(((randomStairPosition - 1)/4) * -8.5);
+        float stairX = (((randomStairPosition - 1) % 4) * 20);
+        float stairY = (float)(((randomStairPosition - 1)/4) * -12);
         Instantiate(stairs, new Vector3(stairX,stairY,0), Quaternion.identity);
 
         for (int i = 1; i <= 16; i++)
@@ -195,8 +195,8 @@ public class FloorGeneration : MonoBehaviour
             selectedRoom = prefabs[6];
         }
 
-        float x = (((room -1) % 4) * 17);
-        float y = (float)(((room - 1)/4) * -8.5);
+        float x = (((room -1) % 4) * 20);
+        float y = (float)(((room - 1)/4) * -12);
 
         Instantiate(selectedRoom, new Vector3(x,y,0), Quaternion.identity);
     }

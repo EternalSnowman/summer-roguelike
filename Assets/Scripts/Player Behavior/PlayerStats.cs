@@ -200,7 +200,7 @@ public class PlayerStats : MonoBehaviour
                 }
             }
             // Quicken
-            else if (LVL == 5)
+            else if (LVL == 9)
             {
                 levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill " + learnSet[2].name + "!";
                 if (GetFirstEmptySkill() != 12)
@@ -222,7 +222,7 @@ public class PlayerStats : MonoBehaviour
                 }
             }
             // Harden
-            else if (LVL == 7)
+            else if (LVL == 11)
             {
                 levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill " + learnSet[3].name + "!";
                 if (GetFirstEmptySkill() != 12)
@@ -244,7 +244,7 @@ public class PlayerStats : MonoBehaviour
                 }
             }
             // Stab
-            else if (LVL == 9)
+            else if (LVL == 5)
             {
                 levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill " + learnSet[4].name + "!";
                 if (GetFirstEmptySkill() != 12)
@@ -266,7 +266,7 @@ public class PlayerStats : MonoBehaviour
                 }
             }
             // Charge
-            else if (LVL == 2)
+            else if (LVL == 7)
             {
                 levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill " + learnSet[5].name + "!";
                 if (GetFirstEmptySkill() != 12)

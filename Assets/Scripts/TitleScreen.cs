@@ -27,6 +27,9 @@ public class TitleScreen : MonoBehaviour
         loadingScreen.SetActive(false);
 
         dungeonJournal = GameObject.FindGameObjectWithTag("LevelUpText");
+
+        EnemyInfoPopulate();
+
         dungeonJournal.SetActive(false);
 
         string path = Application.persistentDataPath + "/data.drm";
@@ -71,37 +74,37 @@ public class TitleScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dungeonJournal.activeSelf)
+        if (dungeonJournal.transform.GetChild(1).gameObject.activeSelf)
         {
             for(int i = 0; i < 5; i++)
             {
                 switch(saveData.mostRecentClasses[i])
                 {
                     case 0:
-                        dungeonJournal.transform.GetChild(1).GetChild(i).GetComponent<Image>().sprite = emptyClass;
+                        dungeonJournal.transform.GetChild(1).GetChild(0).GetChild(i).GetComponent<Image>().sprite = emptyClass;
                         break;
                     case 1:
-                        dungeonJournal.transform.GetChild(1).GetChild(i).GetComponent<Image>().sprite = knight;
+                        dungeonJournal.transform.GetChild(1).GetChild(0).GetChild(i).GetComponent<Image>().sprite = knight;
                         break;
                     case 2:
-                        dungeonJournal.transform.GetChild(1).GetChild(i).GetComponent<Image>().sprite = mage;
+                        dungeonJournal.transform.GetChild(1).GetChild(0).GetChild(i).GetComponent<Image>().sprite = mage;
                         break;
                     case 3:
-                        dungeonJournal.transform.GetChild(1).GetChild(i).GetComponent<Image>().sprite = hunter;
+                        dungeonJournal.transform.GetChild(1).GetChild(0).GetChild(i).GetComponent<Image>().sprite = hunter;
                         break;
                 }
 
                 if(saveData.mostRecentClasses[i] == 0)
                 {
-                    dungeonJournal.transform.GetChild(2).GetChild(i).GetComponent<Text>().text = "";
+                    dungeonJournal.transform.GetChild(1).GetChild(1).GetChild(i).GetComponent<Text>().text = "";
                 }
                 else
                 {
-                    dungeonJournal.transform.GetChild(2).GetChild(i).GetComponent<Text>().text = "Level: " + saveData.mostRecentLevels[i] +
+                    dungeonJournal.transform.GetChild(1).GetChild(1).GetChild(i).GetComponent<Text>().text = "Level: " + saveData.mostRecentLevels[i] +
                     "\nFloor: " + saveData.mostRecentFloors[i];
                 }
             }
-            dungeonJournal.transform.GetChild(2).GetChild(5).GetComponent<Text>().text = "Highest Level: " + saveData.highestLevel +
+            dungeonJournal.transform.GetChild(1).GetChild(1).GetChild(5).GetComponent<Text>().text = "Highest Level: " + saveData.highestLevel +
                     "\nHighest Floor: " + saveData.highestFloor;
         }
     }
@@ -120,6 +123,11 @@ public class TitleScreen : MonoBehaviour
     public void DungeonJournal()
     {
         dungeonJournal.SetActive(!dungeonJournal.activeSelf);
+        if (dungeonJournal.activeSelf)
+        {
+            dungeonJournal.transform.GetChild(2).gameObject.SetActive(false);
+            dungeonJournal.transform.GetChild(3).gameObject.SetActive(false);
+        }
     }
 
     public void ExitApplication()
@@ -188,5 +196,23 @@ public class TitleScreen : MonoBehaviour
     public void set1920x1080()
     {
         Screen.SetResolution(1920, 1080, Screen.fullScreen);
+    }
+
+    public void EnemyInfo()
+    {
+        dungeonJournal.transform.GetChild(2).gameObject.SetActive(!dungeonJournal.transform.GetChild(2).gameObject.activeSelf);
+        dungeonJournal.transform.GetChild(3).gameObject.SetActive(!dungeonJournal.transform.GetChild(3).gameObject.activeSelf);
+        dungeonJournal.transform.GetChild(1).gameObject.SetActive(!dungeonJournal.transform.GetChild(1).gameObject.activeSelf);
+    }
+
+    public void EnemyInfoPopulate()
+    {
+        for(int i = 0; i < saveData.seenEnemies.Length; i++)
+        {
+            if(saveData.seenEnemies[i] == false)
+            {
+                dungeonJournal.transform.GetChild(2).GetChild(0).GetChild(i + 1).gameObject.SetActive(false);
+            }
+        }
     }
 }

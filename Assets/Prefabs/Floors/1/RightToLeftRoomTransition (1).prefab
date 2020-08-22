@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c763cb500aad214ab27e186d4058073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: -17
+  x: -20
   y: 0
-  playerChange: {x: -1.5, y: 0, z: 0}
+  playerChange: {x: -4.5, y: 0, z: 0}
   roomChange: -1
+  bossMusic: {fileID: 0}
+  musicControl: {fileID: 0}
 --- !u!61 &854394335883077087
 BoxCollider2D:
   m_ObjectHideFlags: 0

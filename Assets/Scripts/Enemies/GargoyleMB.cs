@@ -97,7 +97,7 @@ public class GargoyleMB : Boss
         maxHP = 150 + (LVL * 200);
         currentHP = maxHP;
 
-        STR = 50 + ((LVL - 1) * 15);
+        STR = 30 + ((LVL - 1) * 15);
         INT = 0;
         AGI = 1;
         DEF = 10 + ((LVL - 1) * 5);
