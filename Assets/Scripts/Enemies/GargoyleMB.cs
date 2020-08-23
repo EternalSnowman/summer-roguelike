@@ -113,6 +113,8 @@ public class GargoyleMB : Boss
 
         tempSpeedCtr = 1f;
         speedCtr = tempSpeedCtr;
+
+        enemyID = 6;
     }
 
     public override void AttackCheck()

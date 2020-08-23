@@ -47,6 +47,7 @@ public class Boss : Enemy
     {
         if(currentHP <= 0){
             PlayerStats.EXP += baseExpYield;
+            PlayerStats.seenEnemies[enemyID] = true;
             bossRewards.SetActive(true);
             for (var i = 0; i < enemies.Length; i++)
             {

@@ -67,10 +67,20 @@ public class PlayerStats : MonoBehaviour
 
     public static BuffDebuff[] buffs;
 
+    public static bool[] seenEnemies;
+
     // Start is called before the first frame update
     void Start()
     {
         BaseStats();
+
+        seenEnemies = new bool[10];
+        for(int i = 0; i < 10; i++)
+        {
+            seenEnemies[i] = false;
+        }
+
+        prevRoom = 0;
 
         minimap = GameObject.FindGameObjectWithTag("Minimap");
 
@@ -355,8 +365,6 @@ public class PlayerStats : MonoBehaviour
         DEF = 5;
         RES = 5;
         expNext = 500;
-
-        prevRoom = 0;
     }
 
     void debug()

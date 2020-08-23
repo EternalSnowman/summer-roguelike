@@ -89,6 +89,8 @@ public class OrcMiniBoss : Boss
         ATKRNG = 4f;
         tempAttackCD = 1f;
         attackCD = tempAttackCD;
+
+        enemyID = 5;
     }
 
     public override void AttackCheck()

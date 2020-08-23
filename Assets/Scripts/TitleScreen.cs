@@ -26,12 +26,6 @@ public class TitleScreen : MonoBehaviour
 
         loadingScreen.SetActive(false);
 
-        dungeonJournal = GameObject.FindGameObjectWithTag("LevelUpText");
-
-        EnemyInfoPopulate();
-
-        dungeonJournal.SetActive(false);
-
         string path = Application.persistentDataPath + "/data.drm";
         BinaryFormatter formatter = new BinaryFormatter();
         if (File.Exists(path))
@@ -69,6 +63,12 @@ public class TitleScreen : MonoBehaviour
             formatter.Serialize(stream, empty);
             stream.Close();
         }
+
+        dungeonJournal = GameObject.FindGameObjectWithTag("LevelUpText");
+
+        EnemyInfoPopulate();
+
+        dungeonJournal.SetActive(false);
     }
 
     // Update is called once per frame
@@ -127,6 +127,7 @@ public class TitleScreen : MonoBehaviour
         {
             dungeonJournal.transform.GetChild(2).gameObject.SetActive(false);
             dungeonJournal.transform.GetChild(3).gameObject.SetActive(false);
+            dungeonJournal.transform.GetChild(4).gameObject.SetActive(false);
         }
     }
 

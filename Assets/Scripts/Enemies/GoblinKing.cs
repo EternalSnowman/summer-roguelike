@@ -104,6 +104,8 @@ public class GoblinKing : Boss
 
         skillCD = 0;
         cycle = 0;
+
+        enemyID = 9;
     }
 
     void PhaseOne()

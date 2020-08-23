@@ -106,6 +106,7 @@ public class GoblinShaman : Enemy
         tempAttackCD = 2f;
         attackCD = tempAttackCD;
 
+        enemyID = 4;
     }
 
     public override void AttackCheck()

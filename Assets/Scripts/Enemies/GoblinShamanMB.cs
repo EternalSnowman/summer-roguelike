@@ -110,6 +110,7 @@ public class GoblinShamanMB : Boss
         tempAttackCD = 1.5f;
         attackCD = tempAttackCD;
 
+        enemyID = 8;
     }
 
     public override void AttackCheck()

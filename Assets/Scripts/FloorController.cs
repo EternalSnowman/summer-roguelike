@@ -24,6 +24,7 @@ public class FloorController : MonoBehaviour
     {
         if(loadTimer > 0)
         {
+            Time.timeScale = 0;
             loadTimer -= 0.1f;
             if (doLoad)
             {
@@ -34,6 +35,7 @@ public class FloorController : MonoBehaviour
         }
         else
         {
+            Time.timeScale = 1;
             loadScreen.SetActive(false);
         }
     }

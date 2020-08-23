@@ -28,5 +28,7 @@ public class BossGoblin : Enemy
         flashActive = true;
         flashCounter = flashLength;
         speed=0;
+
+        enemyID = 0;
     }
 }

@@ -24,6 +24,8 @@ public class Orc : Enemy
         ATKRNG = 2f;
         tempAttackCD = 1f;
         attackCD = tempAttackCD;
+
+        enemyID = 1;
     }
 
     public override void AttackCheck()

@@ -41,6 +41,8 @@ public class Enemy : MonoBehaviour
     public float tempAttackCD;
     public float attackCD;
 
+    public int enemyID;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -124,6 +126,7 @@ public class Enemy : MonoBehaviour
     public virtual void HandleDeath(){
         if(currentHP <= 0){
             PlayerStats.EXP += baseExpYield;
+            PlayerStats.seenEnemies[enemyID] = true;
             GameObject.Destroy(gameObject);
         }
 
