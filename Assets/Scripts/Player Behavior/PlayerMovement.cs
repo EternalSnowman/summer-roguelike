@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
     public Animator animator;
-    public static float tempSpeed = 5f;
-    public static float speed = tempSpeed;
+    public static float tempSpeed;
+    public static float speed;
 
     public static bool isDisabled;
 
@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour {
         blue = playerSprite.color.b;
 
         isDisabled = false;
+        tempSpeed = 5f;
+        speed = tempSpeed;
     }
 
     // Update is called once per frame

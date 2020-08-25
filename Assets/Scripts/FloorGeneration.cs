@@ -10,7 +10,7 @@ public class FloorGeneration : MonoBehaviour
     public AudioClip bossMusic;
     public AudioSource musicPrefab;
     public AudioSource musicControl;
-    
+
     public GameObject[] room1;
     public GameObject[] room2;
     public GameObject[] room3;
@@ -59,7 +59,7 @@ public class FloorGeneration : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void GenerateFloor()
@@ -80,7 +80,7 @@ public class FloorGeneration : MonoBehaviour
         float playerY = (float)(((randomPlayerPosition - 1)/4) * -12);
         player.position = new Vector3(playerX,playerY,0);
         Camera.main.transform.position = new Vector3(playerX,playerY,Camera.main.transform.position.z);
-        
+        CameraMovement.desiredPosition = Camera.main.transform.position;
         PlayerStats.room = randomPlayerPosition;
 
         // Stair Position
@@ -109,8 +109,9 @@ public class FloorGeneration : MonoBehaviour
 
         player.position = new Vector3(0,0,0);
         Camera.main.transform.position = new Vector3(0,0,Camera.main.transform.position.z);
+        CameraMovement.desiredPosition = Camera.main.transform.position;
         int randomBossRoom;
-        
+
         if (boss != 5)
         {
             do
@@ -144,7 +145,7 @@ public class FloorGeneration : MonoBehaviour
         {
             PlayerStats.buffs[i] = PlayerStats.emptyBuff;
         }
-        
+
         rooms = GameObject.FindGameObjectsWithTag("Room");
         GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
         for (var i = 0; i < rooms.Length; i++)

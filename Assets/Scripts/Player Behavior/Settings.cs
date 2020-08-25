@@ -8,7 +8,7 @@ public class Settings : MonoBehaviour
     public float lockout;
     public float tempLockout;
     public GameObject settingsPanel;
-
+    public float debug;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +40,7 @@ public class Settings : MonoBehaviour
                 settingsPanel.transform.GetChild(3).GetChild(1).GetComponent<Slider>().value = AudioListener.volume;
 
                 Time.timeScale = 0;
+
             }
             else
             {
@@ -47,6 +48,7 @@ public class Settings : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
+        debug = Time.timeScale;
     }
 
     public void QuitApplication()
@@ -72,7 +74,8 @@ public class Settings : MonoBehaviour
 
     public void ToggleControlsMenu()
     {
-
+        settingsPanel.transform.GetChild(3).gameObject.SetActive(!settingsPanel.transform.GetChild(3).gameObject.activeSelf);
+        settingsPanel.transform.GetChild(4).gameObject.SetActive(!settingsPanel.transform.GetChild(4).gameObject.activeSelf);
     }
 
     public void set1024x576()

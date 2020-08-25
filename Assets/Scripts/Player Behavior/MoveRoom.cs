@@ -19,10 +19,6 @@ public class MoveRoom : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,7 +30,7 @@ public class MoveRoom : MonoBehaviour
                 musicControl.clip = bossMusic;
                 musicControl.Play();
             }
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + x, Camera.main.transform.position.y + y, Camera.main.transform.position.z);
+            CameraMovement.desiredPosition = new Vector3(CameraMovement.desiredPosition.x + x, CameraMovement.desiredPosition.y + y, CameraMovement.desiredPosition.z);
             collision.transform.position += playerChange;
             PlayerStats.room += roomChange;
         }
