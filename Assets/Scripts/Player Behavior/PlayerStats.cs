@@ -75,6 +75,7 @@ public class PlayerStats : MonoBehaviour
         minimap = GameObject.FindGameObjectWithTag("Minimap");
 
         floor = 1;
+        prevRoom = 0;
 
         tempDisplayTimer = 2f;
         displayTimer = 0f;
@@ -155,7 +156,7 @@ public class PlayerStats : MonoBehaviour
                     minimap.transform.GetChild(i).GetComponent<Image>().color = new Color32(0, 0, 0, 0);
                 }
             }
-            
+
             prevRoom = PlayerStats.room % 20;
         }
     }

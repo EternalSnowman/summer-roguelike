@@ -12,6 +12,9 @@ public class MoveRoom : MonoBehaviour
     public AudioClip bossMusic;
     public AudioSource musicControl;
 
+    public float smoothSpeed = 1f;
+    public static Vector3 desiredPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +22,9 @@ public class MoveRoom : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, desiredPosition, Time.deltaTime * smoothSpeed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,7 +37,7 @@ public class MoveRoom : MonoBehaviour
                 musicControl.clip = bossMusic;
                 musicControl.Play();
             }
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + x, Camera.main.transform.position.y + y, Camera.main.transform.position.z);
+            desiredPosition = new Vector3(desiredPosition.x + x, desiredPosition.y + y, desiredPosition.z);
             collision.transform.position += playerChange;
             PlayerStats.room += roomChange;
         }
