@@ -108,6 +108,8 @@ public class Gargoyle : Enemy
 
         tempSpeedCtr = 1f;
         speedCtr = tempSpeedCtr;
+
+        enemyID = 2;
     }
 
     public override void AttackCheck()

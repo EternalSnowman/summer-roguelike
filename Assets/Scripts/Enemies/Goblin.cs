@@ -24,5 +24,6 @@ public class Goblin : Enemy
         tempAttackCD = .2f;
         attackCD = tempAttackCD;
 
+        enemyID = 0;
     }
 }

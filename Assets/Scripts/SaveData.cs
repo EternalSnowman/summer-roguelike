@@ -52,6 +52,14 @@ public class SaveData
 
         seenEnemies = prev.seenEnemies; // TODO: come back to this
 
+        for(int i = 0; i < 10; i++)
+        {
+            if (PlayerStats.seenEnemies[i])
+            {
+                seenEnemies[i] = true;
+            }
+        }
+
         highestLevel = (PlayerStats.LVL > prev.highestLevel) ? PlayerStats.LVL : prev.highestLevel;
         highestFloor = (PlayerStats.floor > prev.highestFloor) ? PlayerStats.floor : prev.highestFloor;
 

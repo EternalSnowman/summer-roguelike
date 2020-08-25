@@ -26,6 +26,8 @@ public class Leech : Enemy
         ATKRNG = 1.25f;
         tempAttackCD = 1f;
         attackCD = tempAttackCD;
+
+        enemyID = 3;
     }
 
     public override void AttackCheck()

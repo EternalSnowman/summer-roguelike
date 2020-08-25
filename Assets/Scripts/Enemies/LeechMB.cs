@@ -91,6 +91,8 @@ public class LeechMB : Boss
         ATKRNG = 2.5f;
         tempAttackCD = 1f;
         attackCD = tempAttackCD;
+
+        enemyID = 7;
     }
 
     public override void AttackCheck()
