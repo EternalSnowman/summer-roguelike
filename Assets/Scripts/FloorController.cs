@@ -11,7 +11,8 @@ public class FloorController : MonoBehaviour
     public static float loadTimer;
     public static string loadText;
     public static bool doLoad;
-    
+    public GameObject settingsPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +36,10 @@ public class FloorController : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1;
-            loadScreen.SetActive(false);
+            if(settingsPanel.activeSelf == false){
+                Time.timeScale = 1;
+                loadScreen.SetActive(false);
+            }
         }
     }
 }

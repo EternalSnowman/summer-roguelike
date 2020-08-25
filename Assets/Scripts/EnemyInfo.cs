@@ -30,9 +30,9 @@ public class EnemyInfo : MonoBehaviour
 
         enemyDescriptions[0] = "Simple, weak enemies. Although very primitive, they are very fast and will often " +
             "team up together with other mobs to pose a bigger threat.\n\nEXP Yield: Low\nFloors: 1+";
-        enemyDescriptions[1] = "Big enemies with a slow attack. Their attacks are often very telegraphed and can" +
+        enemyDescriptions[1] = "Big enemies with a slow attack. Their attacks are often very telegraphed and can " +
             "be seen by their axes flashing. Although slow, they have a lot of health and attack.\n\nEXP Yield: Medium\nFloors: 1+";
-        enemyDescriptions[2] = "These mobs will start off slow, but speed up the longer they haven't hit you or been hit. Their" +
+        enemyDescriptions[2] = "These mobs will start off slow, but speed up the longer they haven't hit you or been hit. Their " +
             "attack range can be very small, but can pack quite a punch. Really hard to kite around.\n\nEXP Yield: Medium\nFloors: 2+";
         enemyDescriptions[3] = "These enemies will inflict the Infection debuff that reduces STR by 20% when they hit you. " +
             "Their slime also surrounds them, so standing close to them will also deal damage to you. Hitting " +
@@ -48,8 +48,8 @@ public class EnemyInfo : MonoBehaviour
         enemyDescriptions[8] = "A bigger version of the Goblin Shaman enemy. The big shaman has less recharge between " +
             "fireballs than normal shamans. Also watch out for the goblins that are in this encounter, which total 4." +
             "\n\nEXP Yield: High\nFloors: 1-4";
-        enemyDescriptions[9] = "The floor 5 boss, which has 2 phases, the first phase ending when you kill all the goblins in the room." +
-            "In the first phase he will summon and buff goblins while having increased DEF. In Phase 2, he will charge at you headfirst" +
+        enemyDescriptions[9] = "The floor 5 boss, which has 2 phases, the first phase ending when you kill all the goblins in the room. " +
+            "In the first phase he will summon and buff goblins while having increased DEF. In Phase 2, he will charge at you headfirst " +
             "and attempt to kill you himself, while increasing his attack.\n\nEXP Yield: Very High\nFloors: 5";
     }
 

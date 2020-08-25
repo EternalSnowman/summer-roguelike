@@ -80,7 +80,7 @@ public class FloorGeneration : MonoBehaviour
         float playerY = (float)(((randomPlayerPosition - 1)/4) * -12);
         player.position = new Vector3(playerX,playerY,0);
         Camera.main.transform.position = new Vector3(playerX,playerY,Camera.main.transform.position.z);
-        MoveRoom.desiredPosition = Camera.main.transform.position;
+        CameraMovement.desiredPosition = Camera.main.transform.position;
         PlayerStats.room = randomPlayerPosition;
 
         // Stair Position
@@ -109,6 +109,7 @@ public class FloorGeneration : MonoBehaviour
 
         player.position = new Vector3(0,0,0);
         Camera.main.transform.position = new Vector3(0,0,Camera.main.transform.position.z);
+        CameraMovement.desiredPosition = Camera.main.transform.position;
         int randomBossRoom;
 
         if (boss != 5)
