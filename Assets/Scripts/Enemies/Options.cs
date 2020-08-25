@@ -37,7 +37,11 @@ public class Options : MonoBehaviour
         {
             if(Inventory.GetNextFree() != 12)
             {
-                Inventory.bag[Inventory.GetNextFree()] = drop;
+                Items instance = (Items)Instantiate(drop, new Vector3(0, 0, 0), Quaternion.identity);
+                Inventory.bag[Inventory.GetNextFree()] = instance;
+                instance.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                instance.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                instance.canPickup = false;
             }
             else
             {
