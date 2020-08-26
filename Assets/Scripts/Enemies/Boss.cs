@@ -49,6 +49,7 @@ public class Boss : Enemy
             PlayerStats.EXP += baseExpYield;
             PlayerStats.seenEnemies[enemyID] = true;
             bossRewards.SetActive(true);
+            bossRewards.transform.GetChild(7).gameObject.SetActive(false);
             for (var i = 0; i < enemies.Length; i++)
             {
                 GameObject.Destroy(enemies[i]);
