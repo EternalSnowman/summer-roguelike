@@ -14,7 +14,7 @@ public class Boss : Enemy
     public GameObject goblin;
     public bool transition = true;
     public bool Phase1 = true;
-    
+
     public Slider healthBar;
     public int miniBossNumber;
 
@@ -32,10 +32,9 @@ public class Boss : Enemy
         leftAttack.enabled = false;
         downAttack.enabled = false;
         healthBar = GameObject.FindGameObjectWithTag("Boss Health").GetComponent<Slider>();
-
         bossRewards.SetActive(false);
     }
-    
+
 
     public void CheckStatus()
     {

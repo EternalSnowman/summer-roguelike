@@ -28,6 +28,7 @@ TagManager:
   - SkillSelect
   - LoadingScreen
   - Minimap
+  - BossHealth BG
   layers:
   - Default
   - TransparentFX
