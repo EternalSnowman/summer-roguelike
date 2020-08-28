@@ -16,7 +16,7 @@ public class Items : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.E) && canPickup)
+        if(Input.GetKey(UserBinds.UB.pickUpItem) && canPickup)
         {
             if (Inventory.GetNextFree() != 12)
             {
@@ -28,7 +28,7 @@ public class Items : MonoBehaviour
             else
             {
                 // tell player bag is full
-            } 
+            }
         }
     }
 
@@ -46,7 +46,7 @@ public class Items : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D collision)
-    {   
+    {
         if (collision.CompareTag("Player"))
         {
             canPickup = false;
