@@ -90,16 +90,16 @@ public class Attack : MonoBehaviour
 
         skill3UI.GetComponent<Slider>().maxValue = skill3.tempSkillCD;
         skill3UI.GetComponent<Slider>().value = skill3.skillCD;
-        
 
-        if (Input.GetKey(KeyCode.I) && recentlyOpen <= 0f)
+
+        if (Input.GetKey(UserBinds.UB.inventory) && recentlyOpen <= 0f)
         {
             inventoryMenu.SetActive(!inventoryMenu.activeSelf);
             skillMenu.SetActive(false);
             recentlyOpen = .5f;
         }
 
-        if (Input.GetKey(KeyCode.U) && recentlyOpen2 <= 0f)
+        if (Input.GetKey(UserBinds.UB.skillsMenu) && recentlyOpen2 <= 0f)
         {
             skillMenu.SetActive(!skillMenu.activeSelf);
             inventoryMenu.SetActive(false);
@@ -107,7 +107,7 @@ public class Attack : MonoBehaviour
         }
 
         // Toggle isAttacking
-        if (Input.GetKey(KeyCode.J) && !isAttacking && !isSkill && !isDisabled)
+        if (Input.GetKey(UserBinds.UB.attack) && !isAttacking && !isSkill && !isDisabled)
         {
             isAttacking = true;
 
@@ -118,18 +118,18 @@ public class Attack : MonoBehaviour
             isAttacking = false;
         }
 
-        if (Input.GetKey(KeyCode.K) && !isAttacking && !isSkill && (skill1.skillCD <= 0f) && (PlayerStats.currentMana >= skill1.manaCost) && !isDisabled)
+        if (Input.GetKey(UserBinds.UB.skill1) && !isAttacking && !isSkill && (skill1.skillCD <= 0f) && (PlayerStats.currentMana >= skill1.manaCost) && !isDisabled)
         {
             skill1.Activate();
             isSkill = true;
         }
 
-        else if (Input.GetKey(KeyCode.L) && !isAttacking && !isSkill && (skill2.skillCD <= 0f) && (PlayerStats.currentMana >= skill2.manaCost) && !isDisabled)
+        else if (Input.GetKey(UserBinds.UB.skill2) && !isAttacking && !isSkill && (skill2.skillCD <= 0f) && (PlayerStats.currentMana >= skill2.manaCost) && !isDisabled)
         {
             skill2.Activate();
             isSkill = true;
         }
-        else if (Input.GetKey(KeyCode.Semicolon) && !isAttacking && !isSkill && (skill3.skillCD <= 0f) && (PlayerStats.currentMana >= skill3.manaCost) && !isDisabled)
+        else if (Input.GetKey(UserBinds.UB.skill3) && !isAttacking && !isSkill && (skill3.skillCD <= 0f) && (PlayerStats.currentMana >= skill3.manaCost) && !isDisabled)
         {
             isSkill = true;
             skill3.Activate();
@@ -141,7 +141,7 @@ public class Attack : MonoBehaviour
             isSkill = false;
         }
 
-        if (Input.GetKey(KeyCode.H) && !isAttacking && !isSkill)
+        if (Input.GetKey(UserBinds.UB.useItem) && !isAttacking && !isSkill)
         {
             Inventory.equipConsume.Use();
         }
