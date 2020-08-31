@@ -80,7 +80,7 @@ public class OrcMiniBoss : Boss
         INT = 0;
         AGI = 1;
         DEF = 20 + ((LVL - 1) * 5);
-        RES = LVL / 2;
+        RES = 10 + LVL;
 
         baseExpYield = 500 + ((LVL - 1) * 100);
 

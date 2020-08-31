@@ -92,6 +92,7 @@ public class GoblinKing : Boss
         INT = 0;
         AGI = 1;
         DEF = 100 * LVL;
+        RES = 100 * LVL;
 
         baseExpYield = 2000 * LVL;
 
@@ -137,6 +138,7 @@ public class GoblinKing : Boss
         if (transition)
         {
             DEF -= 60;
+            RES -= 60;
             STR += 10;
             transition = false;
         }

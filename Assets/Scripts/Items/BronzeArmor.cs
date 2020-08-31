@@ -9,6 +9,7 @@ public class BronzeArmor : Items
 
     private void Start()
     {
+        adder = 0;
         name = "Bronze Armor";
         itemDesc = "Increase DEF and RES by 20";
     }
@@ -16,13 +17,22 @@ public class BronzeArmor : Items
 
     public override void equipItem()
     {
-        PlayerStats.DEF += DEF;
-        PlayerStats.RES += RES;
+        PlayerStats.DEF += (DEF + adder);
+        PlayerStats.RES += (RES + adder);
+        if (adder > 1)
+        {
+            itemDesc = "Increase DEF and RES by " + (DEF + adder) + " (" + adder + " Armor Paddings used)";
+        }
+        else if (adder == 1)
+        {
+            itemDesc = "Increase DEF and RES by " + (DEF + adder) + " (" + adder + " Armor Padding used)";
+        }
+
     }
 
     public override void unequipItem()
     {
-        PlayerStats.DEF -= DEF;
-        PlayerStats.RES -= RES;
+        PlayerStats.DEF -= (DEF + adder);
+        PlayerStats.RES -= (RES + adder);
     }
 }

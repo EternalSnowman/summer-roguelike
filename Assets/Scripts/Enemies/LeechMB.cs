@@ -82,7 +82,7 @@ public class LeechMB : Boss
         INT = 0;
         AGI = 1;
         DEF = 10 + ((LVL - 1) * 3);
-        RES = LVL / 2;
+        RES = 10 + ((LVL - 1) * 5);
 
         baseExpYield = 500 + ((LVL - 1) * 100);
 
