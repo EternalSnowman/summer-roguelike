@@ -101,7 +101,7 @@ public class GargoyleMB : Boss
         INT = 0;
         AGI = 1;
         DEF = 10 + ((LVL - 1) * 5);
-        RES = LVL / 2;
+        RES = 10 + LVL;
 
         baseExpYield = 500 + ((LVL - 1) * 100);
 

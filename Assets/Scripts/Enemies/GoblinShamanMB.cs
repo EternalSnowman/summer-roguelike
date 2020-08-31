@@ -99,7 +99,7 @@ public class GoblinShamanMB : Boss
         INT = 60 + (LVL * 20);
         AGI = 1;
         DEF = 5 + LVL;
-        RES = LVL * 2;
+        RES = 5 + (LVL * 2);
 
         baseExpYield = 500 + ((LVL - 1) * 100);
 

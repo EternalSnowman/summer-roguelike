@@ -13,6 +13,8 @@ public class Items : MonoBehaviour
     public string name;
     public string itemDesc;
 
+    public int adder;
+
     // Update is called once per frame
     void Update()
     {

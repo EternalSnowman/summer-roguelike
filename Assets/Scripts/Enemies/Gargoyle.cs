@@ -96,7 +96,7 @@ public class Gargoyle : Enemy
         INT = 0;
         AGI = 1;
         DEF = 10 + ((LVL - 1) * 4);
-        RES = LVL / 2;
+        RES = LVL;
 
         baseExpYield = 150 + ((LVL - 1) * 30);
 
