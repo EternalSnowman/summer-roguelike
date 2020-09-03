@@ -21,11 +21,11 @@ public class BronzeArmor : Items
         PlayerStats.RES += (RES + adder);
         if (adder > 1)
         {
-            itemDesc = "Increase DEF and RES by " + (DEF + adder) + " (" + adder + " Armor Paddings used)";
+            itemDesc = "Increase DEF and RES by " + (DEF + adder) + "\n(" + adder + " Armor Paddings used)";
         }
         else if (adder == 1)
         {
-            itemDesc = "Increase DEF and RES by " + (DEF + adder) + " (" + adder + " Armor Padding used)";
+            itemDesc = "Increase DEF and RES by " + (DEF + adder) + "\n(" + adder + " Armor Padding used)";
         }
 
     }
