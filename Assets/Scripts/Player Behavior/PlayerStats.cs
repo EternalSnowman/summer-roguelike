@@ -298,6 +298,28 @@ public class PlayerStats : MonoBehaviour
                     skillRef.skill3 = learnSet[5];
                 }
             }
+            // Blade Slash
+            else if (LVL == 13)
+            {
+                levelUpText.GetComponent<Text>().text = "Level Up to " + LVL + " And Learned Skill " + learnSet[6].name + "!";
+                if (GetFirstEmptySkill() != 12)
+                {
+                    learnedSkills[GetFirstEmptySkill()] = learnSet[6];
+                }
+
+                if (skillRef.skill1 == emptySkill)
+                {
+                    skillRef.skill1 = learnSet[6];
+                }
+                else if (skillRef.skill2 == emptySkill)
+                {
+                    skillRef.skill2 = learnSet[6];
+                }
+                else if (skillRef.skill3 == emptySkill)
+                {
+                    skillRef.skill3 = learnSet[6];
+                }
+            }
             else
             {
                 levelUpText.GetComponent<Text>().text = "Level Up to " + LVL;

@@ -18,11 +18,11 @@ public class BronzeSword : Items
         PlayerStats.STR += (STR + adder);
         if(adder > 2)
         {
-            itemDesc = "Increase STR by " + (STR + adder) + " (" + (adder / 2) + " Whetstones used)";
+            itemDesc = "Increase STR by " + (STR + adder) + "\n(" + (adder / 2) + " Whetstones used)";
         }
         else if(adder == 2)
         {
-            itemDesc = "Increase STR by " + (STR + adder) + " (" + (adder / 2) + " Whetstone used)";
+            itemDesc = "Increase STR by " + (STR + adder) + "\n(" + (adder / 2) + " Whetstone used)";
         }
     }
 

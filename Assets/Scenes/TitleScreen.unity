@@ -1873,8 +1873,8 @@ MonoBehaviour:
     musicVolume: 1
     fullScreen: 0
     resolution: 2
-  settingsPanel: {fileID: 0}
-  dungeonJournal: {fileID: 0}
+  settingsPanel: {fileID: 8987026345704631308}
+  dungeonJournal: {fileID: 1920544096}
   loadingScreen: {fileID: 350710497}
   emptyClass: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   knight: {fileID: 21300000, guid: 4ceeb77eae877f346b606db75c9936ca, type: 3}
