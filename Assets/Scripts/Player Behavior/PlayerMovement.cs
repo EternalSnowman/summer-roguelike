@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.isTrigger != true && collision.CompareTag("Enemy"))
+        if((collision.isTrigger != true && collision.CompareTag("Enemy")) || collision.CompareTag("Ghost"))
         {
             collision.SendMessageUpwards("PhysDamage", PlayerStats.STR);
         }
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.isTrigger != true && collision.CompareTag("Enemy"))
+        if ((collision.isTrigger != true && collision.CompareTag("Enemy")) || collision.CompareTag("Ghost"))
         {
             collision.SendMessageUpwards("PhysDamage", PlayerStats.STR);
         }

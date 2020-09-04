@@ -29,6 +29,7 @@ TagManager:
   - LoadingScreen
   - Minimap
   - BossHealth BG
+  - Ghost
   layers:
   - Default
   - TransparentFX
