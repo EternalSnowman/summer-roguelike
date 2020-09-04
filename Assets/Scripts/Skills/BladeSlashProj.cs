@@ -35,7 +35,7 @@ public class BladeSlashProj : MonoBehaviour
         if (!collision.CompareTag("Player") && collision.isTrigger != true)
         {
             Destroy(this.gameObject);
-            if (collision.isTrigger != true && collision.CompareTag("Enemy"))
+            if ((collision.isTrigger != true && collision.CompareTag("Enemy")) || collision.CompareTag("Ghost"))
             {
                 collision.SendMessageUpwards("MagDamage", damage);
             }
