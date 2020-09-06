@@ -69,10 +69,17 @@ public class PlayerStats : MonoBehaviour
 
     public static bool[] seenEnemies;
 
+    public float timer;
+    public float tempTimer;
+    public SpriteRenderer buffImage;
+
     // Start is called before the first frame update
     void Start()
     {
         BaseStats();
+
+        timer = 0;
+        tempTimer = .5f;
 
         seenEnemies = new bool[10];
         for(int i = 0; i < 10; i++)
@@ -137,6 +144,16 @@ public class PlayerStats : MonoBehaviour
         CheckStatus();
         HandleLevel();
         BuffDebuffUI();
+
+        if(timer > 0)
+        {
+            buffImage.enabled = true;
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            buffImage.enabled = false;
+        }
 
         if(displayTimer > 0)
         {
@@ -327,7 +344,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    int GetFirstEmptySkill()
+    public int GetFirstEmptySkill()
     {
         for(int i = 0; i < learnedSkills.Length; i++)
         {
