@@ -5,6 +5,9 @@ using UnityEngine;
 public class QuickenSkill : Skill
 {
     public BuffDebuff buff;
+    public SpriteRenderer buffImage;
+    public PlayerStats timerRef;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,9 @@ public class QuickenSkill : Skill
     public override void Activate()
     {
         base.Activate();
+
+        buffImage.sprite = icon.sprite;
+        timerRef.timer = timerRef.tempTimer;
 
         skillCD = tempSkillCD;
 

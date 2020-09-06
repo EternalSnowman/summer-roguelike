@@ -7,6 +7,8 @@ public class ChargeSkill : Skill
 {
     public BuffDebuff buff;
     public int damage;
+    public SpriteRenderer buffImage;
+    public PlayerStats timerRef;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,9 @@ public class ChargeSkill : Skill
     public override void Activate()
     {
         base.Activate();
+
+        buffImage.sprite = icon.sprite;
+        timerRef.timer = timerRef.tempTimer;
 
         damage = (int)Math.Ceiling(PlayerStats.STR * 0.8f);
 

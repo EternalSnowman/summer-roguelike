@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HardenSkill : Skill
+public class KingAuthority : Skill
 {
     public BuffDebuff buff;
     public SpriteRenderer buffImage;
@@ -11,12 +11,26 @@ public class HardenSkill : Skill
     // Start is called before the first frame update
     void Start()
     {
-        tempSkillCD = 12f;
+        tempSkillCD = 15f;
         skillCD = 0f;
-        name = "Harden";
+        name = "King's Authority";
         manaCost = 20;
 
-        skillDesc = "Decrease Movement Speed by 90% and Increase DEF by 100% for 5 seconds";
+        skillDesc = "Become invulnerable for the first hit taken in the next 10 seconds";
+    }
+
+    public void Update()
+    {
+        if (skillCD > 0)
+        {
+            skillCD -= Time.deltaTime;
+            manaTaken = false;
+        }
+
+        if (PlayerMovement.preventDamage == false)
+        {
+            buff.currDuration = 0;
+        }
     }
 
     public override void Activate()

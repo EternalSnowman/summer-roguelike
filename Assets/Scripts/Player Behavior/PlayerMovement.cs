@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour {
     public float green;
     public float blue;
 
+    public static bool preventDamage;
+
     // Use this for initialization
     void Start () {
         playerSprite = GetComponent<SpriteRenderer>();
@@ -29,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
         isDisabled = false;
         tempSpeed = 5f;
         speed = tempSpeed;
+        preventDamage = false;
     }
 
     // Update is called once per frame
@@ -123,14 +126,22 @@ public class PlayerMovement : MonoBehaviour {
     {
         if(!flashActive)
         {
-            if(PlayerStats.currentHP >= damage)
+            if(preventDamage == true)
             {
-                PlayerStats.currentHP -= damage;
+                preventDamage = false;
             }
             else
             {
-                PlayerStats.currentHP = 0;
+                if (PlayerStats.currentHP >= damage)
+                {
+                    PlayerStats.currentHP -= damage;
+                }
+                else
+                {
+                    PlayerStats.currentHP = 0;
+                }
             }
+            
             flashActive = true;
             flashCounter = flashLength;
         }
