@@ -77,6 +77,7 @@ public class GoblinShaman : Enemy
         {
             enemyRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
             speed = 0;
+            gameObject.GetComponent<Animator>().Play("downIdle");
         }
         HandleDeath();
         if (attackCD > 0)
