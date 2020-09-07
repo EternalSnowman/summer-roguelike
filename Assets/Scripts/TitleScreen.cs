@@ -176,7 +176,8 @@ public class TitleScreen : MonoBehaviour
 
     public void ToggleControlsMenu()
     {
-
+        settingsPanel.transform.GetChild(3).gameObject.SetActive(!settingsPanel.transform.GetChild(3).gameObject.activeSelf);
+        settingsPanel.transform.GetChild(4).gameObject.SetActive(!settingsPanel.transform.GetChild(4).gameObject.activeSelf);
     }
 
     public void set1024x576()
