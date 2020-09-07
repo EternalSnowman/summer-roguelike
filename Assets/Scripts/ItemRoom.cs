@@ -21,6 +21,14 @@ public class ItemRoom : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            for(int i = 0; i < enemies.Length; i++)
+            {
+                if(enemies[i].GetComponent<Enemy>().room == PlayerStats.room)
+                {
+                    enemies[i].GetComponent<Animator>().SetBool("Stationary", true);
+                }
+            }
             PlayerStats.room += 20;
         }
         
@@ -30,6 +38,12 @@ public class ItemRoom : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<Animator>().SetBool("Stationary", false);
+            }
+
             PlayerStats.room -= 20;
         }
     }

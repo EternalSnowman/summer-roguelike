@@ -81,6 +81,7 @@ public class Gargoyle : Enemy
         {
             enemyRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
             speed = 0;
+            gameObject.GetComponent<Animator>().Play("downIdle");
         }
         HandleDeath();
         attackCD -= Time.deltaTime;
