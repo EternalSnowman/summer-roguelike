@@ -180,7 +180,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void PhysDamage(int damage)
+    public virtual void PhysDamage(int damage)
     {
         damage -= DEF;
         if(damage <= 0)
@@ -203,7 +203,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void MagDamage(int damage)
+    public virtual void MagDamage(int damage)
     {
         damage -= RES;
         if(damage <= 0)

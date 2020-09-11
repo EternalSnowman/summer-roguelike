@@ -52,10 +52,7 @@ MonoBehaviour:
   isEXP: 0
   extraEXP: 200
   possibleRandomDrops:
-  - {fileID: 2883743822130033793, guid: 5fcca709526c8d84b95036d5e6b5f885, type: 3}
-  - {fileID: 2883743822130033793, guid: 5fcca709526c8d84b95036d5e6b5f885, type: 3}
-  - {fileID: 471657449051396250, guid: 2c9cc01489825fc4cb5af02705b6bf79, type: 3}
-  - {fileID: 404118811792189595, guid: 40a2910b427904644b64ec8f69c51230, type: 3}
+  - {fileID: 4763472632177711701, guid: 3869e502b68da22429816927531bf111, type: 3}
   drop: {fileID: 0}
   icon: {fileID: 93155304372419109}
 --- !u!212 &93155304372419109
@@ -222,10 +219,8 @@ MonoBehaviour:
   isEXP: 0
   extraEXP: 200
   possibleRandomDrops:
-  - {fileID: 862198235460598177, guid: ab4279191449b1d4bbf63627be12423b, type: 3}
-  - {fileID: 862198235460598177, guid: ab4279191449b1d4bbf63627be12423b, type: 3}
-  - {fileID: 5263176438041160459, guid: 244099caef94c7b4d84fcc5358916c27, type: 3}
-  - {fileID: 5528948399635571881, guid: 214bfbc4894e3fc4d9c737372eef7dbe, type: 3}
+  - {fileID: 4994098092350723150, guid: 7ecb3fd11c896f542ad806172d15d0c6, type: 3}
+  - {fileID: 6861090689068462107, guid: 69e1aec34c9510a44adcbf68a8a20957, type: 3}
   drop: {fileID: 0}
   icon: {fileID: 6148072576361439711}
 --- !u!212 &6148072576361439711
