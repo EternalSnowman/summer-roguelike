@@ -28,7 +28,7 @@ public class Frog : Enemy
         speed = 0f;
         ATKRNG = 2f;
 
-        tempAttackCD = 0.5f;
+        tempAttackCD = 1f;
         attackCD = tempAttackCD;
         isMoving = false;
 

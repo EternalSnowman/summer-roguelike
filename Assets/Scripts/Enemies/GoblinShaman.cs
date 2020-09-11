@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -145,5 +146,62 @@ public class GoblinShaman : Enemy
             speed = tempSpeed;
         }
 
+    }
+
+    public override void PhysDamage(int damage)
+    {
+        if(Inventory.equipArmor.name == "Goblin King's Crown" || Inventory.equipWeapon.name == "Goblin King's Sword")
+        {
+            damage = (int)Math.Ceiling(damage * 1.1f);
+        }
+
+        damage -= DEF;
+
+        if (damage <= 0)
+        {
+            damage = 1;
+        }
+        if (!flashActive)
+        {
+            if (currentHP >= damage)
+            {
+                currentHP -= damage;
+            }
+            else
+            {
+                currentHP = 0;
+            }
+            flashActive = true;
+            flashCounter = flashLength;
+            speed = 0;
+        }
+    }
+
+    public override void MagDamage(int damage)
+    {
+        if (Inventory.equipArmor.name == "Goblin King's Crown" || Inventory.equipWeapon.name == "Goblin King's Sword")
+        {
+            damage = (int)Math.Ceiling(damage * 1.1f);
+        }
+
+        damage -= RES;
+        if (damage <= 0)
+        {
+            damage = 1;
+        }
+        if (!flashActive)
+        {
+            if (currentHP >= damage)
+            {
+                currentHP -= damage;
+            }
+            else
+            {
+                currentHP = 0;
+            }
+            flashActive = true;
+            flashCounter = flashLength;
+            speed = 0;
+        }
     }
 }

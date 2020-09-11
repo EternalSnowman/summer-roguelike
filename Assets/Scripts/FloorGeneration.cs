@@ -124,7 +124,6 @@ public class FloorGeneration : MonoBehaviour
         }
         else
         {
-
             do
             {
                 randomBossRoom = UnityEngine.Random.Range(0, bossRoom.Length);

@@ -37,9 +37,16 @@ public class Stairs : MonoBehaviour
             }
             else
             {
-                if(floor == 5)
+                if(floor % 5 == 0)
                 {
-                    PlayerStats.currentHP = 0;
+                    for(int i = 0; i < 4; i++)
+                    {
+                        PlayerStats.miniBossesBeat[i] = false;
+                    }
+                    if(floor == 10)
+                    {
+                        PlayerStats.currentHP = 0;
+                    }
                 }
                 FloorController.loadTimer = 8f;
                 FloorController.loadText = "Floor " + (PlayerStats.floor + 1);
