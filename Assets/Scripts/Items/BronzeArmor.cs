@@ -10,8 +10,6 @@ public class BronzeArmor : Items
     private void Start()
     {
         adder = 0;
-        name = "Bronze Armor";
-        itemDesc = "Increase DEF and RES by 20";
     }
 
 
