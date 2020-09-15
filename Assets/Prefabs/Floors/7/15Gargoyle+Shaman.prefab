@@ -2514,7 +2514,7 @@ PrefabInstance:
     - target: {fileID: 368599092082078524, guid: 1e623f49c921e8f4b9cb8825c74edbba,
         type: 3}
       propertyPath: LVL
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 7739099726440872179, guid: 1e623f49c921e8f4b9cb8825c74edbba,
         type: 3}
@@ -2599,7 +2599,7 @@ PrefabInstance:
     - target: {fileID: 368599092082078524, guid: 1e623f49c921e8f4b9cb8825c74edbba,
         type: 3}
       propertyPath: LVL
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 7739099726440872179, guid: 1e623f49c921e8f4b9cb8825c74edbba,
         type: 3}
@@ -2744,7 +2744,7 @@ PrefabInstance:
     - target: {fileID: 3230095485126908672, guid: 42db6d5a1f77a4b428c40022bb4fc441,
         type: 3}
       propertyPath: LVL
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42db6d5a1f77a4b428c40022bb4fc441, type: 3}
