@@ -9,8 +9,6 @@ public class BronzeSword : Items
     private void Start()
     {
         adder = 0;
-        name = "Bronze Sword";
-        itemDesc = "Increase STR by 20";
     }
 
     public override void equipItem()
