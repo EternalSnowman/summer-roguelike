@@ -83,7 +83,7 @@ public class Cerebus : Boss
         DEF = 10 + ((LVL - 1) * 5);
         RES = 10 + ((LVL - 1) * 5);
 
-        baseExpYield = 1000 + ((LVL - 1) * 100);
+        baseExpYield = 1000 + ((LVL - 1) * 200);
 
         tempSpeed = 3.5f;
         speed = tempSpeed;
