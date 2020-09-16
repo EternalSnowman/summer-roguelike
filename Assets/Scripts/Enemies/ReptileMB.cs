@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cerebus : Boss
+public class ReptileMB : Boss
 {
-    public BuffDebuff bleeding;
-
     void Update()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -72,26 +70,27 @@ public class Cerebus : Boss
         CheckStatus();
     }
 
+
     public override void LoadStats()
     {
-        maxHP = 750 + (LVL * 150);
+        maxHP = 800 + (LVL * 200);
         currentHP = maxHP;
 
-        STR = 80 + ((LVL - 1) * 15);
+        STR = 100 + ((LVL - 1) * 20);
         INT = 0;
         AGI = 1;
-        DEF = 10 + ((LVL - 1) * 5);
+        DEF = 20 + ((LVL - 1) * 5);
         RES = 10 + ((LVL - 1) * 5);
 
         baseExpYield = 1000 + ((LVL - 1) * 200);
 
-        tempSpeed = 3.5f;
+        tempSpeed = 4f;
         speed = tempSpeed;
         ATKRNG = 3f;
-        tempAttackCD = 1f;
+        tempAttackCD = 3f;
         attackCD = tempAttackCD;
 
-        enemyID = 7;
+        enemyID = 5;
     }
 
     public override void AttackCheck()
@@ -114,10 +113,14 @@ public class Cerebus : Boss
         }
 
         // Keep Orc from moving during attack animation
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack") ||
-            anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack") ||
-            anim.GetCurrentAnimatorStateInfo(0).IsName("leftIdleAttack") ||
-            anim.GetCurrentAnimatorStateInfo(0).IsName("rightIdleAttack"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack1") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack2") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack1") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack2") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("leftIdleAttack1") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("leftIdleAttack2") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("rightIdleAttack1") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("rightIdleAttack2"))
         {
             attackAnim = true;
         }
@@ -130,7 +133,8 @@ public class Cerebus : Boss
         anim.SetBool("Attacking", isAttacking);
 
         // Toggle directional attack booleans
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack2") || anim.GetCurrentAnimatorStateInfo(0).IsName("leftIdleAttack2")
+            || anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack2") || anim.GetCurrentAnimatorStateInfo(0).IsName("rightIdleAttack2"))
         {
             downAttack.enabled = true;
         }
@@ -138,93 +142,10 @@ public class Cerebus : Boss
         {
             downAttack.enabled = false;
         }
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("leftIdleAttack"))
-        {
-            leftAttack.enabled = true;
-        }
-        else
-        {
-            leftAttack.enabled = false;
-        }
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack"))
-        {
-            upAttack.enabled = true;
-        }
-        else
-        {
-            upAttack.enabled = false;
-        }
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("rightIdleAttack"))
-        {
-            rightAttack.enabled = true;
-        }
-        else
-        {
-            rightAttack.enabled = false;
-        }
 
         if ((downAttack.enabled == false) && (upAttack.enabled == false) && (rightAttack.enabled == false) && (leftAttack.enabled == false) && !flashActive)
         {
             enemyRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
-
-    }
-
-    // Handle hitbox collision with player hurtbox
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (STR - PlayerStats.DEF < 0)
-        {
-            if (collision.isTrigger != true && collision.CompareTag("Player"))
-            {
-                collision.SendMessageUpwards("Damage", 1);
-            }
-        }
-        else if (collision.isTrigger != true && collision.CompareTag("Player"))
-        {
-            collision.SendMessageUpwards("Damage", STR - PlayerStats.DEF);
-        }
-        if (!collision.isTrigger && collision.CompareTag("Player"))
-        {
-            int value = 8;
-            for (int i = 0; i < PlayerStats.buffs.Length; i++)
-            {
-                if (PlayerStats.buffs[i] == bleeding)
-                {
-                    value = i;
-                }
-            }
-
-            if (value < 8)
-            {
-                PlayerStats.buffs[value].currDuration = PlayerStats.buffs[value].duration;
-            }
-            else
-            {
-                if (PlayerStats.findNextFree() < 8)
-                {
-                    bleeding.currDuration = bleeding.duration;
-                    bleeding.Activate();
-                    PlayerStats.buffs[PlayerStats.findNextFree()] = bleeding;
-                }
-            }
-        }
-    }
-
-    public override void HandleDeath()
-    {
-        base.HandleDeath();
-        if (currentHP <= 0)
-        {
-            for (int i = 0; i < PlayerStats.buffs.Length; i++)
-            {
-                if (PlayerStats.buffs[i] == bleeding)
-                {
-                    PlayerStats.buffs[i].Deactivate();
-                    PlayerStats.buffs[i] = PlayerStats.emptyBuff;
-                }
-            }
-            GameObject.Destroy(gameObject);
         }
 
     }
