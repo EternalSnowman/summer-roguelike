@@ -81,10 +81,10 @@ public class PlayerStats : MonoBehaviour
         timer = 0;
         tempTimer = .5f;
 
-        seenEnemies = new bool[10];
-        for(int i = 0; i < 10; i++)
+        seenEnemies = new bool[50];
+        for(int i = 0; i < 50; i++)
         {
-            seenEnemies[i] = false;
+            seenEnemies[i] = true;
         }
 
         prevRoom = 0;
