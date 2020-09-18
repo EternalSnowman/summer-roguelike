@@ -61,8 +61,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: 1
   bossFloor: 0
-  floor: 0
-  generateFloor: {fileID: 1570673533703447631, guid: d6f4196714bcaed48b3f7f6e34366c8d,
+  floor: 5
+  generateFloor: {fileID: 6009251882229326101, guid: 8c340c18475479c4c968a5c44825b833,
     type: 3}
 --- !u!61 &3703105679818897128
 BoxCollider2D:
