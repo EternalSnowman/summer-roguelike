@@ -62,7 +62,7 @@ MonoBehaviour:
   boss: 1
   bossFloor: 0
   floor: 0
-  generateFloor: {fileID: 1570673533703447631, guid: d6f4196714bcaed48b3f7f6e34366c8d,
+  generateFloor: {fileID: 1570673533703447631, guid: d13c1f7a0f6841f45a5ec4497181717c,
     type: 3}
 --- !u!61 &3703105679818897128
 BoxCollider2D:

@@ -176,7 +176,11 @@ MonoBehaviour:
   - {fileID: 2582171188213529496, guid: 0137e0e4e6e65f049ab6f68f4d8c2c7a, type: 3}
   - {fileID: 6796833033590998891, guid: c8b258e4ae3e14645a0a28a70ef871a4, type: 3}
   - {fileID: 2582171188213529496, guid: 0137e0e4e6e65f049ab6f68f4d8c2c7a, type: 3}
-  bossRoom: []
+  bossRoom:
+  - {fileID: 7723080075906889165, guid: 001baaf8338b93f47af5decdc2998383, type: 3}
+  - {fileID: 7956988707831854751, guid: 1bf4604c3e0e9b444916c3915ec4b3fe, type: 3}
+  - {fileID: 8035555959467570517, guid: 8461161cfff770d4386c457a52861e00, type: 3}
+  - {fileID: 2015734771512186011, guid: 78b88ae1c4986b94e84b85c9e8cd3526, type: 3}
   emptyRooms:
   - {fileID: 8221160140282207606, guid: a1d017726512837498f19435f5489454, type: 3}
   - {fileID: 430522496347615373, guid: 6741b9d2bf56cfa44a750a77aad5cdda, type: 3}
