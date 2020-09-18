@@ -137,9 +137,9 @@ public class GoblinKing : Boss
         Phase1 = false;
         if (transition)
         {
-            DEF -= 60;
-            RES -= 60;
-            STR += 10;
+            DEF -= 60 * LVL;
+            RES -= 60 * LVL;
+            STR += 10 * LVL;
             transition = false;
         }
         speed = tempSpeed;

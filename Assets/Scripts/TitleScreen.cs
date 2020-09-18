@@ -209,7 +209,7 @@ public class TitleScreen : MonoBehaviour
 
     public void EnemyInfoPopulate()
     {
-        for(int i = 0; i < saveData.seenEnemies.Length; i++)
+        for(int i = 0; i < 17; i++)
         {
             if(saveData.seenEnemies[i] == false)
             {

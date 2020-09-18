@@ -14,8 +14,8 @@ public class EnemyInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyNames = new string[10];
-        enemyDescriptions = new string[10];
+        enemyNames = new string[50];
+        enemyDescriptions = new string[50];
 
         enemyNames[0] = "Goblin";
         enemyNames[1] = "Orc";
@@ -27,6 +27,13 @@ public class EnemyInfo : MonoBehaviour
         enemyNames[7] = "Big Leech";
         enemyNames[8] = "Big Goblin Shaman";
         enemyNames[9] = "Goblin King";
+        enemyNames[10] = "Ghost";
+        enemyNames[11] = "Cave Frog";
+        enemyNames[12] = "Big Cave Frog";
+        enemyNames[13] = "Hellhound";
+        enemyNames[14] = "Cave Lizard";
+        enemyNames[15] = "Cobra";
+        enemyNames[16] = "Demon General";
 
         enemyDescriptions[0] = "Simple, weak enemies. Although very primitive, they are very fast and will often " +
             "team up together with other mobs to pose a bigger threat.\n\nEXP Yield: Low\nFloors: 1+";
@@ -48,9 +55,29 @@ public class EnemyInfo : MonoBehaviour
         enemyDescriptions[8] = "A bigger version of the Goblin Shaman enemy. The big shaman has less recharge between " +
             "fireballs than normal shamans. Also watch out for the goblins that are in this encounter, which total 4." +
             "\n\nEXP Yield: High\nFloors: 1-4";
-        enemyDescriptions[9] = "The floor 5 boss, which has 2 phases, the first phase ending when you kill all the goblins in the room. " +
+        enemyDescriptions[9] = "This boss has 2 phases, the first phase ending when you kill all the goblins in the room. " +
             "In the first phase he will summon and buff goblins while having increased DEF. In Phase 2, he will charge at you headfirst " +
-            "and attempt to kill you himself, while increasing his attack.\n\nEXP Yield: Very High\nFloors: 5";
+            "and attempt to kill you himself, while increasing his attack.\n\nEXP Yield: Very High\nFloors: 5 & 10";
+        enemyDescriptions[10] = "This enemy will chase you no matter what room you are in, and can phase through walls. " +
+            "This enemy will also multiply after it hits you, creating copies of itself that do not grant extra EXP." +
+            "\n\nEXP Yield: Medium\nFloors: 6+";
+        enemyDescriptions[11] = "These frogs have a unique pattern of jumping then stopping then jumping again. " +
+            "They can be extremely dangerous once they set their eyes on you since their attacks will slow you down." +
+            "\n\nEXP Yield: Medium\nFloors: 8+";
+        enemyDescriptions[12] = "A bigger version of the normal cave frogs, this boss will jump around and attempt to kill you using" +
+            "his high range tongue and slowing debuff.\n\nEXP Yield: High\nFloors: 6-10";
+        enemyDescriptions[13] = "This boss is a unique enemy which cannot be encountered outside of boss rooms, and will inflict " +
+            "the Bleeding debuff that reduces your DEF.\n\nEXP Yield: High\nFloors: 6-10";
+        enemyDescriptions[14] = "This boss is a unique enemy which cannot be encountered outside of boss rooms. " +
+            "Watch out for his spin attack skill which is how this enemy will attack, which will be signified by " +
+            "the marks on its body flashing.\n\nEXP Yield: High\nFloors: 6-10";
+        enemyDescriptions[15] = "This boss is a unique enemy which cannot be encountered outside of boss rooms. " +
+            "The cobra will spit poison out while remaining in the center of the room. It will spit poison in waves, signified " +
+            "by the marks on its body lighting up.\n\nEXP Yield: High\nFloors: 6-10";
+        enemyDescriptions[16] = "On top of normal attacks, this boss has 2 skills which it will alternate between." +
+            " The first being summoning a rain of fire indicated by a targetting circle and that leaves a puddle of fire. " +
+            "The second being a pulse of fire shooting in the 4 directions. Both skills will activate after he has raised his sword." +
+            "\n\nEXP Yield: Very High\nFloors: 5 & 10";
     }
 
     public void UpdateUI(int toUpdate)

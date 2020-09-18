@@ -24,7 +24,11 @@ public class SaveData
         mostRecentFloors = new int[5];
         mostRecentLevels = new int[5];
 
-        seenEnemies = new bool[10]; // CHANGE AS WE GET MORE ENEMIES
+        seenEnemies = new bool[50]; // CHANGE AS WE GET MORE ENEMIES
+        for(int i = 0; i < 50; i++)
+        {
+            seenEnemies[i] = false;
+        }
         highestLevel = 0;
         highestFloor = 0;
 
@@ -52,7 +56,7 @@ public class SaveData
 
         seenEnemies = prev.seenEnemies; // TODO: come back to this
 
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 17; i++)
         {
             if (PlayerStats.seenEnemies[i])
             {
