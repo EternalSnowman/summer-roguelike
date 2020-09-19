@@ -109,7 +109,14 @@ public class PlayerMovement : MonoBehaviour {
     {
         if((collision.isTrigger != true && collision.CompareTag("Enemy")) || collision.CompareTag("Ghost"))
         {
-            collision.SendMessageUpwards("PhysDamage", PlayerStats.STR);
+            if(Inventory.equipWeapon.name == "Demon Sword")
+            {
+                collision.SendMessageUpwards("MagDamage", PlayerStats.STR);
+            }
+            else
+            {
+                collision.SendMessageUpwards("PhysDamage", PlayerStats.STR);
+            }
         }
 
     }
@@ -118,7 +125,14 @@ public class PlayerMovement : MonoBehaviour {
     {
         if ((collision.isTrigger != true && collision.CompareTag("Enemy")) || collision.CompareTag("Ghost"))
         {
-            collision.SendMessageUpwards("PhysDamage", PlayerStats.STR);
+            if (Inventory.equipWeapon.name == "Demon Sword")
+            {
+                collision.SendMessageUpwards("MagDamage", PlayerStats.STR);
+            }
+            else
+            {
+                collision.SendMessageUpwards("PhysDamage", PlayerStats.STR);
+            }
         }
     }
 

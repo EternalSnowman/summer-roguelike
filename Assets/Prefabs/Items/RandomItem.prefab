@@ -46,3 +46,5 @@ MonoBehaviour:
   toGenerate:
   - {fileID: 6354260402985860254, guid: 3b0b48b7506fdfe49ab2d912230e4404, type: 3}
   - {fileID: 5341598313374684531, guid: d95cf28827f6f7e42aef8fa716799589, type: 3}
+  - {fileID: 7890581840569368889, guid: a2b20811f8a51dd4ba99dec9725b3176, type: 3}
+  - {fileID: 5210997427132049406, guid: 53745db551a14b3478442c3a8f4ad8cd, type: 3}

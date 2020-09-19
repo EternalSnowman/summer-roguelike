@@ -274,7 +274,7 @@ MonoBehaviour:
   option1Image: {fileID: 5642183850432801887}
   option2Image: {fileID: 3249992123239392592}
   option3Image: {fileID: 913593428428391816}
-  stairs: {fileID: 9031985038016516891, guid: 5a2ddaddd66481540a9ffa4016220287, type: 3}
+  stairs: {fileID: 3703105679818897131, guid: a3ce7d4cb37f3b744aab6cbe52c573ae, type: 3}
 --- !u!1 &985215643662959097
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,8 +431,8 @@ MonoBehaviour:
   isEXP: 0
   extraEXP: 200
   possibleRandomDrops:
-  - {fileID: 862198235460598177, guid: ab4279191449b1d4bbf63627be12423b, type: 3}
-  - {fileID: 862198235460598177, guid: ab4279191449b1d4bbf63627be12423b, type: 3}
+  - {fileID: 797697787276510448, guid: db449a793c03c724aa3124c56eb8a5c0, type: 3}
+  - {fileID: 797697787276510448, guid: db449a793c03c724aa3124c56eb8a5c0, type: 3}
   - {fileID: 5263176438041160459, guid: 244099caef94c7b4d84fcc5358916c27, type: 3}
   - {fileID: 5528948399635571881, guid: 214bfbc4894e3fc4d9c737372eef7dbe, type: 3}
   drop: {fileID: 0}
@@ -2171,8 +2171,8 @@ MonoBehaviour:
   isEXP: 0
   extraEXP: 200
   possibleRandomDrops:
-  - {fileID: 2883743822130033793, guid: 5fcca709526c8d84b95036d5e6b5f885, type: 3}
-  - {fileID: 2883743822130033793, guid: 5fcca709526c8d84b95036d5e6b5f885, type: 3}
+  - {fileID: 5437520551587679047, guid: 780a2ae4d733be94fae084d180378efd, type: 3}
+  - {fileID: 5437520551587679047, guid: 780a2ae4d733be94fae084d180378efd, type: 3}
   - {fileID: 471657449051396250, guid: 2c9cc01489825fc4cb5af02705b6bf79, type: 3}
   - {fileID: 404118811792189595, guid: 40a2910b427904644b64ec8f69c51230, type: 3}
   drop: {fileID: 0}
@@ -6361,6 +6361,11 @@ PrefabInstance:
       propertyPath: LVL
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5528979752219157330, guid: 5b37a585292ac1245ba064e968ad0b6f,
+        type: 3}
+      propertyPath: bossRewards
+      value: 
+      objectReference: {fileID: 900440040006258563}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b37a585292ac1245ba064e968ad0b6f, type: 3}
 --- !u!4 &526761467969914868 stripped
