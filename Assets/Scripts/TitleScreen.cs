@@ -26,7 +26,7 @@ public class TitleScreen : MonoBehaviour
 
         loadingScreen.SetActive(false);
 
-        string path = Application.persistentDataPath + "/data.drm";
+        string path = Application.persistentDataPath + "/data2.drm";
         BinaryFormatter formatter = new BinaryFormatter();
         if (File.Exists(path))
         {

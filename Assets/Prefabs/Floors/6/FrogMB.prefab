@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 2015734771512186015}
   - component: {fileID: 2015734771512186014}
   m_Layer: 0
-  m_Name: OrcMiniBoss
+  m_Name: FrogMB
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -693,19 +693,19 @@ MonoBehaviour:
   speed: 0
   ATKRNG: 0
   knockback: 0
-  anim: {fileID: 0}
+  anim: {fileID: 2303094341303868588}
   target: {fileID: 0}
   col: {fileID: 0}
   isAttacking: 0
-  upAttack: {fileID: 0}
-  rightAttack: {fileID: 0}
-  leftAttack: {fileID: 0}
-  downAttack: {fileID: 0}
+  upAttack: {fileID: 2039952127521384430}
+  rightAttack: {fileID: 2039952127326271982}
+  leftAttack: {fileID: 2039952127278499101}
+  downAttack: {fileID: 2039952127418723443}
   flashActive: 0
   flashLength: 0.6
   flashCounter: 0
-  enemyRigidBody: {fileID: 0}
-  enemySprite: {fileID: 0}
+  enemyRigidBody: {fileID: 2303094341303868587}
+  enemySprite: {fileID: 2303094341303868585}
   tempAttackCD: 0
   attackCD: 0
   enemyID: 0
@@ -718,8 +718,8 @@ MonoBehaviour:
   Phase1: 1
   healthBar: {fileID: 0}
   miniBossNumber: 0
-  bossRewards: {fileID: 0}
-  wet: {fileID: 0}
+  bossRewards: {fileID: 6506259655726218290}
+  wet: {fileID: 8430473895758717336}
   jumpCtr: 0
   tempJumpCtr: 0
   isMoving: 0
@@ -5727,7 +5727,7 @@ MonoBehaviour:
   option1Image: {fileID: 2149638566101624844}
   option2Image: {fileID: 6601973008812572751}
   option3Image: {fileID: 2971234488816648084}
-  stairs: {fileID: 9031985038016516891, guid: 5a2ddaddd66481540a9ffa4016220287, type: 3}
+  stairs: {fileID: 3703105679818897131, guid: 87f35360292e78c4aa20248ec1253bb5, type: 3}
 --- !u!1 &6635908823414582912
 GameObject:
   m_ObjectHideFlags: 0
@@ -6176,8 +6176,8 @@ MonoBehaviour:
   isEXP: 0
   extraEXP: 200
   possibleRandomDrops:
-  - {fileID: 2883743822130033793, guid: 5fcca709526c8d84b95036d5e6b5f885, type: 3}
-  - {fileID: 2883743822130033793, guid: 5fcca709526c8d84b95036d5e6b5f885, type: 3}
+  - {fileID: 5437520551587679047, guid: 780a2ae4d733be94fae084d180378efd, type: 3}
+  - {fileID: 5437520551587679047, guid: 780a2ae4d733be94fae084d180378efd, type: 3}
   - {fileID: 471657449051396250, guid: 2c9cc01489825fc4cb5af02705b6bf79, type: 3}
   - {fileID: 404118811792189595, guid: 40a2910b427904644b64ec8f69c51230, type: 3}
   drop: {fileID: 0}
@@ -6284,8 +6284,8 @@ MonoBehaviour:
   isEXP: 0
   extraEXP: 200
   possibleRandomDrops:
-  - {fileID: 862198235460598177, guid: ab4279191449b1d4bbf63627be12423b, type: 3}
-  - {fileID: 862198235460598177, guid: ab4279191449b1d4bbf63627be12423b, type: 3}
+  - {fileID: 797697787276510448, guid: db449a793c03c724aa3124c56eb8a5c0, type: 3}
+  - {fileID: 797697787276510448, guid: db449a793c03c724aa3124c56eb8a5c0, type: 3}
   - {fileID: 5263176438041160459, guid: 244099caef94c7b4d84fcc5358916c27, type: 3}
   - {fileID: 5528948399635571881, guid: 214bfbc4894e3fc4d9c737372eef7dbe, type: 3}
   drop: {fileID: 0}
@@ -6437,3 +6437,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6839426021619172556}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &2303094341303868585 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4691829022476048485, guid: 732e741df773e7f4e977540fddfa50fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6839426021619172556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2303094341303868588 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4691829022476048480, guid: 732e741df773e7f4e977540fddfa50fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6839426021619172556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &2303094341303868587 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4691829022476048487, guid: 732e741df773e7f4e977540fddfa50fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6839426021619172556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &2039952127521384430 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4802482192592298786, guid: 732e741df773e7f4e977540fddfa50fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6839426021619172556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &2039952127326271982 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4802482192468491554, guid: 732e741df773e7f4e977540fddfa50fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6839426021619172556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &2039952127278499101 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4802482192549691857, guid: 732e741df773e7f4e977540fddfa50fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6839426021619172556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &2039952127418723443 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4802482192694700223, guid: 732e741df773e7f4e977540fddfa50fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6839426021619172556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8430473895758717336 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3032482677346952532, guid: 732e741df773e7f4e977540fddfa50fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6839426021619172556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e41f8f66208c6b42aca77cb18ac2967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

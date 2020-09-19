@@ -14,7 +14,7 @@ public class Cobra : Boss
     void Start()
     {
         poison.SetActive(false);
-        //bossRewards.SetActive(false);
+        bossRewards.SetActive(false);
 
         healthBar = GameObject.FindGameObjectWithTag("Boss Health").GetComponent<Slider>();
         enemySprite = GetComponent<SpriteRenderer>();
@@ -168,6 +168,24 @@ public class Cobra : Boss
         if (!flashActive && (attackCD <= 0))
         {
             speed = tempSpeed;
+        }
+
+    }
+
+    public override void HandleDeath()
+    {
+        base.HandleDeath();
+        if (currentHP <= 0)
+        {
+            for (int i = 0; i < PlayerStats.buffs.Length; i++)
+            {
+                if (PlayerStats.buffs[i] == poison)
+                {
+                    PlayerStats.buffs[i].Deactivate();
+                    PlayerStats.buffs[i] = PlayerStats.emptyBuff;
+                }
+            }
+            GameObject.Destroy(gameObject);
         }
 
     }

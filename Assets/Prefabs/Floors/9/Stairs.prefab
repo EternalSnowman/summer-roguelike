@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: 1
   bossFloor: 1
-  floor: 0
+  floor: 9
   generateFloor: {fileID: 1570673533703447631, guid: d6f4196714bcaed48b3f7f6e34366c8d,
     type: 3}
 --- !u!61 &2398969018468671178

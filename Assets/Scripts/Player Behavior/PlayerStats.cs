@@ -374,7 +374,7 @@ public class PlayerStats : MonoBehaviour
         if(currentHP <= 0)
         {
             SaveData saveData = new SaveData();
-            string path = Application.persistentDataPath + "/data.drm";
+            string path = Application.persistentDataPath + "/data2.drm";
             BinaryFormatter formatter = new BinaryFormatter();
             if (File.Exists(path))
             {

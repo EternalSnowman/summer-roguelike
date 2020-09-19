@@ -112,7 +112,7 @@ public class FloorGeneration : MonoBehaviour
         CameraMovement.desiredPosition = Camera.main.transform.position;
         int randomBossRoom;
 
-        if (boss != 5)
+        if (boss % 5 != 0)
         {
             do
             {

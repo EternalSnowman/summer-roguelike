@@ -178,6 +178,7 @@ MonoBehaviour:
   - {fileID: 5757578564619891705, guid: 08d17f3512767bc41bbfe03f8d0b0c30, type: 3}
   bossRoom:
   - {fileID: 7073066501254824801, guid: 22af37e366ca7474b8a7a43b0daf13a2, type: 3}
+  - {fileID: 7073066501254824801, guid: 3e2b56205a6dcfc418514278b6c4a481, type: 3}
   emptyRooms:
   - {fileID: 8221160140282207606, guid: a1d017726512837498f19435f5489454, type: 3}
   - {fileID: 430522496347615373, guid: 6741b9d2bf56cfa44a750a77aad5cdda, type: 3}
@@ -215,3 +216,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   stairs: {fileID: 5672612818676612809, guid: a033db7cf7f68ee4f85c95382300701c, type: 3}
+  minimap: {fileID: 0}

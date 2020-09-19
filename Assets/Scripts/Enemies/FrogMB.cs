@@ -11,6 +11,7 @@ public class FrogMB : Boss
     public bool isMoving;
     void Update()
     {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         // Hurtflash
         if (flashActive)
         {

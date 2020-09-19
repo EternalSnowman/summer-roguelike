@@ -277,8 +277,8 @@ MonoBehaviour:
   isEXP: 0
   extraEXP: 200
   possibleRandomDrops:
-  - {fileID: 2883743822130033793, guid: 5fcca709526c8d84b95036d5e6b5f885, type: 3}
-  - {fileID: 2883743822130033793, guid: 5fcca709526c8d84b95036d5e6b5f885, type: 3}
+  - {fileID: 5437520551587679047, guid: 780a2ae4d733be94fae084d180378efd, type: 3}
+  - {fileID: 5437520551587679047, guid: 780a2ae4d733be94fae084d180378efd, type: 3}
   - {fileID: 471657449051396250, guid: 2c9cc01489825fc4cb5af02705b6bf79, type: 3}
   - {fileID: 404118811792189595, guid: 40a2910b427904644b64ec8f69c51230, type: 3}
   drop: {fileID: 0}
@@ -385,8 +385,8 @@ MonoBehaviour:
   isEXP: 0
   extraEXP: 200
   possibleRandomDrops:
-  - {fileID: 862198235460598177, guid: ab4279191449b1d4bbf63627be12423b, type: 3}
-  - {fileID: 862198235460598177, guid: ab4279191449b1d4bbf63627be12423b, type: 3}
+  - {fileID: 797697787276510448, guid: db449a793c03c724aa3124c56eb8a5c0, type: 3}
+  - {fileID: 797697787276510448, guid: db449a793c03c724aa3124c56eb8a5c0, type: 3}
   - {fileID: 5263176438041160459, guid: 244099caef94c7b4d84fcc5358916c27, type: 3}
   - {fileID: 5528948399635571881, guid: 214bfbc4894e3fc4d9c737372eef7dbe, type: 3}
   drop: {fileID: 0}
@@ -793,7 +793,7 @@ MonoBehaviour:
   option1Image: {fileID: 7854766567589349722}
   option2Image: {fileID: 3119405783432634649}
   option3Image: {fileID: 6480471468273475266}
-  stairs: {fileID: 9031985038016516891, guid: 5a2ddaddd66481540a9ffa4016220287, type: 3}
+  stairs: {fileID: 3703105679818897131, guid: 87f35360292e78c4aa20248ec1253bb5, type: 3}
 --- !u!1 &3225645628141932502
 GameObject:
   m_ObjectHideFlags: 0
@@ -6301,6 +6301,11 @@ PrefabInstance:
       propertyPath: room
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 7250447791549752240, guid: 294e5a792a2a7f6469b227c658ce0759,
+        type: 3}
+      propertyPath: bossRewards
+      value: 
+      objectReference: {fileID: 3070980911218859364}
     - target: {fileID: 7250447791549752241, guid: 294e5a792a2a7f6469b227c658ce0759,
         type: 3}
       propertyPath: m_Name
