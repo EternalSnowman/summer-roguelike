@@ -93,9 +93,9 @@ public class Demon : Boss
 
     public override void LoadStats()
     {
-        maxHP = 1200 * LVL;
+        maxHP = 1500 * LVL;
         currentHP = maxHP;
-        STR = 80 * LVL;
+        STR = 120 * LVL;
         INT = 0;
         AGI = 1;
         DEF = 40 * LVL;
@@ -107,7 +107,7 @@ public class Demon : Boss
         speed = tempSpeed;
         ATKRNG = 2.5f;
 
-        tempAttackCD = .4f;
+        tempAttackCD = 1f;
         attackCD = tempAttackCD;
 
         skillCD = 0;

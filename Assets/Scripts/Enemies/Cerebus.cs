@@ -74,14 +74,14 @@ public class Cerebus : Boss
 
     public override void LoadStats()
     {
-        maxHP = 750 + (LVL * 150);
+        maxHP = 1500 + (LVL * 150);
         currentHP = maxHP;
 
-        STR = 80 + ((LVL - 1) * 15);
+        STR = 150 + ((LVL - 1) * 15);
         INT = 0;
         AGI = 1;
-        DEF = 10 + ((LVL - 1) * 5);
-        RES = 10 + ((LVL - 1) * 5);
+        DEF = 10 + ((LVL - 1) * 10);
+        RES = 10 + ((LVL - 1) * 10);
 
         baseExpYield = 1000 + ((LVL - 1) * 200);
 
