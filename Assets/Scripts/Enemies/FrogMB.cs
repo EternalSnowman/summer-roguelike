@@ -111,8 +111,8 @@ public class FrogMB : Boss
         STR = 100 + ((LVL - 1) * 20);
         INT = 0;
         AGI = 1;
-        DEF = 20 + ((LVL - 1) * 5);
-        RES = 40 + ((LVL - 1) * 5);
+        DEF = 30 + ((LVL - 1) * 5);
+        RES = 50 + ((LVL - 1) * 5);
 
         baseExpYield = 1000 + ((LVL - 1) * 200);
 
@@ -182,9 +182,11 @@ public class FrogMB : Boss
                 isAttacking = true;
                 attackCD = tempAttackCD;
                 enemyRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
-
             }
-            else
+            else if (!(anim.GetCurrentAnimatorStateInfo(0).IsName("downWalk") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("upWalk") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("leftWalk") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("rightWalk")))
             {
                 isAttacking = false;
                 enemyRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -192,14 +194,10 @@ public class FrogMB : Boss
         }
 
         // Keep Orc from moving during attack animation
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack1") ||
-            anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack2") ||
-            anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack1") ||
-            anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack2") ||
-            anim.GetCurrentAnimatorStateInfo(0).IsName("leftIdleAttack1") ||
-            anim.GetCurrentAnimatorStateInfo(0).IsName("leftIdleAttack2") ||
-            anim.GetCurrentAnimatorStateInfo(0).IsName("rightIdleAttack1") ||
-            anim.GetCurrentAnimatorStateInfo(0).IsName("rightIdleAttack2"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("leftIdleAttack") ||
+            anim.GetCurrentAnimatorStateInfo(0).IsName("rightIdleAttack"))
         {
             attackAnim = true;
         }
@@ -212,14 +210,37 @@ public class FrogMB : Boss
         anim.SetBool("Attacking", isAttacking);
 
         // Toggle directional attack booleans
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack2") || anim.GetCurrentAnimatorStateInfo(0).IsName("leftIdleAttack2")
-            || anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack2") || anim.GetCurrentAnimatorStateInfo(0).IsName("rightIdleAttack2"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("downIdleAttack"))
         {
             downAttack.enabled = true;
         }
         else
         {
             downAttack.enabled = false;
+        }
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("leftIdleAttack"))
+        {
+            leftAttack.enabled = true;
+        }
+        else
+        {
+            leftAttack.enabled = false;
+        }
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("upIdleAttack"))
+        {
+            upAttack.enabled = true;
+        }
+        else
+        {
+            upAttack.enabled = false;
+        }
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("rightIdleAttack"))
+        {
+            rightAttack.enabled = true;
+        }
+        else
+        {
+            rightAttack.enabled = false;
         }
 
         if ((downAttack.enabled == false) && (upAttack.enabled == false) && (rightAttack.enabled == false) && (leftAttack.enabled == false) && !flashActive)

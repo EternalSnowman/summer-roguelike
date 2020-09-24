@@ -100,11 +100,11 @@ public class Cobra : Boss
 
     public override void LoadStats()
     {
-        maxHP = 750 + (LVL * 100);
+        maxHP = 1200 + (LVL * 200);
         currentHP = maxHP;
 
         STR = 1;
-        INT = 100 + (LVL * 20);
+        INT = 150 + (LVL * 30);
         AGI = 1;
         DEF = 10 + (LVL * 3);
         RES = 5 + (LVL * 2);

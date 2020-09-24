@@ -73,10 +73,10 @@ public class ReptileMB : Boss
 
     public override void LoadStats()
     {
-        maxHP = 800 + (LVL * 200);
+        maxHP = 1500 + (LVL * 200);
         currentHP = maxHP;
 
-        STR = 100 + ((LVL - 1) * 20);
+        STR = 150 + ((LVL - 1) * 20);
         INT = 0;
         AGI = 1;
         DEF = 20 + ((LVL - 1) * 5);
