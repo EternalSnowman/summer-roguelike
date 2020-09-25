@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -45,7 +47,26 @@ public class Stairs : MonoBehaviour
                     }
                     if(floor == 10)
                     {
-                        PlayerStats.currentHP = 0;
+                        SaveData saveData = new SaveData();
+                        string path = Application.persistentDataPath + "/data2.drm";
+                        BinaryFormatter formatter = new BinaryFormatter();
+                        if (File.Exists(path))
+                        {
+                            FileStream stream = new FileStream(path, FileMode.Open);
+
+                            saveData = formatter.Deserialize(stream) as SaveData;
+                            stream.Close();
+                        }
+                        FileStream writeStream = new FileStream(path, FileMode.Create);
+
+                        SaveData newData = new SaveData(saveData);
+                        newData.mostRecentFloors[0] = 11;
+                        newData.highestFloor = 11;
+
+                        formatter.Serialize(writeStream, newData);
+                        writeStream.Close();
+
+                        SceneManager.LoadScene("Victory");
                     }
                 }
                 FloorController.loadTimer = 8f;

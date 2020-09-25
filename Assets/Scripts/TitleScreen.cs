@@ -100,12 +100,28 @@ public class TitleScreen : MonoBehaviour
                 }
                 else
                 {
-                    dungeonJournal.transform.GetChild(1).GetChild(1).GetChild(i).GetComponent<Text>().text = "Level: " + saveData.mostRecentLevels[i] +
-                    "\nFloor: " + saveData.mostRecentFloors[i];
+                    if(saveData.mostRecentFloors[i] == 11)
+                    {
+                        dungeonJournal.transform.GetChild(1).GetChild(1).GetChild(i).GetComponent<Text>().text = "Level: " + saveData.mostRecentLevels[i] +
+                            "\nCleared!";
+                    }
+                    else
+                    {
+                        dungeonJournal.transform.GetChild(1).GetChild(1).GetChild(i).GetComponent<Text>().text = "Level: " + saveData.mostRecentLevels[i] +
+                            "\nFloor: " + saveData.mostRecentFloors[i];
+                    }
                 }
             }
-            dungeonJournal.transform.GetChild(1).GetChild(1).GetChild(5).GetComponent<Text>().text = "Highest Level: " + saveData.highestLevel +
+            if (saveData.highestFloor == 11)
+            {
+                dungeonJournal.transform.GetChild(1).GetChild(1).GetChild(5).GetComponent<Text>().text = "Highest Level: " + saveData.highestLevel +
+                    "\nHighest Floor: Cleared!";
+            }
+            else
+            {
+                dungeonJournal.transform.GetChild(1).GetChild(1).GetChild(5).GetComponent<Text>().text = "Highest Level: " + saveData.highestLevel +
                     "\nHighest Floor: " + saveData.highestFloor;
+            }
         }
     }
 
